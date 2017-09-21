@@ -1,6 +1,9 @@
 ## Bash Profile with useful settings and aliases
 ##
+##
 ## Meant to be cloned to workstation for consistent terminal use
+##
+## Based on https://natelandau.com/boilerplate-shell-script-template/
 
 export GNUTERM=x11
 
@@ -56,6 +59,8 @@ alias finder="open -a Finder ./"
 alias show_options="shopt"
 
 
+
+## based on https://coderwall.com/p/pn8f0g/show-your-git-status-and-branch-in-color-at-the-command-prompt
 function git_branch {
   local git_status="$(git status 2> /dev/null)"
   local on_branch="On branch ([^${IFS}]*)"
@@ -67,7 +72,7 @@ function git_branch {
     local branch_msg="              "
   fi  
 
-  if [[ $git_status =~ "Untracked files:" ]]; then
+  if [[ $git_status =~ "Untracked files:" || $git_status =~ "Changes not staged for commit:" ]]; then
     branch_msg+="> "
   elif [[ $git_status =~ "" ]]; then
     branch_msg+=""
