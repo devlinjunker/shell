@@ -24,9 +24,12 @@ export PS2="| =>"
 
 #   Set Paths
 #   ------------------------------------------------------------
+# Provide a variable with the location of this script.
+SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 export PATH="$PATH:/usr/local/bin/"
 export PATH="$PATH:/Users/$USER/bin"
-export PATH="$PATH"
+export PATH="$PATH:$SCRIPT_PATH/bin"
 
 #   Set Default Editor 
 #   ------------------------------------------------------------
