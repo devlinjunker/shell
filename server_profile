@@ -1,0 +1,20 @@
+# .bash_profile for servers (Displays the server name in the Command Prompt)
+
+SERVER_NAME="Example Server Name"
+
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+export PATH
+
+## [\e] == esc character  
+## \a\ == bell character (between these sets the terminal title)
+PS1="\[\e]0;(${SERVER_NAME}): \w\a\][\u@\h \w] \$"
+
