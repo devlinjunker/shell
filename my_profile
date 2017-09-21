@@ -3,7 +3,7 @@
 ##
 ## Meant to be cloned to workstation for consistent terminal use
 ##
-## Based on https://natelandau.com/boilerplate-shell-script-template/
+## Based on https://natelandau.com/my-mac-osx-bash_profile/
 
 export GNUTERM=x11
 
