@@ -1,0 +1,9 @@
+#! /bin/bash
+
+cp .bash_profile ~
+
+source ~/.bash_profile
+
+if [[  -z `which tree` ]]; then
+    sudo yum install tree
+fi
