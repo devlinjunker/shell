@@ -1,0 +1,25 @@
+#! /bin/bash
+
+read -d '' settings << EOF
+
+set ts=4 sw=4 expandtab 
+set nu 
+EOF
+
+if [[ -e ~/.vimrc ]]; then
+    read -d '' msg << EOF
+.vimrc already exists 
+Check for the following in the file and set if needed:
+
+$settings
+EOF
+
+    echo "$msg"
+else
+    read -d '' settings << EOF
+" VIM Configuration (set by bash/scripts/bvimrc)
+
+$settings 
+EOF
+    echo "$settings" > ~/.vimrc
+fi

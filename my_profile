@@ -29,7 +29,7 @@ SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 export PATH="$PATH:/usr/local/bin/"
 export PATH="$PATH:/Users/$USER/bin"
-export PATH="$PATH:$SCRIPT_PATH/bin"
+export PATH="$PATH:$SCRIPT_PATH/scripts"
 
 #   Set Default Editor 
 #   ------------------------------------------------------------
@@ -58,6 +58,7 @@ alias ~="cd ~"
 
 alias clr="clear"
 alias cls="clear"
+alias c="clear"
 alias finder="open -a Finder ./"
 
 alias show_options="shopt"
@@ -136,9 +137,22 @@ findPid () { lsof -t -c "$@" ; }
 #   ---------------------------
 
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias myiip='ipconfig getifaddr en0'
 
-showNet () {
+myiip () {
+  local ip i
+  ip=""
+  i=0
+  while [[ -z $ip && $i < 10 ]]; do
+    ip=`ipconfig getifaddr en${i}` 
+    if [[ ! -z $ip ]]; then
+      break
+    fi
+    i=$((i + 1))
+  done
+  echo $ip
+}
+
+netexp () {
   echo "Pinging Network..."
   ping `myiip | sed 's/\([0-9]*\.[0-9]*\.[0-9]*\.\)[0-9]*/\1255/'` -c5 -q > /dev/null
   eval 'arp -a'
