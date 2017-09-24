@@ -204,7 +204,7 @@ alias editHosts='sudo vim /etc/hosts'
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window"
 
 google (){
- eval "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window https://google.com/search?q=$@"
+ eval "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window https://google.com/search?q='$@'"
 }
 
 
