@@ -39,6 +39,8 @@ export EDITOR=/usr/bin/vim
 #   2. TERMINAL ALIASES AND FUNCTIONS
 #   -------------------------------
 
+alias edit="vim"
+
 alias cp="cp -iv"			
 alias mv="mv -iv"
 alias ls="ls -FGlAhp"
@@ -124,6 +126,8 @@ extract () {
 
 alias qfind="find . -name "
 
+spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
+
 
 #   ---------------------------
 #   5. PROCESS MANAGEMENT
@@ -137,6 +141,9 @@ alias memhogsps='ps wwaxm -o pid,stat,vsize,rss,time,comm | head -10'
 alias memhogs=memhogsps
 
 alias cpuhogs='ps wwaxr -o pid,stat,%cpu,time,comm | head -10'
+
+alias memtop='top -R -F -s 10 -o rsize'
+alias cputop='top -R -F -s 10 -o cpu'
 
 my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,comm ; }
 
@@ -167,16 +174,42 @@ netexp () {
   eval 'arp -a'
 }
 
+alias netcons="lsof -i"
+alias openports="lsof -i | grep LISTEN"
+alias suopenports="sudo lsof -i | grep LISTEN"
+
+alias lsock="sudo /usr/sbin/lsof -i -P"
+alias lsockU="sudo /usr/sbin/lsof -nP | grep UDP"
+alias lsockT="sudo /usr/sbin/lsof -nP | grep TCP"
+
+alias users="w -h"
+
 #   ---------------------------------------
 #   7. SYSTEMS OPERATIONS & INFORMATION
 #   ---------------------------------------
 
- alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 
+alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
+alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
+
+
+alias editHosts='sudo vim /etc/hosts'
 
 
 #   ---------------------------------------
-#   8. HELPER FUNCTIONS
+#   8. APPLICATIONS
+#   ---------------------------------------
+
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window"
+
+google (){
+ eval "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window https://google.com/search?q=$@"
+}
+
+
+#   ---------------------------------------
+#   9. HELPER FUNCTIONS
 #   ---------------------------------------
 
 ## based on https://coderwall.com/p/pn8f0g/show-your-git-status-and-branch-in-color-at-the-command-prompt
