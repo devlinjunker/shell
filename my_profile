@@ -132,6 +132,15 @@ alias qfind="find . -name "
 findPid () { lsof -t -c "$@" ; }
 
 
+alias memhogstop='top -l 1 -o rsize | head -20'
+alias memhogsps='ps wwaxm -o pid,stat,vsize,rss,time,comm | head -10'
+alias memhogs=memhogsps
+
+alias cpuhogs='ps wwaxr -o pid,stat,%cpu,time,comm | head -10'
+
+my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,comm ; }
+
+
 #   ---------------------------
 #   6. NETWORKING
 #   ---------------------------
