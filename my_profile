@@ -25,9 +25,9 @@ export PS2="| =>"
 #   Set Paths
 #   ------------------------------------------------------------
 # Provide a variable with the location of this script.
-SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_PATH="$( /usr/bin/cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-export PATH="$PATH:/usr/local/bin/"
+export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/Users/$USER/bin"
 export PATH="$PATH:$SCRIPT_PATH/scripts"
 
@@ -183,6 +183,10 @@ alias lsockU="sudo /usr/sbin/lsof -nP | grep UDP"
 alias lsockT="sudo /usr/sbin/lsof -nP | grep TCP"
 
 alias users="w -h"
+
+vnc () {
+    eval "open vnc://$1"
+}
 
 #   ---------------------------------------
 #   7. SYSTEMS OPERATIONS & INFORMATION
