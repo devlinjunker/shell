@@ -211,6 +211,9 @@ google (){
  eval "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window https://google.com/search?q='$@'"
 }
 
+alias inbox="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window https://inbox.google.com"
+
+
 
 #   ---------------------------------------
 #   9. HELPER FUNCTIONS
