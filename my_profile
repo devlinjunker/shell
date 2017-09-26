@@ -6,8 +6,6 @@
 ## Based on https://natelandau.com/my-mac-osx-bash_profile/
 
 export GNUTERM=x11
-
-###export PS1="$(tput setaf 1)\u:\W $(tput sgr0)$"
 #   -------------------------------
 #   1. ENVIRONMENT CONFIGURATION
 #   -------------------------------
@@ -31,7 +29,7 @@ export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/Users/$USER/bin"
 export PATH="$PATH:$SCRIPT_PATH/scripts"
 
-#   Set Default Editor 
+#   Set Default Editor
 #   ------------------------------------------------------------
 export EDITOR=/usr/bin/vim
 
@@ -41,8 +39,16 @@ export EDITOR=/usr/bin/vim
 
 alias edit="vim"
 
-alias cp="cp -iv"			
-alias mv="mv -iv"
+alias cp="cp -iv"
+function mv ()
+{
+    dir="$2"
+    tmp="$2"; tmp="${tmp: -1}"
+    [ "$tmp" != "/" ] && dir="$(dirname "$2")"
+    [ -a "$dir" ] ||
+    mkdir -p "$dir" &&
+    /bin/mv -iv "$@"
+}
 alias ls="ls -FGlAhp"
 alias less="less -FSRXc"
 alias mkdir="mkdir -pv"
@@ -50,12 +56,12 @@ alias mkdir="mkdir -pv"
 mcd() { mkdir $1; cd $1; }
 cd() { builtin cd "$@"; ls; }
 alias cd..='cd ../'
-alias ..='cd ../' 
+alias ..='cd ../'
 alias ...='cd ../../'
 alias .3='cd ../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../../'
-alias .6='cd ../../../../../../' 
+alias .6='cd ../../../../../../'
 alias ~="cd ~"
 
 alias clr="clear"
@@ -65,7 +71,7 @@ alias finder="open -a Finder ./"
 
 alias show_options="shopt"
 
-trash () { command mv "$@" ~/.Trash ; } 
+trash () { command mv "$@" ~/.Trash ; }
 ql () { qlmanage -p "$*" >& /dev/null; }
 
 mans () {
@@ -159,7 +165,7 @@ myiip () {
   ip=""
   i=0
   while [[ -z $ip && $i < 10 ]]; do
-    ip=`ipconfig getifaddr en${i}` 
+    ip=`ipconfig getifaddr en${i}`
     if [[ ! -z $ip ]]; then
       break
     fi
@@ -229,7 +235,7 @@ function git_branch {
     local branch_msg="(";
   else
     local branch_msg="              "
-  fi  
+  fi
 
   if [[ $git_status =~ "Untracked files:" || $git_status =~ "Changes not staged for commit:" ]]; then
     branch_msg+="> "
@@ -265,7 +271,3 @@ function git_branch {
 
   echo "$branch_msg"
 }
-
-
-
-
