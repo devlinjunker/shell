@@ -16,7 +16,7 @@ Set up the Command Prompt to display useful information and a few aliases I like
 [] email  
 [] headless server profile  
 [] barebones profile?  
-[] install script
+[] install script  
 &nbsp;&nbsp; [] situate custom_profile  
 &nbsp;&nbsp; [] vimrc  
 &nbsp;&nbsp; [] node/npm  
