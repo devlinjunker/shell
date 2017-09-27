@@ -1,0 +1,63 @@
+#! /bin/bash
+
+if [[ -d .git ]]; then
+    if [[ ! -e .getfetch ]]; then
+        date "+%Y%m%d%H%M" > .gitfetch
+    elif [[ `date "+%Y%m%d%H%M"` -ge $(cat .gifetch)+5 ]]; then
+        git fetch
+        date "+%Y%m%d%H%M" > .gitfetch
+    fi
+fi
+
+git_status="$(git status 2> /dev/null)"
+on_branch="On branch ([^${IFS}]*)"
+on_commit="HEAD detached at ([^${IFS}]*)"
+
+
+if [[ $git_status != "" ]]; then
+branch_msg="(";
+else
+branch_msg="              "
+fi
+
+if [[ $git_status =~ "Untracked files:" || $git_status =~ "Changes not staged for commit:" ]]; then
+branch_msg+="> "
+elif [[ $git_status =~ "" ]]; then
+branch_msg+=""
+fi
+
+if [[ $git_status =~ $on_branch ]]; then
+branch=${BASH_REMATCH[1]}
+branch_msg+="$branch"
+elif [[ $git_status =~ $on_commit ]]; then
+commit=${BASH_REMATCH[1]}
+branch_msg+="$commit"
+fi
+
+if [[ $git_status =~ "Your branch is ahead of" ]]; then
+branch_msg+=" +"
+num=`git status | grep -o '[0-9]\+'`
+branch_msg+="$num"
+elif [[ $git_status =~ "" ]]; then
+branch_msg+=""
+fi
+
+if [[ $git_status =~ "Your branch is behind" ]]; then
+branch_msg+=" -"
+num=`git status | grep -o '[0-9]\+'`
+branch_msg+="$num"
+elif [[ $git_status =~ "" ]]; then
+branch_msg+=""
+fi
+
+if [[ $git_status =~ "Changes to be committed:" ]]; then
+branch_msg+="*"
+elif [[ $git_status =~ "" ]]; then
+branch_msg+=""
+fi
+
+if [[ $git_status != "" ]]; then
+branch_msg+=")"
+fi
+
+echo "$branch_msg"

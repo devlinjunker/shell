@@ -10,24 +10,21 @@ export GNUTERM=x11
 #   1. ENVIRONMENT CONFIGURATION
 #   -------------------------------
 
-#   Change Prompt
-#   ------------------------------------------------------------
-
-## git_branch() defined at end of file
-
-PS1="$(tput sgr 0 1) \`pwd\`                                            \`git_branch\` $(tput sgr0) | "
-PS1+="\u @ \h  \n| =>"
-export PS1
-export PS2="| =>"
-
 #   Set Paths
 #   ------------------------------------------------------------
 # Provide a variable with the location of this script.
-SCRIPT_PATH="$( /usr/bin/cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_PATH="$( dirname $BASH_SOURCE[0] )" 
 
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/Users/$USER/bin"
 export PATH="$PATH:$SCRIPT_PATH/scripts"
+
+#   Change Prompt
+#   ------------------------------------------------------------
+PS1="$(tput sgr 0 1) \`pwd\`                                            \`gitstatus\` $(tput sgr0) | "
+PS1+="\u @ \h  \n| =>"
+export PS1
+export PS2="|>"
 
 #   Set Default Editor
 #   ------------------------------------------------------------
