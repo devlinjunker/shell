@@ -3,7 +3,7 @@
 if [[ -d .git ]]; then
     if [[ ! -e .gitfetch ]]; then
         date "+%Y%m%d%H%M" > .gitfetch
-    elif [[ `date "+%Y%m%d%H%M"` -ge $(cat .gifetch)+5 ]]; then
+    elif [[ `date "+%Y%m%d%H%M"` -ge $(cat .gitfetch)+5 ]]; then
         git fetch
         date "+%Y%m%d%H%M" > .gitfetch
     fi
