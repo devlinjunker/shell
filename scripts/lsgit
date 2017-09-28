@@ -1,5 +1,5 @@
 #! /bin/bash
-lines=$(ls -FGlAhp | sed 1d )
+lines=$(ls -FGlAhp $@ | sed 1d )
 
 curdir=$(pwd)
 
@@ -10,10 +10,18 @@ do
     dir=${line##* }
     if [ -d $dir ]; then
         cd "$dir"
-        status=$(gitstatus)
-        output=$output"
-$line $status"
+        if [ -d .git ]; then
+            status=$(gitstatus)
+            output=$output"
+${line% *} $(tput setaf 4)${dir%?}$(tput sgr0)/ $status"
+        else
+            output=$output"
+${line% *} $(tput setaf 4)${dir%?}$(tput sgr0)/"
+        fi
         cd "$curdir"
+    else
+        output=$output"
+$line"
     fi
 done < <(echo "$lines")
 
