@@ -2,7 +2,7 @@
 
 read -d '' settings << EOF
 
-set ts=4 sw=4 expandtab 
+set ts=2 sw=2 expandtab 
 set nu 
 EOF
 
