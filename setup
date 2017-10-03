@@ -22,4 +22,10 @@ if [[ -z which brew ]]; then
   #   js-refactor
   #   prettier-atom
   #   mocha-test-runner
+
+  ### MacMini
+  #   atom-html-preview 
+  #   autocomplete-modules
+  #   color-picker
+  #   pigments
 fi
