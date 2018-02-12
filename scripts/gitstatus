@@ -44,7 +44,7 @@ fi
 
 if [[ $git_status =~ "Your branch is behind" ]]; then
 branch_msg+=" -"
-num=`git status | grep -o '[0-9]\+'`
+num=`git status | grep -o '[0-9]\+' | tail -1`
 branch_msg+="$num"
 elif [[ $git_status =~ "" ]]; then
 branch_msg+=""

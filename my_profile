@@ -21,7 +21,17 @@ export PATH="$PATH:$SCRIPT_PATH/scripts"
 
 #   Change Prompt
 #   ------------------------------------------------------------
-PS1="$(tput sgr 0 1) \`pwd\`                                            \`gitstatus\` $(tput sgr0) | "
+
+# start underline and print current directory
+PS1="$(tput sgr 0 1) \`pwd\`"
+
+# add spaces based on width
+PS1+="$(printf '%*s' $(max 3 $(( $(($(tput cols) - 8)) - $(pwd | wc -m | grep -o '[0-9]\+') - $(gitstatus | wc -m | grep -o '[0-9]\+') - $(whoami | wc -m  | grep -o '[0-9]\+') - $(hostname | wc -m  | grep -o '[0-9]\+')))) '')"
+
+# add git status and stop underline
+PS1+="\`gitstatus\` $(tput sgr0) | "
+
+# print user and hostname
 PS1+="\u @ \h  \n| =>"
 export PS1
 export PS2="|>"
@@ -267,4 +277,8 @@ function git_branch {
   fi
 
   echo "$branch_msg"
+}
+
+max() {
+  [ "$1" -gt "$2" ] && echo $1 || echo $2
 }
