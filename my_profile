@@ -26,7 +26,7 @@ export PATH="$PATH:$SCRIPT_PATH/scripts"
 PS1="$(tput sgr 0 1) \`pwd\`"
 
 # add spaces based on width
-PS1+="$(printf '%*s' $(max 3 $(( $(($(tput cols) - 10)) - $(pwd | wc -m | grep -o '[0-9]\+') - $(gitstatus | wc -m | grep -o '[0-9]\+') - $(whoami | wc -m  | grep -o '[0-9]\+') - $(hostname | wc -m  | grep -o '[0-9]\+')))) '')"
+PS1+="\`printf '%*s' \$(max 3 \$(( \$((\$(tput cols) - 10)) - \$( pwd | wc -m | grep -o '[0-9]\+') - \$(gitstatus | wc -m | grep -o '[0-9]\+') - $(whoami | wc -m  | grep -o '[0-9]\+') - $(hostname | wc -m  | grep -o '[0-9]\+')))) ''\`"
 
 # add git status and stop underline
 PS1+="\`gitstatus\` $(tput sgr0) | "
