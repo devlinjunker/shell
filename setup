@@ -1,13 +1,13 @@
 #! /bin/bash
 
-cp .bash_profile ~
-
+## Copy .bash_profile if ssh into machine. On Windows use su - to change to user account, so need to edit .bashrc that already exists on the windows subsytem
+cp .bash_profile ~ ## should check if exists before copying and append if it does
 source ~/.bash_profile
 
 ./scripts/bvimrc
 
 
-if [[ -z which brew ]]; then
+if [[ -z `which brew` ]]; then
   if [[  -z `which tree` ]]; then
       brew install tree
   fi
