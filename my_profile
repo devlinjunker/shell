@@ -13,7 +13,7 @@ export GNUTERM=x11
 #   Set Paths
 #   ------------------------------------------------------------
 # Provide a variable with the location of this script.
-SCRIPT_PATH="$( dirname $BASH_SOURCE[0] )" 
+SCRIPT_PATH="$( dirname $BASH_SOURCE[0] )"
 
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/Users/$USER/bin"
@@ -76,14 +76,15 @@ alias cls="clear"
 alias c="clear"
 alias finder="open -a Finder ./"
 
-alias show_options="shopt"
-
 trash () { command mv "$@" ~/.Trash ; }
-ql () { qlmanage -p "$*" >& /dev/null; }
 
-mans () {
-  man $1 | grep -iC2 --color=always $2 | less
-}
+# alias show_options="shopt"
+
+# ql () { qlmanage -p "$*" >& /dev/null; }
+
+# mans () {
+#   man $1 | grep -iC2 --color=always $2 | less
+# }
 
 #   -------------------------------
 #   3. FILE AND FOLDER MANAGEMENT
@@ -278,5 +279,3 @@ function git_branch {
 
   echo "$branch_msg"
 }
-
-
