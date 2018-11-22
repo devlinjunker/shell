@@ -1,25 +1,33 @@
 #! /bin/bash
 
+## Vim settings to place in vimrc file
 read -d '' settings << EOF
 
-set ts=2 sw=2 expandtab 
-set nu 
+# tab spacing
+set ts=2 sw=2 expandtab
+
+# show line numbers
+set nu
 EOF
 
+## Create file if it doesn't exist, or output message saying it will need to be done manually
 if [[ -e ~/.vimrc ]]; then
+
     read -d '' msg << EOF
-.vimrc already exists 
+.vimrc already exists
 Check for the following in the file and set if needed:
 
 $settings
 EOF
-
     echo "$msg"
+
 else
+
     read -d '' settings << EOF
 " VIM Configuration (set by bash/scripts/bvimrc)
 
-$settings 
+$settings
 EOF
     echo "$settings" > ~/.vimrc
+
 fi

@@ -6,32 +6,32 @@ Collection of bash settings and scripts I prefer on the command line
 Set up the Command Prompt to display useful information and a few aliases I like so far
 
 **ToDo:**  
-[] Docsify to explain scripts  
-[] GitFetch prevent long timeout  
-[] Make Platform Agnostic  
-[] fancy ssh (change color (based on project?))  
-[] cron  
-[] networking  
-&nbsp;&nbsp; [] number of users online  
-&nbsp;&nbsp; [] open ports  
-[] email  
-[] headless server profile  
-[] barebones profile?  
-[] install script  
-&nbsp;&nbsp; [] situate custom_profile  
-&nbsp;&nbsp; [] vimrc  
-&nbsp;&nbsp; [] node/npm  
-&nbsp;&nbsp; [] git  
-&nbsp;&nbsp; [] homebrew?  
-&nbsp;&nbsp; [] atom? + packages?  
-[] git fetch on cd  
-[] gitls - display statuses of all git repositories shown  
-&nbsp;&nbsp; [] include file specific info from `git status`
+[x] Docsify to explain scripts  
+[ ] GitFetch prevent long timeout  
+[ ] Make Platform Agnostic  
+[ ] fancy ssh (change color (based on project?))  
+[ ] cron  
+[ ] networking  
+&nbsp;&nbsp; [ ] number of users online  
+&nbsp;&nbsp; [x] open ports  
+[ ] email  
+[ ] headless server profile  
+[ ] barebones profile?  
+[ ] install script  
+&nbsp;&nbsp; [ ] situate custom_profile  
+&nbsp;&nbsp; [ ] vimrc  
+&nbsp;&nbsp; [ ] node/npm  
+&nbsp;&nbsp; [ ] git  
+&nbsp;&nbsp; [ ] homebrew?  
+&nbsp;&nbsp; [ ] atom? + packages?  
+[ ] git fetch on cd  
+[ ] gitls - display statuses of all git repositories shown  
+&nbsp;&nbsp; [ ] include file specific info from `git status`
 
 **To Learn**  
-[] grep  
-[] awk  
-[] sed
+[ ] grep  
+[ ] awk  
+[ ] sed
 
 ### [Scripts](scripts/)
 
@@ -76,83 +76,101 @@ __OSX Specific__
 
 ## File and Folder Management
 
-`zipf`
+`zipf` quickly recursively zip a folder (or single file) to a .zip archive named the same
 
-`numFiles`
+`numFiles` returns the count of files in a directory
 
-`cdf`
+`extract` attempt to unzip the archive passed in (uses the following: tar, bunzip2, unrar, gunzip, unzip, uncompress, 7zip)
 
-`extract`
+`cdf` attempt to cd to most recent finder directory
 
 
 ## Searching
 
-`qfind`
+`qfind` quickly find the location of a __specific__ filename in the subdirectory tree
 
-`spotlight`
+`spotlight` use `mdfind` to find files on the computer with names that match the query
 
 
 
 
 ## Process Management
 
-`findPid`
+`findPid <term>` lists the process IDs of processes that match the query term given, uses lsof (list of open files)
 
-`memhogstop`
+`memhogstop` lists the most top 20 memory intensive process using top program. Displays the following output:  
+```
 
-`memhogsps` | `memhogs`
+  PID  COMMAND  %CPU  TIME  #TH  #WQ  #PORTS  MEM  PURG  CMPRS  PGRP  PPID  STATE  BOOSTS  %CPU_ME  %CPU_OTHRS  UID  FAULTS  COW  MSGSENT  MSGRECV  SYSBSD  SYSMACH  CSW  PAGEINS  IDLEW  POWER  USER  #MREGS  RPRVT  VPRVT  VSIZE  KPRVT  KSHRD
 
-`cpuhogs`
+```
 
-`memtop`
+`memhogsps`|`memhogs` lists the top ten memory intensive processes using ps. Displays the following output:
+```
 
-`cputop`
+PID  STAT  VSZ  RSS  TIME  COMM
 
-`my_ps`
+```
+
+`cpuhogs` lists the top ten cpu intensive processes using ps. Displays the following output:
+```
+
+PID  STAT  %CPU  TIME  COMM
+
+```
+
+`memtop` running process listing the top memory intensive processes, updates every 10 seconds
+
+`cputop` running process listing the top cpu intensive processes,
+updates every 10 seconds
+
+`my_ps` finds the processes started by this user account
 
 
 
 
 ## Networking
 
-`myip`
+`myip` returns the external ip of this computer on the internet
 
-`myiip`
+`myiip` returns the internal network ip of this computer on the LAN network
 
-`netexp`
+`netexp` pings the local network to return all of the ips of responding computers
 
-`netcons`
+`findPort <portNum>` show the process running on the given port, if available
 
-`openport`
+`netcons` returns the network connections currently opened by this computer. Returns the process and pId plus newtwork information.
 
-`sudopenports`
+`openport` returns the open listening ports on this computer (restricted to the permissions that the current user has). Returns the process and pId plus the network information
 
-`lsock`
+`sudopenports`|`suopenports` returns the open listening ports on this computer (with root permissions to view processes). Same as above
 
-`lsockU`
+`lsock` returns all network sockets open, without converting port numbers to port names (root permissions).
 
-`lsockT`
+`lsockU` returns all UDP network sockets oepn, without converting prot numbers to port names or network numbers to host names for network files (root permission).
+
+`lsockT` returns all TCP network sockets oepn, without converting prot numbers to port names or network numbers to host names for network files (root permission).
 
 
 
 
 ## OSX / System Management
 
-`cleanupDS`
+`cleanupDS` deletes the DS_Store mac files created by Finder App when opening directories
 
-`finderShowHidden`
+`finderShowHidden` toggles the Finder App to show all hidden files and directories
 
-`finderHideHidden`
+`finderHideHidden` toggles the Finder App to hide all hidden files and directories
 
-`editHosts`
+`editHosts` quickly edit the networks hosts file
 
 
 
 
 ## Web App Shortcuts
 
-`chrome`
+`chrome` open a new google Chrome window
 
-`google <term>`
+`google <term>` opens a new google Chrome window to the google page with the term given
 
-`inbox`
+`inbox` opens the Google Inbox WebApp in a new Chrome window
