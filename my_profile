@@ -188,7 +188,9 @@ netexp () {
   eval 'arp -a'
 }
 
-findPort () { lsof -nP -iTCP:$1 | grep LISTEN ; }
+findPort () { 
+  lsof -nP -iTCP:$1 | grep LISTEN ; 
+}
 
 alias netcons="lsof -i"
 alias openports="lsof -i | grep LISTEN"
