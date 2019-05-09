@@ -7,6 +7,7 @@ Set up the Command Prompt to display useful information and a few aliases I like
 
 **ToDo:**  
 [x] Docsify to explain scripts  
+[ ] http://www.andrewboni.com/2017/01/01/essential-programs-to-install-on-a-new-macbook-for-engineers/  
 [ ] GitFetch prevent long timeout  
 [ ] Make Platform Agnostic  
 [ ] fancy ssh (change color (based on project?))  
