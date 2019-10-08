@@ -6,12 +6,23 @@ few useful aliases.
 
 I have found these changes useful as a developer to help speed up my recognition of
 where I am and how to quickly start/stop programs or read files while I am sitting on
-the command line. If you are unfamiliar with navigating and running programs via the
-command line, I recommend [this]() review of basic functionality
+the command line. 
+
+If you are unfamiliar with navigating and running programs via the
+command line, I recommend:
+- [this](http://linuxcommand.org/lc3_learning_the_shell.php) review of basic command 
+line operations and commands
+- [this](https://bitbucket.org/BitPusher16/dotfiles/raw/49a01d929dcaebcca68bbb1859b4ac1aea93b073/refs/git/git_examples.sh) 
+example/explanation of how to use git, and 
+- [this](https://vim.rtorr.com/) 
+review of commands for vim
 
 ## Dependencies
 
 - Homebrew on OSX?
+- Git
+- Node Version Manager & Node+NPM
+- Vim
 
 ## How to Use these files:
 
