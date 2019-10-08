@@ -37,6 +37,6 @@ Login:
 - Other brew stuff?
 - Private Folders
 - Downloads
-cups?
+- cups?
 - ssh keys?
 - bash sessions/history?
