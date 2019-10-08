@@ -40,7 +40,7 @@ review of commands for vim
 - [x] Docsify to explain scripts  
 - [ ] Why do we have .bashrc too? Seems unused
 - [ ] More Setup
-    - Why Brew install tree?
+    - [ ] Why Brew install tree?
     - [ ] NVM (not supported with brew? or maybe just need to setup $NVM_HOME and path)
     - [ ] Node/NPM on path
     - [ ] git (with homebrew? or it comes with osx now?)
