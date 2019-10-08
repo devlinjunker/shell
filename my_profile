@@ -1,10 +1,7 @@
-## Bash Profile with useful settings and aliases
-##
-##
-## Meant to be cloned to workstation for consistent terminal use
-##
+## Personal Bash Profile with useful settings and aliases
 ## Based on https://natelandau.com/my-mac-osx-bash_profile/
 
+# TODO: not really sure why?
 export GNUTERM=x11
 #   -------------------------------
 #   1. ENVIRONMENT CONFIGURATION
@@ -188,8 +185,8 @@ netexp () {
   eval 'arp -a'
 }
 
-findPort () { 
-  lsof -nP -iTCP:$1 | grep LISTEN ; 
+findPort () {
+  lsof -nP -iTCP:$1 | grep LISTEN ;
 }
 
 alias netcons="lsof -i"

@@ -1,44 +1,81 @@
 # My Bash Repository
-Based on https://natelandau.com/my-mac-osx-bash_profile/
 
-Collection of bash settings and scripts I prefer on the command line
+This Repo is a Collection of bash configurations, shortcuts and scripts that I prefer
+to use on the command line. Sets up Prompt to display useful information and adds a
+few useful aliases.
 
-Set up the Command Prompt to display useful information and a few aliases I like so far
+I have found these changes useful as a developer to help speed up my recognition of
+where I am and how to quickly start/stop programs or read files while I am sitting on
+the command line. If you are unfamiliar with navigating and running programs via the
+command line, I recommend [this]() review of basic functionality
 
-**ToDo:**  
-[x] Docsify to explain scripts  
-[ ] http://www.andrewboni.com/2017/01/01/essential-programs-to-install-on-a-new-macbook-for-engineers/  
-[ ] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
-[ ] GitFetch prevent long timeout  
-[ ] Make Platform Agnostic  
-[ ] fancy ssh (change color (based on project?))  
-[ ] cron  
-[ ] networking  
-&nbsp;&nbsp; [ ] number of users online  
-&nbsp;&nbsp; [x] open ports  
-[ ] email  
-[ ] headless server profile  
-[ ] barebones profile?  
-[ ] install script  
-&nbsp;&nbsp; [ ] situate custom_profile  
-&nbsp;&nbsp; [ ] vimrc  
-&nbsp;&nbsp; [ ] node/npm  
-&nbsp;&nbsp; [ ] git  
-&nbsp;&nbsp; [ ] homebrew?  
-&nbsp;&nbsp; [ ] atom? + packages?  
-[ ] git fetch on cd  
-[ ] gitls - display statuses of all git repositories shown  
-&nbsp;&nbsp; [ ] include file specific info from `git status`
+## Dependencies
+
+- Homebrew on OSX?
+
+## How to Use these files:
+
+1. Review the changes in `my_profile` or below to get an understanding of what is
+    changed/added to command line
+1. Clone this repo to your home directory
+2. Run `setup.sh` to:
+  - Copy `.bash_profile` out of the repo into your home directory
+  - Reload the Bash Settings with `source ~/.bash_profile`
+  - Setup vimrc file using `scripts/bvimrc`
+  - Check if homebrew available and install useful packages
+
+
+## TODO:
+- [x] Docsify to explain scripts  
+- [ ] Why do we have .bashrc too? Seems unused
+- [ ] More Setup
+    - Why Brew install tree?
+    - [ ] NVM (not supported with brew? or maybe just need to setup $NVM_HOME and path)
+    - [ ] Node/NPM on path
+    - [ ] git (with homebrew? or it comes with osx now?)
+    - [ ] homebrew?
+        - apache? nginx?
+        - python
+        - elasticsearch
+        - mongodb
+        - maven
+        - tomcat
+    - [ ] situate custom_profile  
+    - [ ] more vimrc
+    - [ ] atom? + packages?  
+- [ ] http://www.andrewboni.com/2017/01/01/essential-programs-to-install-on-a-new-macbook-for-engineers/  
+- [ ] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
+- [ ] GitFetch prevent long timeout  
+- [ ] Make Platform Agnostic  
+- [ ] fancy ssh (change color (based on project?))  
+- [ ] cron  
+- [ ] networking  
+    - [ ] number of users online  
+    - [x] open ports  
+- [ ] email  
+- [ ] headless server profile  
+- [ ] barebones profile?  
+- [ ] git fetch on cd  
+- [ ] gitls - display statuses of all git repositories shown  
+    - [ ] include file specific info from `git status`
 
 **To Learn**  
 [ ] grep  
 [ ] awk  
 [ ] sed
 
-### [Scripts](scripts/)
 
 
-## Custom Prompt
+## [Scripts](scripts/README.md)
+Collection of small [shell scripts](scripts/README.md) I've created and used in the past.
+
+
+
+## My Profile
+Based on https://natelandau.com/my-mac-osx-bash_profile/
+
+
+### Custom Prompt
 
 If currently in a gitrepo, calls `gitstatus` script to determine how up to date the git repo
 
@@ -47,9 +84,7 @@ If currently in a gitrepo, calls `gitstatus` script to determine how up to date 
 ```
 
 
-
-
-## Bash Aliases
+### Bash Aliases
 
 `cp` updated to auto use `-iv` options. verbose and interactive (asking to replace existing files)
 
@@ -74,9 +109,7 @@ __OSX Specific__
 `trash` safer version of rm on OSX (moves the specified file to the trash)
 
 
-
-
-## File and Folder Management
+### File and Folder Management
 
 `zipf` quickly recursively zip a folder (or single file) to a .zip archive named the same
 
@@ -87,16 +120,14 @@ __OSX Specific__
 `cdf` attempt to cd to most recent finder directory
 
 
-## Searching
+### Searching
 
 `qfind` quickly find the location of a __specific__ filename in the subdirectory tree
 
 `spotlight` use `mdfind` to find files on the computer with names that match the query
 
 
-
-
-## Process Management
+### Process Management
 
 `findPid <term>` lists the process IDs of processes that match the query term given, uses lsof (list of open files)
 
@@ -129,9 +160,7 @@ updates every 10 seconds
 `my_ps` finds the processes started by this user account
 
 
-
-
-## Networking
+### Networking
 
 `myip` returns the external ip of this computer on the internet
 
@@ -154,9 +183,7 @@ updates every 10 seconds
 `lsockT` returns all TCP network sockets oepn, without converting prot numbers to port names or network numbers to host names for network files (root permission).
 
 
-
-
-## OSX / System Management
+### OSX / System Management
 
 `cleanupDS` deletes the DS_Store mac files created by Finder App when opening directories
 
@@ -167,9 +194,7 @@ updates every 10 seconds
 `editHosts` quickly edit the networks hosts file
 
 
-
-
-## Web App Shortcuts
+### Web App Shortcuts
 
 `chrome` open a new google Chrome window
 
