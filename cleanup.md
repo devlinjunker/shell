@@ -1,35 +1,16 @@
 ## Cleaning up my macbook notes
 
-Macports??? vs brew?
-
-
-Atom configuration on this user
-
-
-Install NVM and Node on this user
-- Check npm packages?
-- See if permissions problems?
-
-
-SSH Key on github? or copy from other profile?
-
-
-Clone github website
-
-
-Move JS stuff over
-
-
-Move some eduworks stuff over
-
-
-Move any atom development stuff over
-
-
-Copy Desktop stuff
-
-
-VSCode on this user?
+- [x] Copy SSH Key from other profile
+- [x] Clone github website
+- [ ] Atom configuration on this user
+- [ ] Install NVM and Node on this user
+    - Check npm packages?
+    - See if permissions problems?
+- [ ] Clone JS stuff over
+- [ ] Move some eduworks stuff over
+- [ ] Clone any atom development stuff over
+- [ ] Copy Desktop stuff
+- [ ] VSCode on this user?
 
 
 Login:
@@ -40,3 +21,6 @@ Login:
 - cups?
 - ssh keys?
 - bash sessions/history?
+- macports?
+- check git repos for uncomitted changes
+- chrome bookmarks

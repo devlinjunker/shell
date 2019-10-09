@@ -6,15 +6,15 @@ few useful aliases.
 
 I have found these changes useful as a developer to help speed up my recognition of
 where I am and how to quickly start/stop programs or read files while I am sitting on
-the command line. 
+the command line.
 
 If you are unfamiliar with navigating and running programs via the
 command line, I recommend:
-- [this](http://linuxcommand.org/lc3_learning_the_shell.php) review of basic command 
+- [this](http://linuxcommand.org/lc3_learning_the_shell.php) review of basic command
 line operations and commands
-- [this](https://bitbucket.org/BitPusher16/dotfiles/raw/49a01d929dcaebcca68bbb1859b4ac1aea93b073/refs/git/git_examples.sh) 
-example/explanation of how to use git, and 
-- [this](https://vim.rtorr.com/) 
+- [this](https://bitbucket.org/BitPusher16/dotfiles/raw/49a01d929dcaebcca68bbb1859b4ac1aea93b073/refs/git/git_examples.sh)
+example/explanation of how to use git, and
+- [this](https://vim.rtorr.com/)
 review of commands for vim
 
 ## Dependencies
@@ -37,7 +37,7 @@ review of commands for vim
 
 
 ## TODO:
-- [x] Docsify to explain scripts  
+- [x] Docsify to explain scripts
 - [ ] Why do we have .bashrc too? Seems unused
 - [ ] More Setup
     - [ ] Why Brew install tree?
@@ -51,23 +51,23 @@ review of commands for vim
         - mongodb
         - maven
         - tomcat
-    - [ ] situate custom_profile  
+    - [ ] situate custom_profile
     - [ ] more vimrc
-    - [ ] atom? + packages?  
-- [ ] http://www.andrewboni.com/2017/01/01/essential-programs-to-install-on-a-new-macbook-for-engineers/  
+    - [ ] atom? + packages?
+- [ ] http://www.andrewboni.com/2017/01/01/essential-programs-to-install-on-a-new-macbook-for-engineers/
 - [ ] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
-- [ ] GitFetch prevent long timeout  
-- [ ] Make Platform Agnostic  
-- [ ] fancy ssh (change color (based on project?))  
-- [ ] cron  
-- [ ] networking  
-    - [ ] number of users online  
-    - [x] open ports  
-- [ ] email  
-- [ ] headless server profile  
-- [ ] barebones profile?  
-- [ ] git fetch on cd  
-- [ ] gitls - display statuses of all git repositories shown  
+- [ ] GitFetch prevent long timeout
+- [ ] Make Platform Agnostic
+- [ ] fancy ssh (change color (based on project?))
+- [ ] cron
+- [ ] networking
+    - [ ] number of users online
+    - [x] open ports
+- [ ] email
+- [ ] headless server profile
+- [ ] barebones profile?
+- [ ] git fetch on cd
+- [ ] gitls - display statuses of all git repositories shown
     - [ ] include file specific info from `git status`
 
 **To Learn**  
