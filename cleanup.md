@@ -2,8 +2,9 @@
 
 - [x] Copy SSH Key from other profile
 - [x] Clone github website
-- [ ] Atom configuration on this user
-- [ ] Install NVM and Node on this user
+- [x] Atom configuration on this user
+- [x] atom dev mode
+- [x] Install NVM and Node on this user
     - Check npm packages?
     - See if permissions problems?
 - [ ] Clone JS stuff over

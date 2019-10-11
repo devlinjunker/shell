@@ -26,7 +26,7 @@ review of commands for vim
 
 ## How to Use these files:
 
-1. Review the changes in `my_profile` or [here](my_profile.md)
+1. Review the changes in `my_profile` or [here](my_profile.md?id=my-custom-bash-profile-and-configuration)
     to get and understanding  of what is changed/added to command line
 1. Clone this repo to your home directory
 2. Run `setup.sh` to:
@@ -77,10 +77,10 @@ review of commands for vim
 
 
 
-## [Scripts](scripts/README.md)
-Collection of small [shell scripts](scripts/README.md) I've created and used in the past.
+## [Scripts](scripts/README.md?id=collection-of-bash-scripts)
+Collection of small [shell scripts](scripts/README.md?id=collection-of-bash-scripts) I've created and used in the past.
 
 
 
-## [My Profile](my_profile.md)
-Explanation of the [changes](my_profile.md) to bash configuration and aliases
+## [My Profile](my_profile.md?id=my-custom-bash-profile-and-configuration)
+Explanation of the [changes](my_profile.md?id=my-custom-bash-profile-and-configuration) to bash configuration and aliases
