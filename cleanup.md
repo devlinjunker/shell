@@ -4,24 +4,26 @@
 - [x] Clone github website
 - [x] Atom configuration on this user
 - [x] atom dev mode
+- [x] Copy Desktop stuff
 - [x] Install NVM and Node on this user
-    - Check npm packages?
-    - See if permissions problems?
+    - Check npm packages? none local
+    - See if permissions problems? homebrew had some, but changed user back to djunker
 - [ ] Clone JS stuff over
+    - nvm setting per repo?
 - [ ] Move some eduworks stuff over
 - [ ] Clone any atom development stuff over
-- [ ] Copy Desktop stuff
 - [ ] VSCode on this user?
 
 
 Login:
-- Look up Node stuff installed
+- commit changes in atom directories
+- Look up Node stuff installed (npm packages global)
 - Other brew stuff?
 - Private Folders
 - Downloads
 - cups?
 - ssh keys?
 - bash sessions/history?
-- macports?
+- check macports
 - check git repos for uncomitted changes
 - chrome bookmarks
