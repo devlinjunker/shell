@@ -8,11 +8,13 @@
 - [x] Install NVM and Node on this user
     - Check npm packages? none local
     - See if permissions problems? homebrew had some, but changed user back to djunker
-- [ ] Clone JS stuff over
+- [x] Move some eduworks stuff over
+- [x] Clone JS stuff over
     - nvm setting per repo?
-- [ ] Move some eduworks stuff over
-- [ ] Clone any atom development stuff over
-- [ ] VSCode on this user?
+        - `.nvmrc` file with version number
+        - `nvm use` when you enter directory
+- [x] Clone any atom development stuff over
+- ~~[ ] VSCode on this user?~~
 
 
 Login:
@@ -39,7 +41,7 @@ elasticsearch	libpng		node@6		python3		tree
  - on desktop
 
 
-**Notes:**
+**Notes:**  
  homebrew applications/services (tomcat/elasticsearch/mongodb)
 
  npm globals

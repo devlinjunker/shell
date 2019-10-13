@@ -38,10 +38,13 @@ review of commands for vim
 
 ## TODO:
 - [x] Docsify to explain scripts
-- [ ] Why do we have .bashrc too? Seems unused
+- [x] Why do we have .bashrc too?
+    - Seems like it the difference is for when you ssh (.bashrc) and vs local (.bash_profile)
 - [ ] More Setup
-    - [ ] Why Brew install tree?
-    - [ ] NVM (not supported with brew? or maybe just need to setup $NVM_HOME and path)
+    - [x] Why Brew install tree?
+        - shell application to view directory in tree format
+    - [ ] NVM
+        - [ ] need to setup $NVM_HOME variable and update $PATH with it
     - [ ] Node/NPM on path
     - [ ] git (with homebrew? or it comes with osx now?)
     - [ ] homebrew?
@@ -54,7 +57,9 @@ review of commands for vim
     - [ ] situate custom_profile
     - [ ] more vimrc
     - [ ] atom? + packages?
-- [ ] http://www.andrewboni.com/2017/01/01/essential-programs-to-install-on-a-new-macbook-for-engineers/
+    - [ ] zsh
+    - [ ] iterm?
+        - [ ] powerlevel9k https://github.com/Powerlevel9k/powerlevel9k
 - [ ] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
 - [ ] GitFetch prevent long timeout
 - [ ] Make Platform Agnostic
