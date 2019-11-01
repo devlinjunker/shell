@@ -43,6 +43,7 @@ review of commands for vim
 - [ ] More Setup
     - [x] Why Brew install tree?
         - shell application to view directory in tree format
+    - [ ] git branch autocomplete: https://apple.stackexchange.com/questions/55875/git-auto-complete-for-branches-at-the-command-line
     - [ ] NVM
         - [ ] need to setup $NVM_HOME variable and update $PATH with it
     - [ ] Node/NPM on path
