@@ -1,6 +1,11 @@
 #! /bin/bash
 
-read -ra HOST_ARRAY <<< `git remote -v | grep fetch`;
+git status > /dev/null 2>&1;
+if [[ $? -ne 0 ]]; then
+  exit 1;
+fi
+
+read -ra HOST_ARRAY <<< `git remote -v | grep fetch `;
 
 # echo "${HOST_ARRAY[1]}";
 
