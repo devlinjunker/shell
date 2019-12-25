@@ -61,7 +61,7 @@ review of commands for vim
     - [ ] iterm?
         - [ ] powerlevel9k https://github.com/Powerlevel9k/powerlevel9k
 - [ ] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
-- [ ] GitFetch prevent long timeout
+- [x] GitFetch prevent long timeout
 - [ ] Make Platform Agnostic
 - [ ] fancy ssh (change color (based on project?))
 - [ ] cron

@@ -1,6 +1,15 @@
 #! /bin/bash
 
-if [[ -d .git ]]; then
+read -ra HOST_ARRAY <<< `git remote -v | grep fetch`;
+
+# echo "${HOST_ARRAY[1]}";
+
+online=true;
+ping -t 5 ${HOST_ARRAY[1]} 2> /dev/null;
+if [[ $? -ne 0 ]]; then
+  online=false;
+fi
+if [[ $online = true ]] && [[ -d .git ]]; then
     if [[ ! -e .gitfetch ]]; then
         date "+%Y%m%d%H%M" > .gitfetch
     elif [[ `date "+%Y%m%d%H%M"` -ge $(cat .gitfetch)+5 ]]; then
