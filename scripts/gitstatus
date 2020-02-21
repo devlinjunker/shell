@@ -5,18 +5,20 @@ if [[ $? -ne 0 ]]; then
   exit 1;
 fi
 
+## Fetch the repo host from the remote list
 read -ra HOST_ARRAY <<< `git remote -v | grep fetch `;
-
-# echo "${HOST_ARRAY[1]}";
+host=`echo "${HOST_ARRAY[1]}" | cut -d'/' -f3`
 
 
 if [[ ! -e .gitfetch ]] || [[ -e .gitfetch && `date "+%Y%m%d%H%M"` -ge $(cat .gitfetch)+5 ]]; then
   online=true;
-  ping -t 5 ${HOST_ARRAY[1]} 2> /dev/null;
+
+  ping -t 2 $host 2> /dev/null;
   if [[ $? -ne 0 ]]; then
     online=false;
     date "+%Y%m%d%H%M" > .gitfetch
   fi
+
   if [[ $online = true ]] && [[ -d .git ]]; then
       if [[ ! -e .gitfetch ]]; then
           date "+%Y%m%d%H%M" > .gitfetch
