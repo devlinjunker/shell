@@ -3,10 +3,10 @@
 ## Vim settings to place in vimrc file
 read -d '' settings << EOF
 
-# tab spacing
+" tab spacing
 set ts=2 sw=2 expandtab
 
-# show line numbers
+" show line numbers
 set nu
 EOF
 
