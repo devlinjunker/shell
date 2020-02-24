@@ -16,6 +16,10 @@ if [[ " ${changes[@]} " =~ " bash_profile " ]]; then
   echo "File added: ~/.bash_profile   ---  run `source ~/.bash_profile` to see the changes"
 fi
 
+## TODO: ignore gitfetch in global git config
+## 1. create file in ~
+## 2. git config --global core.excludesfile <new_file>
+
 
 ## Attempt to set basic Vim settings
 ./scripts/bvimrc
