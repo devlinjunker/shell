@@ -61,6 +61,7 @@ review of commands for vim
     - [ ] zsh
     - [ ] iterm?
         - [ ] powerlevel9k https://github.com/Powerlevel9k/powerlevel9k
+        - [ ] Capture output for errors: https://iterm2.com/documentation-captured-output.html
 - [ ] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
 - [x] GitFetch prevent long timeout
 - [ ] Make Platform Agnostic
