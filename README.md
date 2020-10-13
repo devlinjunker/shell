@@ -40,41 +40,42 @@ review of commands for vim
 - [x] Docsify to explain scripts
 - [x] Why do we have .bashrc too?
     - Seems like it the difference is for when you ssh (.bashrc) and vs local (.bash_profile)
-- [ ] More Setup
+- [..] More Setup
     - [x] Why Brew install tree?
         - shell application to view directory in tree format
-    - [ ] autocomplete: 
+    - [x] autocomplete: 
         - git branch: https://apple.stackexchange.com/questions/55875/git-auto-complete-for-branches-at-the-command-line
         - host file for ssh
+        - zsh?
+    - [x] git (with homebrew? or it comes with osx now?)
+    - ~[ ] homebrew?~
+        - ~apache? nginx?~
+        - ~python~
+        - ~elasticsearch~
+        - ~mongodb~
+        - ~maven~
+        - ~tomcat~
+    - ~[ ] Situate custom_profile~
+    - [..] zsh
+    - [ ] better/more vimrc
     - [ ] NVM
         - [ ] need to setup $NVM_HOME variable and update $PATH with it
     - [ ] Node/NPM on path
-    - [ ] git (with homebrew? or it comes with osx now?)
-    - [ ] homebrew?
-        - apache? nginx?
-        - python
-        - elasticsearch
-        - mongodb
-        - maven
-        - tomcat
-    - [ ] situate custom_profile
-    - [ ] more vimrc
     - [ ] atom? + packages?
-    - [ ] zsh
     - [ ] iterm?
         - [ ] powerlevel9k https://github.com/Powerlevel9k/powerlevel9k
         - [ ] Capture output for errors: https://iterm2.com/documentation-captured-output.html
-- [ ] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
 - [x] GitFetch prevent long timeout
-- [ ] Make Platform Agnostic
-- [ ] fancy ssh (change color (based on project?))
-- [ ] cron
-- [ ] networking
+- [..] networking
     - [ ] number of users online
     - [x] open ports
+- [..] Make Platform Agnostic
+- [ ] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
+- [ ] cron
 - [ ] email
 - [ ] headless server profile
 - [ ] barebones profile?
+- [ ] fancy ssh (change color (based on project?))
 - [ ] git fetch on cd
 - [ ] gitls - display statuses of all git repositories shown
     - [ ] include file specific info from `git status`
@@ -91,5 +92,5 @@ Collection of small [shell scripts](scripts/README.md?id=collection-of-bash-scri
 
 
 
-## [My Profile](my_profile.md?id=my-custom-bash-profile-and-configuration)
+## [My Profile](profile/my_profile.md?id=my-custom-bash-profile-and-configuration)
 Explanation of the [changes](my_profile.md?id=my-custom-bash-profile-and-configuration) to bash configuration and aliases

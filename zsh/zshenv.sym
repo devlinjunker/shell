@@ -1,0 +1,6 @@
+## .zshenv file is executed on EVERY new shell instance
+## DO NOT MODIFY DEFAULT BEHAVIOR OF STANDARD COMMANDS
+
+CUR_DIR=~/Code/shell
+
+PATH=$PATH:$CUR_DIR/scripts
