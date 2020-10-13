@@ -57,25 +57,23 @@ review of commands for vim
         - ~tomcat~
     - ~[ ] Situate custom_profile~
     - [..] zsh
-    - [ ] better/more vimrc
     - [ ] NVM
         - [ ] need to setup $NVM_HOME variable and update $PATH with it
     - [ ] Node/NPM on path
-    - [ ] atom? + packages?
-    - [ ] iterm?
-        - [ ] powerlevel9k https://github.com/Powerlevel9k/powerlevel9k
-        - [ ] Capture output for errors: https://iterm2.com/documentation-captured-output.html
 - [x] GitFetch prevent long timeout
+- [..] Make Platform Agnostic
 - [..] networking
     - [ ] number of users online
     - [x] open ports
-- [..] Make Platform Agnostic
+- [ ] better/more vimrc
 - [ ] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
 - [ ] cron
 - [ ] email
 - [ ] headless server profile
 - [ ] barebones profile?
 - [ ] fancy ssh (change color (based on project?))
+  - [ ] Different Terminal settings for different servers
+  - [ ] Default upload bash server settings once created
 - [ ] git fetch on cd
 - [ ] gitls - display statuses of all git repositories shown
     - [ ] include file specific info from `git status`
@@ -92,7 +90,10 @@ review of commands for vim
     - get version_num from https://github.com/macports/macports-base/releases/latest/
     - download from https://github.com/macports/macports-base/releases/latest/download/MacPorts-<version_num>.tar.bz2
     - follow instructions athttps://guide.macports.org/#installing.macports.source
-  - atom
+  - atom + packages?
+  - iterm
+    - [ ] powerlevel9k https://github.com/Powerlevel9k/powerlevel9k
+    - [ ] Capture output for errors: https://iterm2.com/documentation-captured-output.html
 
 
 ## [Scripts](scripts/README.md?id=collection-of-bash-scripts)
