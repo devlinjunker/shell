@@ -29,3 +29,4 @@
        - Message to setup ssh configs
        - Create `~/Code` directory
        - Clone rest of `shell` repo into `~/Code/shell`
+  - [ ] Research other zsh themes

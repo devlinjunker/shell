@@ -1,6 +1,9 @@
 #! /bin/zsh
 
-DIR_NAME=zsh
+EXPECTED_DIR_NAME=zsh
+EXPECTED_GIT_NAME="Devlin Junker"
+EXPECTED_GIT_EMAIL=devlin.junker@gmail.com
+
 CUR_DIR=`pwd`
 
 osx() {
@@ -21,8 +24,29 @@ if [[ "$?" == "0" ]]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+## Check Git Config
+GIT_NAME=`git config --global user.name`
+if [[ "$GIT_NAME" != "$EXPECTED_GIT_NAME" ]]; then
+  echo "
+Git config not set with correct name
+
+use 'git config --global --edit'
+"
+  return -1
+fi
+
+GIT_EMAIL=`git config --global user.email`
+if [[ "$GIT_EMAIL" != "$EXPECTED_GIT_EMAIL" ]]; then
+  echo "
+Git config not set with correct email
+
+use 'git config --global --edit'
+"
+  return -1
+fi
+
 ## Check that we are in the correct directory before running setup steps
-if [[ "$CUR_DIR" =~ .*"$DIR_NAME"$ ]] && [[ -e ./profile ]]; then
+if [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME"$ ]] && [[ -e ./profile ]]; then
 
   ## 1. Initialize vim configuration file
   ../scripts/bvimrc
@@ -37,7 +61,7 @@ if [[ "$CUR_DIR" =~ .*"$DIR_NAME"$ ]] && [[ -e ./profile ]]; then
   fi
 
 else
-  echo "Please run init script from 'bash' directory 
+  echo "Please run init script from '$EXPECTED_DIR_NAME' directory 
   "
 
 fi
