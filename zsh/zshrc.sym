@@ -1,12 +1,13 @@
 CUR_DIR=~/Code/shell/zsh
 
-source $CUR_DIR/profile/fs.zsh
-source $CUR_DIR/profile/proc.zsh
-source $CUR_DIR/profile/net.zsh
+source $CUR_DIR/lib/_remind.zsh
+source $CUR_DIR/lib/fs.zsh
+source $CUR_DIR/lib/proc.zsh
+source $CUR_DIR/lib/net.zsh
 
 ## only include OSX aliases on OSX machines
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  source $CUR_DIR/profile/osx.zsh
+  source $CUR_DIR/lib/osx.zsh
 fi
 
 # zsh autocomplete

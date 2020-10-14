@@ -12,11 +12,13 @@
   - need to add config in `~/.ssh/config` to make easy
 
 ## TODO
+  - [ ] Research other zsh themes
   - [ ] Macports 
   - [ ] Node and NVM
   - [ ] Interactive help script
   - [ ] Dirty/behind repo status in prompt
     - https://stackoverflow.com/questions/41474467/zsh-theme-dirty-color-and-suffix
+  - [ ] zsh cheatsheet: https://blog.praveen.science/oh-my-zsh-cheat-sheet/
   - [ ] Doctor script - on change directory?
     - check for MacPorts updates
     - check for oh-my-zsh updates
@@ -29,4 +31,3 @@
        - Message to setup ssh configs
        - Create `~/Code` directory
        - Clone rest of `shell` repo into `~/Code/shell`
-  - [ ] Research other zsh themes

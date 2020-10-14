@@ -5,6 +5,11 @@ HELP="
 TODO: Help file with things to remember todo, should be a prompt with sub-menus ideally
 "
 
+
+## ---------
+## FILE SYSTEM
+## ---------
+
 files() {
 
   HELP+="
@@ -32,6 +37,11 @@ cleanupDS - cleans up leftover .DS_Store files in current directory
   fi
 }
 
+
+## ---------
+## PROCESSES
+## ---------
+
 processes() {
   HELP+="
 PROCESSES
@@ -46,6 +56,11 @@ my_ps - see list of ALL processes under my user
 "
 
 }
+
+
+## ---------
+## NETWORK
+## ---------
 
 network() {
   HELP+="
@@ -70,6 +85,10 @@ vnc <ip_address> - connect to other osx machine at <ip_address> with vnc
 
 }
 
+
+## ---------
+## APPLICATIONS
+## ---------
 apps() {
   HELP+="
 APPS
@@ -80,6 +99,10 @@ cdf - change to most recent Finder directory
 
 }
 
+
+## -------
+## WEB
+## -------
 web() {
   HELP+="
 WEB
@@ -92,7 +115,8 @@ newgist - opens new gist page with Chrome
 
 }
 
-function help () {
+
+function remind () {
   files
   processes
   network
@@ -107,4 +131,4 @@ function help () {
     # network
 
 }
-alias h=help
+alias r=remind

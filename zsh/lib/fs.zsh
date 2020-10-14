@@ -1,3 +1,4 @@
+#! /bin/zsh
 
 alias ls="ls -FGlAhp"
 alias less="less -FSRXc"
@@ -8,9 +9,13 @@ function mv ()
     dir="$2"
     tmp="$2"; tmp="${tmp: -1}"
     [ "$tmp" != "/" ] && dir="$(dirname "$2")"
-    [ -a "$dir" ] ||
-    mkdir -p "$dir" &&
+    if [ -e "$dir" ]; then
+      echo ""
+    else
+      mkdir -p "$dir" && 
+    fi
     /bin/mv -iv "$@"
+
 }
 
 alias cp="cp -iv"
