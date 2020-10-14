@@ -1,35 +1,34 @@
 #! /bin/bash
 
-HELP="
-
-TODO: Help file with things to remember todo, should be a prompt with sub-menus ideally
-"
-
+r_init() {
+  r_HELP=""
+}
 
 ## ---------
 ## FILE SYSTEM
 ## ---------
 
-files() {
+r_files() {
 
-  HELP+="
+  r_HELP+="
 FILES
 -------
 numFiles - count number of files in current directory"
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    HELP+="
+    r_HELP+="
 qfind <file_name> - recursively search for file matching <file_name>
 "
 
   fi
 
-  HELP+="
+  r_HELP+="
 zipf <folder_name> - recursively zip folder provided into <folder_name>.zip
-extract <archive> - quickly extract most archive types"
+extract <archive> - quickly extract most archive types
+"
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    HELP+="
+    r_HELP+="
 trash <file> - move file to ~/.Trash rather than forcefully delete
 cleanupDS - cleans up leftover .DS_Store files in current directory
 "
@@ -42,8 +41,8 @@ cleanupDS - cleans up leftover .DS_Store files in current directory
 ## PROCESSES
 ## ---------
 
-processes() {
-  HELP+="
+r_processes() {
+  r_HELP+="
 PROCESSES
 --------
 findpid <name> - finds the process id the process containig <name>
@@ -57,13 +56,24 @@ my_ps - see list of ALL processes under my user
 
 }
 
+## ---------
+## GIT
+## ---------
+r_git() {
+  r_HELP+="
+GIT
+-------
+gpsup - 'git push --set-upstream origin/<current_branch>'
+"
+
+}
 
 ## ---------
 ## NETWORK
 ## ---------
 
-network() {
-  HELP+="
+r_network() {
+  r_HELP+="
 NETWORK
 --------
 myip - returns the external ip address our LAN is using
@@ -77,7 +87,7 @@ suopenports - list all open ports (visible to super user)
 users - list currently connected users to this computer"
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    HELP+="
+    r_HELP+="
 
 vnc <ip_address> - connect to other osx machine at <ip_address> with vnc
 "
@@ -89,8 +99,8 @@ vnc <ip_address> - connect to other osx machine at <ip_address> with vnc
 ## ---------
 ## APPLICATIONS
 ## ---------
-apps() {
-  HELP+="
+r_apps() {
+  r_HELP+="
 APPS
 --------
 finder - open finder
@@ -103,8 +113,8 @@ cdf - change to most recent Finder directory
 ## -------
 ## WEB
 ## -------
-web() {
-  HELP+="
+r_web() {
+  r_HELP+="
 WEB
 --------
 google <term/phrase> - opens new Chrome tab with google search
@@ -117,18 +127,44 @@ newgist - opens new gist page with Chrome
 
 
 function remind () {
-  files
-  processes
-  network
-  apps
-  web 
+  if [[ $1 == "" ]]; then
+    echo "which topic?
+[f]iles
+[g]it
+[p]rocesses
+[n]etwork
+[a]pps
+[w]eb  
+"
+    read response
+  else
+    response=$1;
+  fi
 
-  echo $HELP
+  r_init
+  case $response in
+    f)
+      r_files
+    ;;
+    p)
+      r_processes
+    ;;
+    g)
+      r_git
+    ;;
+    n)
+      r_network
+    ;;
+    a)
+      r_apps
+    ;;
+    w)
+      r_web
+    ;;
+  esac
 
-  # TODO: request user input on what they want to do
-    # files
-    # processes
-    # network
+
+  echo $r_HELP
 
 }
-alias r=remind
+alias r!=remind

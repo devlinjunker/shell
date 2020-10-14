@@ -24,6 +24,11 @@ if [[ "$?" == "0" ]]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+## TODO: create symbolic link to themes inside ~/.oh-my-zsh/themes
+
+
+## TODO: create symbolic link 'doctor' to lib/doctor.zsh inside ../scripts
+
 ## Check Git Config
 GIT_NAME=`git config --global user.name`
 if [[ "$GIT_NAME" != "$EXPECTED_GIT_NAME" ]]; then

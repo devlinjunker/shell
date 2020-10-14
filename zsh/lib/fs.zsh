@@ -18,6 +18,13 @@ function mv ()
 
 }
 
+function cd ()
+{
+  builtin cd $1
+  doctor
+  ls
+}
+
 alias cp="cp -iv"
 
 alias qfind="find . -name "
@@ -46,3 +53,5 @@ extract () {
     echo "'$1' is not a valid file"
   fi
 }
+
+alias ivm=vim

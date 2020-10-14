@@ -10,16 +10,27 @@
 - Added _help.zsh script that reminds us of commands to use
 - ssh autocomplete
   - need to add config in `~/.ssh/config` to make easy
+- renamed help file to remind with `r!` script
+- set up custom theme
+  - copied bira from `~/.oh-my-zsh/themes/`
+  - use personal `gitstatus` script in prompt
+- Started on doctor.zsh script
+  - add symbolic link in scripts directory to doctor.zsh so we have access in the path
+- Started on interactive prompt for remind (r!) script
 
 ## TODO
-  - [ ] Research other zsh themes
+  - [x] Research other zsh themes
+     - started using bira
+       - doesn't indicate that local branch is behind
+       - created bira+gitstatus theme that uses gitstatus script
+     - https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
   - [ ] Macports 
   - [ ] Node and NVM
-  - [ ] Interactive help script
-  - [ ] Dirty/behind repo status in prompt
+  - [..] Interactive help script
+  - [x] Dirty/behind repo status in prompt
     - https://stackoverflow.com/questions/41474467/zsh-theme-dirty-color-and-suffix
-  - [ ] zsh cheatsheet: https://blog.praveen.science/oh-my-zsh-cheat-sheet/
-  - [ ] Doctor script - on change directory?
+  - [x] zsh cheatsheet: https://blog.praveen.science/oh-my-zsh-cheat-sheet/
+  - [..] Doctor script - on change directory?
     - check for MacPorts updates
     - check for oh-my-zsh updates
     - git fetch
@@ -27,6 +38,7 @@
     - node version (package.json>engines OR .nvm file)
   - [ ] setup.zsh script that can be wget from github to do startup
        - Verify git can be accessed or set message to install xcode
+       - separate from init.zsh (which requires git repo)
        - Message to set git configs
        - Message to setup ssh configs
        - Create `~/Code` directory
