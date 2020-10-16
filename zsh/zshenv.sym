@@ -4,3 +4,7 @@
 CUR_DIR=~/Code/shell
 
 PATH=$PATH:$CUR_DIR/scripts
+
+PATH=$PATH:/opt/local/bin
+
+source /opt/local/share/nvm/init-nvm.sh
