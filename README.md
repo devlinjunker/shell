@@ -89,7 +89,7 @@ review of commands for vim
   - macports from source
     - get version_num from https://github.com/macports/macports-base/releases/latest/
     - download from https://github.com/macports/macports-base/releases/latest/download/MacPorts-<version_num>.tar.bz2
-    - follow instructions athttps://guide.macports.org/#installing.macports.source
+    - follow instructions at https://guide.macports.org/#installing.macports.source
   - atom + packages?
   - iterm
     - [ ] powerlevel9k https://github.com/Powerlevel9k/powerlevel9k

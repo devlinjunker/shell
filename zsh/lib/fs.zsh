@@ -4,6 +4,12 @@ alias ls="ls -FGlAhp"
 alias less="less -FSRXc"
 alias mkdir="mkdir -pv"
 
+function mcd()
+{
+  mkdir $1; 
+  cd $1;
+}
+
 function mv ()
 {
     dir="$2"

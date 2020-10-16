@@ -51,10 +51,12 @@ use 'git config --global --edit'
 fi
 
 ## Check that we are in the correct directory before running setup steps
-if [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME"$ ]] && [[ -e ./profile ]]; then
+if [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME"$ ]] && [[ -e ../scripts ]]; then
 
   ## 1. Initialize vim configuration file
   ../scripts/bvimrc
+
+  echo ""
 
   ## 2. TODO: Create symlinks to zsh files and use $CUR_DIR to define location of profile files
   echo "TODO: Setup zsh env files"

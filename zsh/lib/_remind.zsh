@@ -129,6 +129,7 @@ newgist - opens new gist page with Chrome
 function remind () {
   if [[ $1 == "" ]]; then
     echo "which topic?
+[A]ll
 [f]iles
 [g]it
 [p]rocesses
@@ -143,6 +144,14 @@ function remind () {
 
   r_init
   case $response in
+    A)
+      r_files
+      r_processes
+      r_git
+      r_network
+      r_apps
+      r_web
+    ;;
     f)
       r_files
     ;;

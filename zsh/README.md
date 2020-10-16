@@ -1,5 +1,6 @@
 # ZSH Setup and Scripts
 
+## Notes
 - Sort of based on https://github.com/whatyouhide/dotfiles
 - Started on init.sh script
   - cleaner
@@ -17,6 +18,7 @@
 - Started on doctor.zsh script
   - add symbolic link in scripts directory to doctor.zsh so we have access in the path
 - Started on interactive prompt for remind (r!) script
+- renamed init to setup.sh for once repo downloaded
 
 ## TODO
   - [x] Research other zsh themes
@@ -24,19 +26,23 @@
        - doesn't indicate that local branch is behind
        - created bira+gitstatus theme that uses gitstatus script
      - https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-  - [ ] Macports 
-  - [ ] Node and NVM
-  - [..] Interactive help script
   - [x] Dirty/behind repo status in prompt
-    - https://stackoverflow.com/questions/41474467/zsh-theme-dirty-color-and-suffix
+      - https://stackoverflow.com/questions/41474467/zsh-theme-dirty-color-and-suffix
   - [x] zsh cheatsheet: https://blog.praveen.science/oh-my-zsh-cheat-sheet/
+  - [..] Interactive help script
+  - [ ] Macports 
+      - get version_num from https://github.com/macports/macports-base/releases/latest/
+      - download from https://github.com/macports/macports-base/releases/latest/download/MacPorts-<version_num>.tar.bz2
+      - follow instructions at https://guide.macports.org/#installing.macports.source
+  - [ ] Node and NVM
+      - [ ] need to setup $NVM_HOME variable and update $PATH with it
   - [..] Doctor script - on change directory?
-    - check for MacPorts updates
-    - check for oh-my-zsh updates
-    - git fetch
-    - node dependencies?
-    - node version (package.json>engines OR .nvm file)
-  - [ ] setup.zsh script that can be wget from github to do startup
+      - check for MacPorts updates
+      - check for oh-my-zsh updates
+      - git fetch
+      - node dependencies?
+      - node version (package.json>engines OR .nvm file)
+  - [ ] setup.sh script that can be wget from github to do startup in base directory
        - Verify git can be accessed or set message to install xcode
        - separate from init.zsh (which requires git repo)
        - Message to set git configs
