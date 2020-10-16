@@ -30,11 +30,34 @@
       - https://stackoverflow.com/questions/41474467/zsh-theme-dirty-color-and-suffix
   - [x] zsh cheatsheet: https://blog.praveen.science/oh-my-zsh-cheat-sheet/
   - [..] Interactive help script
-  - [ ] Macports 
-      - get version_num from https://github.com/macports/macports-base/releases/latest/
-      - download from https://github.com/macports/macports-base/releases/latest/download/MacPorts-<version_num>.tar.bz2
+  - [..] Macports 
+      - get version_num 
+        - https://github.com/macports/macports-base/releases/latest/
+        - https://api.github.com/repos/macports/macports-base/tags
+        - THIS: https://api.github.com/repos/macports/macports-base/releases/latest
+          - script here: https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
+          - ```
+curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+grep '"tag_name":' | # Get tag line
+sed -E 's/.*"([^"]+)".*/\1/'  
+``` 
+      - download from https://github.com/macports/macports-base/releases/download/v<version_num>/MacPorts-<version_num>.tar.bz2
+        - ```
+curl <url> -L -o macports.tar.bz2;
+extract macports.tar.bz2;
+```
       - follow instructions at https://guide.macports.org/#installing.macports.source
-  - [ ] Node and NVM
+        - ```
+cd Macports-...;
+./configure;
+make;
+sudo make install;
+```
+      - Post Install
+        - add `/opt/local/bin` to your PATH
+        - update with `sudo port -v selfupdate`use `tag_name`
+  - [..] Node and NVM (not with macports it seems)
+      - after macports installed and updated: `port install nvm;` also need to add `/opt/local/share/nvm/init-nvm.sh` to PATH
       - [ ] need to setup $NVM_HOME variable and update $PATH with it
   - [..] Doctor script - on change directory?
       - check for MacPorts updates
