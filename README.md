@@ -77,7 +77,7 @@ review of commands for vim
 - [ ] git fetch on cd
 - [ ] gitls - display statuses of all git repositories shown
     - [ ] include file specific info from `git status`
-- [ ] gitfind - search on github at github.com/<owner>/<repo>/find/<branch>
+- [ ] gitfind - search in chrome on github at `github.com/\<owner\>/\<repo\>/find/\<branch\>`
 
 **To Learn**  
 [ ] grep  
