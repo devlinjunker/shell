@@ -36,23 +36,26 @@
         - https://api.github.com/repos/macports/macports-base/tags
         - THIS: https://api.github.com/repos/macports/macports-base/releases/latest
           - script here: https://gist.github.com/lukechilds/a83e1d7127b78fef38c2914c4ececc3c
-          - ```
+```
 curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
 grep '"tag_name":' | # Get tag line
 sed -E 's/.*"([^"]+)".*/\1/'  
 ``` 
+
       - download from https://github.com/macports/macports-base/releases/download/v<version_num>/MacPorts-<version_num>.tar.bz2
-        - ```
+```
 curl <url> -L -o macports.tar.bz2;
 extract macports.tar.bz2;
 ```
+
       - follow instructions at https://guide.macports.org/#installing.macports.source
-        - ```
+```
 cd Macports-...;
 ./configure;
 make;
 sudo make install;
 ```
+
       - Post Install
         - add `/opt/local/bin` to your PATH
         - update with `sudo port -v selfupdate`use `tag_name`
@@ -64,6 +67,7 @@ sudo make install;
       - check for oh-my-zsh updates
       - git fetch
       - node dependencies?
+      - npm audit
       - node version (package.json>engines OR .nvm file)
   - [ ] setup.sh script that can be wget from github to do startup in base directory
        - Verify git can be accessed or set message to install xcode
