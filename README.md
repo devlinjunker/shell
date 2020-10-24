@@ -48,8 +48,8 @@ review of commands for vim
         - host file for ssh
         - zsh?
     - [x] git (with homebrew? or it comes with osx now?)
-    - ~[ ] homebrew?~
-        - ~apache? nginx?~
+    - ~[ ] homebrew?~ 
+        - ~apache? nginx?~ 
         - ~python~
         - ~elasticsearch~
         - ~mongodb~
@@ -57,24 +57,26 @@ review of commands for vim
         - ~tomcat~
     - ~[ ] Situate custom_profile~
     - [..] zsh
-    - [ ] NVM
+    - [..] NVM
         - [ ] need to setup $NVM_HOME variable and update $PATH with it
-    - [ ] Node/NPM on path
+          - ... why?
+    - [..] Node/NPM on path
 - [x] GitFetch prevent long timeout
+- [x] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
 - [..] Make Platform Agnostic
 - [..] networking
     - [ ] number of users online
     - [x] open ports
-- [ ] better/more vimrc
-- [ ] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
+- [ ] better/more vimrc?
 - [ ] cron
 - [ ] email
-- [ ] headless server profile
+- [ ] git fetch on cd (doctor script?) 
+- [ ] headless server profile 
 - [ ] barebones profile?
-- [ ] fancy ssh (change color (based on project?))
+- [ ] fancy ssh? (change color (based on project?))
   - [ ] Different Terminal settings for different servers
   - [ ] Default upload bash server settings once created
-- [ ] git fetch on cd
+  - [ ] config file somewhere?
 - [ ] gitls - display statuses of all git repositories shown
     - [ ] include file specific info from `git status`
 - [ ] gitfind - search in chrome on github at `github.com/\<owner\>/\<repo\>/find/\<branch\>`
@@ -84,11 +86,10 @@ review of commands for vim
 [ ] awk  
 [ ] sed
 
-**OSX Specific Ideas**
-- [ ] install osx programs
+**OSX Specific Ideas** - [ ] install osx programs
   - disk inventory x:http://www.derlien.com/download.php?file=DiskInventoryX
   - macports from source
-    - get version_num from https://github.com/macports/macports-base/releases/latest/
+  - get version_num from https://github.com/macports/macports-base/releases/latest/
     - download from https://github.com/macports/macports-base/releases/latest/download/MacPorts-<version_num>.tar.bz2
     - follow instructions at https://guide.macports.org/#installing.macports.source
   - atom + packages?

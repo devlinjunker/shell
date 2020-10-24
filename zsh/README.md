@@ -69,10 +69,15 @@ sudo make install;
       - node dependencies?
       - npm audit
       - node version (package.json>engines OR .nvm file)
-  - [ ] setup.sh script that can be wget from github to do startup in base directory
+  - [ ] init.sh script that can be wget from github to do startup in base directory
        - Verify git can be accessed or set message to install xcode
        - separate from init.zsh (which requires git repo)
        - Message to set git configs
        - Message to setup ssh configs
        - Create `~/Code` directory
        - Clone rest of `shell` repo into `~/Code/shell`
+  - [ ] move github pages to `gh-pages/` dir
+  - [ ] install atom?
+  - [ ] ignore in global .gitfetch
+      - add `.gitfetch` to ~/.gitignore
+      - `git config --global core.excludesfile ~/.gitignore`
