@@ -74,6 +74,8 @@ sudo make install;
        - separate from init.zsh (which requires git repo)
        - Message to set git configs
        - Message to setup ssh configs
+         - ssh private key pair
+         - AWS key 
        - Create `~/Code` directory
        - Clone rest of `shell` repo into `~/Code/shell`
   - [ ] move github pages to `gh-pages/` dir

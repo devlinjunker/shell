@@ -10,30 +10,35 @@ r_init() {
 
 r_files() {
 
-  r_HELP+="
-FILES
--------
-numFiles - count number of files in current directory"
+  r_HELP+=(
+    " FILES \n"
+    "------- \n"
+    "numFiles - count number of files in current directory \n"
+  )
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    r_HELP+="
-qfind <file_name> - recursively search for file matching <file_name>
-"
-
+    r_HELP+=(
+      "\n"
+      "qfind <file_name> - recursively search for file matching <file_name> \n"
+    )
   fi
 
-  r_HELP+="
-zipf <folder_name> - recursively zip folder provided into <folder_name>.zip
-extract <archive> - quickly extract most archive types
-"
+  r_HELP+=(
+    "grep -r <term> <path> - recursive find lines in files starting at <path> \n"
+    "grep -v <term> - find lines that do not match <term> \n"
+    "\n"
+    "zipf <folder_name> - recursively zip folder provided into <folder_name>.zip \n"
+    "extract <archive> - quickly extract most archive types \n"
+  )
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    r_HELP+="
-trash <file> - move file to ~/.Trash rather than forcefully delete
-cleanupDS - cleans up leftover .DS_Store files in current directory
-"
-
+    r_HELP+=(
+      "\n"
+      "trash <file> - move file to ~/.Trash rather than forcefully delete \n"
+      "cleanupDS - cleans up leftover .DS_Store files in current directory \n"
+    )
   fi
+
 }
 
 
@@ -90,6 +95,8 @@ users - list currently connected users to this computer"
     r_HELP+="
 
 vnc <ip_address> - connect to other osx machine at <ip_address> with vnc
+
+awssh <host> - connect to amazon host with key locaiton defined in AWS_KEY
 "
   fi
 

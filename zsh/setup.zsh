@@ -15,6 +15,9 @@ osx() {
   # TODO: Install Macports
   
   # TODO: Install Node & NVM
+
+  # TODO: call _install_pip.zsh
+
   echo "TODO: install osx stuff"
 }
 
