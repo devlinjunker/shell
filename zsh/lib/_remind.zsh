@@ -112,6 +112,8 @@ APPS
 --------
 finder - open finder
 cdf - change to most recent Finder directory
+
+code <file_path> - open file in vscode
 "
 
 }
@@ -132,6 +134,23 @@ newgist - opens new gist page with Chrome
 
 }
 
+r_install() {
+  r_HELP+="
+INSTALLATION
+-----"
+
+  if [[ $(which port) ]]; then
+    r_HELP+="
+port list installed - view installed macports
+sudo port selfupdate -v - update ports and macports
+"
+  else
+    r_HELP+="
+Mac Ports not installed!!
+"
+  fi
+}
+
 
 function remind () {
   if [[ $1 == "" ]]; then
@@ -141,8 +160,9 @@ function remind () {
 [g]it
 [p]rocesses
 [n]etwork
+[i]nstall
 [a]pps
-[w]eb  
+[w]eb
 "
     read response
   else
@@ -176,6 +196,9 @@ function remind () {
     ;;
     w)
       r_web
+    ;;
+    i)
+      r_install
     ;;
   esac
 

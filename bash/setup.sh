@@ -20,7 +20,7 @@ fi
 
 
 ## Attempt to set basic Vim settings
-../scripts/bvimrc
+lib/bvimrc
 
 
 ## TODO: Git Autocompletion

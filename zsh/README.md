@@ -19,6 +19,7 @@
   - add symbolic link in scripts directory to doctor.zsh so we have access in the path
 - Started on interactive prompt for remind (r!) script
 - renamed init to setup.sh for once repo downloaded
+- installed vscode command line exec, open with: `code <file_path>`
 
 ## TODO
   - [x] Research other zsh themes
@@ -59,9 +60,9 @@ cd Macports-...;
 make;
 sudo make install;
 ```
-  - [..] Node and NVM (not with macports it seems)
+  - [..] Node and NVM
       - after macports installed and updated: `port install nvm;` also need to add `/opt/local/share/nvm/init-nvm.sh` to PATH
-      - [ ] need to setup $NVM_HOME variable and update $PATH with it
+      - [ ] need to setup $NVM_HOME variable and update $PATH with it?
   - [..] Doctor script - on change directory?
       - check for MacPorts updates
       - check for oh-my-zsh updates
@@ -79,7 +80,7 @@ sudo make install;
        - Create `~/Code` directory
        - Clone rest of `shell` repo into `~/Code/shell`
   - [ ] move github pages to `gh-pages/` dir
-  - [ ] install atom?
+  - [ ] install atom? vscode?
   - [ ] ignore in global .gitfetch
       - add `.gitfetch` to ~/.gitignore
       - `git config --global core.excludesfile ~/.gitignore`

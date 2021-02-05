@@ -1,14 +1,39 @@
-CUR_DIR=~/Code/shell/zsh
+# ZSH Configs (run on login)
+## Add to .zshrc: `source <path_to_zshenv.sym>`
 
+
+## Find Current Script Directory
+CUR_DIR=$(dirname "$0")
+
+
+
+# Add to PATH
+# ------------
+## Add Personal Scripts to path
+PATH=$PATH:$CUR_DIR/../scripts
+
+## Add For Macports
+PATH=$PATH:/opt/local/bin
+
+# from nvm macport install:
+source /opt/local/share/nvm/init-nvm.sh
+
+
+# Add Personal Alias and Remind Script
+# -------------------------------------
 source $CUR_DIR/lib/_remind.zsh
-source $CUR_DIR/lib/fs.zsh
-source $CUR_DIR/lib/proc.zsh
-source $CUR_DIR/lib/net.zsh
+source $CUR_DIR/lib/alias_fs.zsh
+source $CUR_DIR/lib/alias_proc.zsh
+source $CUR_DIR/lib/alias_net.zsh
 
 ## only include OSX aliases on OSX machines
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  source $CUR_DIR/lib/osx.zsh
+  source $CUR_DIR/lib/alias_osx.zsh
 fi
+
+
+# Config ZSH autocomplete
+# ------------------------
 
 # zsh autocomplete
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"

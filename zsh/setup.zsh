@@ -1,10 +1,17 @@
 #! /bin/zsh
 
+# Expected Configuration for My User
+# TODO: From Config File?
 EXPECTED_DIR_NAME=zsh
 EXPECTED_GIT_NAME="Devlin Junker"
 EXPECTED_GIT_EMAIL=devlin.junker@gmail.com
 
-CUR_DIR=`pwd`
+# Find Current Directory
+CUR_DIR=$(dirname "${BASH_SOURCE[0]}")
+PWD=$(pwd)
+if [[ "$CUR_DIR" != *"$PWD"* ]] && [[ "$CUR_DIR" != /* ]]; then # prepend PWD if it is not in DIR and DIR not absolute
+    CUR_DIR="$PWD/$(echo "$CUR_DIR" | sed s/^\\.\\/?// )" # to make sure this is becomes an absolute path
+fi
 
 osx() {
   # TODO: Check if xcode tools installed
@@ -18,6 +25,8 @@ osx() {
 
   # TODO: call _install_pip.zsh
 
+  # TODO: install vscode?
+
   echo "TODO: install osx stuff"
 }
 
@@ -29,8 +38,6 @@ fi
 
 ## TODO: create symbolic link to themes inside ~/.oh-my-zsh/themes
 
-
-## TODO: create symbolic link 'doctor' to lib/doctor.zsh inside ../scripts
 
 ## Check Git Config
 GIT_NAME=`git config --global user.name`
@@ -57,7 +64,8 @@ fi
 if [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME"$ ]] && [[ -e ../scripts ]]; then
 
   ## 1. Initialize vim configuration file
-  ../scripts/bvimrc
+  
+  "$CUR_DIR"../bash/lib/bvimrc
 
   echo ""
 

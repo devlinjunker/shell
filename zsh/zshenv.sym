@@ -1,10 +1,11 @@
 ## .zshenv file is executed on EVERY new shell instance
 ## DO NOT MODIFY DEFAULT BEHAVIOR OF STANDARD COMMANDS
+## Add to `~/.zshenv`:  `source <path_to_zshenv.sym>`
 
-CUR_DIR=~/Code/shell
 
-PATH=$PATH:$CUR_DIR/scripts
+# Set AWS_KEY var
+# ----------------
+AWS_KEY="~/Dropbox/aws-key.pem"
 
-PATH=$PATH:/opt/local/bin
 
-source /opt/local/share/nvm/init-nvm.sh
+# TODO: Set $NVM_HOME?
