@@ -60,3 +60,9 @@ GITHUB_USER=devlinjunker
 alias github="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window https://github.com"
 alias gists="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome  https://gist.github.com/$GITHUB_USER"
 alias newgist="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome  https://gist.github.com/"
+
+alias devjunk="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome  https://dev-junk.com/"
+alias weather="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome  https://dev-junk.com/weather"
+
+alias analytics="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome 'https://dev-junk.com/analytics/index.php?module=MultiSites&action=index&date=$(date "+%Y-%m-%d")&period=month&idSite=1&updated=2'"
+

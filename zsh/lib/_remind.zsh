@@ -125,12 +125,26 @@ code <file_path> - open file in vscode
 r_web() {
   r_HELP+="
 WEB
---------
+--------"
+
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    r_HELP+="
 google <term/phrase> - opens new Chrome tab with google search
+
+inbox - opens Gmail with Chrome
+devjunk - opens my website with Chrome
+weather - opens my weather page with Chrome
+analytics - opens my Matoma dashboard with Chrome
+
 github - opens github home page with Chrome
 gists - opens my gists with Chrome
 newgist - opens new gist page with Chrome
 "
+  else 
+    r_HELP+="
+Web Shortcuts are on OSX only
+"
+  fi
 
 }
 
@@ -206,4 +220,5 @@ function remind () {
   echo $r_HELP
 
 }
-alias r!=remind
+alias r\?=remind
+alias \?=remind
