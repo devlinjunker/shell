@@ -6,6 +6,12 @@
 CUR_DIR=$(dirname "$0")
 
 
+# Set Prompt
+# --------
+# Prompt from Bash doesn't work
+PS1="> "
+# TODO: Make this better
+
 
 # Add to PATH
 # ------------
@@ -16,7 +22,9 @@ PATH=$PATH:$CUR_DIR/../scripts
 PATH=$PATH:/opt/local/bin
 
 # from nvm macport install:
-source /opt/local/share/nvm/init-nvm.sh
+if [[ -f /opt/local/share/nvm/init-nvm.sh ]]; then
+  source /opt/local/share/nvm/init-nvm.sh
+fi
 
 
 # Add Personal Alias and Remind Script
