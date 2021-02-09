@@ -14,7 +14,7 @@ SCRIPT_PATH="$( dirname $BASH_SOURCE[0] )"
 
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/Users/$USER/bin"
-export PATH="$PATH:$SCRIPT_PATH/scripts"
+export PATH="$PATH:$SCRIPT_PATH/../scripts"
 
 #   Change Prompt
 #   ------------------------------------------------------------
