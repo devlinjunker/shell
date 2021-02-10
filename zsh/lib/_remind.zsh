@@ -167,6 +167,7 @@ Mac Ports not installed!!
 
 
 function remind () {
+  clear
   if [[ $1 == "" ]]; then
     echo "which topic?
 [A]ll

@@ -28,6 +28,8 @@ osx() {
   # TODO: call _install_pip.zsh
 
   # TODO: install vscode?
+    # also install vscode command line exec
+    # https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions
 
   echo "TODO: install osx stuff"
 }

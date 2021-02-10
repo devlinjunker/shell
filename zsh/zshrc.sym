@@ -9,7 +9,7 @@ CUR_DIR=$(dirname "$0")
 # Set Prompt
 # --------
 # Prompt from Bash doesn't work
-PS1="> "
+PS1="| =>"
 # TODO: Make this better
 
 
