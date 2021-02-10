@@ -1,9 +1,11 @@
 #! /bin/zsh
+# This file is to do setup on new computer after repo is downloaded
+#  Should install typical programs and ensure basic configs are similar for zsh terminals
 
 # Expected Configuration for My User
 # TODO: From Config File?
 EXPECTED_DIR_NAME=zsh
-EXPECTED_GIT_NAME="Devlin Junker"
+EXPECTED_GIT_NAME="Devlin"
 EXPECTED_GIT_EMAIL=devlin.junker@gmail.com
 
 # Find Current Directory
