@@ -6,11 +6,11 @@
 CUR_DIR=$(dirname "$0")
 
 
+# TODO: Fix this (works with oh-my-zsh and zsh in terminal app)
 # Set Prompt
 # --------
 # Prompt from Bash doesn't work
-PS1="| =>"
-# TODO: Make this better
+# PS1="| =>"
 
 
 # Add to PATH

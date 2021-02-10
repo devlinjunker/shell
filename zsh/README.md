@@ -1,26 +1,5 @@
 # ZSH Setup and Scripts
 
-## Notes
-- Sort of based on https://github.com/whatyouhide/dotfiles
-- Started on init.sh script
-  - cleaner
-  - uses oh-my-zsh: https://github.com/ohmyzsh/ohmyzsh
-- Created specific zsh env files
-- Split aliases and functions into separate files
-  - created one that is dependent on osx (osx.zsh)
-- Added _help.zsh script that reminds us of commands to use
-- ssh autocomplete
-  - need to add config in `~/.ssh/config` to make easy
-- renamed help file to remind with `r!` script
-- set up custom theme
-  - copied bira from `~/.oh-my-zsh/themes/`
-  - use personal `gitstatus` script in prompt
-- Started on doctor.zsh script
-  - add symbolic link in scripts directory to doctor.zsh so we have access in the path
-- Started on interactive prompt for remind (r!) script
-- renamed init to setup.sh for once repo downloaded
-- installed vscode command line exec, open with: `code <file_path>`
-
 ## TODO
   - [x] Research other zsh themes
      - started using bira
@@ -84,3 +63,30 @@ sudo make install;
   - [ ] ignore in global .gitfetch
       - add `.gitfetch` to ~/.gitignore
       - `git config --global core.excludesfile ~/.gitignore`
+
+## FAQ
+MacPorts vs Homebrew
+
+
+
+## Notes
+- Sort of based on https://github.com/whatyouhide/dotfiles
+- Started on init.sh script
+  - cleaner
+  - uses oh-my-zsh: https://github.com/ohmyzsh/ohmyzsh
+- Created specific zsh env files
+- Split aliases and functions into separate files
+  - created one that is dependent on osx (osx.zsh)
+- Added _help.zsh script that reminds us of commands to use
+- ssh autocomplete
+  - need to add config in `~/.ssh/config` to make easy
+- renamed help file to remind with `r!` script
+- set up custom theme
+  - copied bira from `~/.oh-my-zsh/themes/`
+  - use personal `gitstatus` script in prompt
+- Started on doctor.zsh script
+  - add symbolic link in scripts directory to doctor.zsh so we have access in the path
+- Started on interactive prompt for remind (r!) script
+- renamed init to setup.sh for once repo downloaded
+- installed vscode command line exec, open with: `code <file_path>`
+

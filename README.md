@@ -68,7 +68,7 @@ review of commands for vim
     - [ ] number of users online
     - [x] open ports
 - [ ] better/more vimrc?
-- [ ] cron
+- [x] cron
 - [ ] email
 - [ ] git fetch on cd (doctor script?) 
 - [ ] headless server profile 
@@ -79,12 +79,12 @@ review of commands for vim
   - [ ] config file somewhere?
 - [ ] gitls - display statuses of all git repositories shown
     - [ ] include file specific info from `git status`
-- [ ] gitfind - search in chrome on github at `github.com/\<owner\>/\<repo\>/find/\<branch\>`
+- [ ] gh-find - search in chrome on github at `github.com/\<owner\>/\<repo\>/find/\<branch\>`
 
 **To Learn**  
-[ ] grep  
-[ ] awk  
-[ ] sed
+- [..] grep  
+- [ ] awk  
+- [ ] sed
 
 **OSX Specific Ideas** - [ ] install osx programs
   - disk inventory x:http://www.derlien.com/download.php?file=DiskInventoryX
