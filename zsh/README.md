@@ -65,10 +65,13 @@ sudo make install;
       - `git config --global core.excludesfile ~/.gitignore`
 
 ## FAQ
-MacPorts vs Homebrew
+Why use MacPorts over Homebrew?
  - Community seems to be moving away from Homebrew and towards MacPorts
  - https://saagarjha.com/blog/2019/04/26/thoughts-on-macos-package-managers/
- 
+
+Why use ZSH over Bash?
+ - ZSH provides autocomplete for git out of the box with `autoload -Uz compinit && compinit` in `zshrc.sym`
+ - SSH Autocomplete improved with commands in `zshrc.sym` also
 
 ## Notes
 - Sort of based on https://github.com/whatyouhide/dotfiles
@@ -92,12 +95,15 @@ MacPorts vs Homebrew
 
 ### Oh My ZSH
 - Themes, Plugins, Framework for Configuring ZSH Shell
+  - [Configuration](https://github.com/ohmyzsh/ohmyzsh/wiki/Settings)
+  - [Cheatsheet](https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet)
+  - [Plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
 - Comes with Default `.zshrc` file
   - Sets theme + other configurations
   - Plus other customer lines to import my things
     - Currently:
       - Points at custom `zshrc.sym` file in this directory
-  - Defines which plugins should be loaded ([list](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins))
+  - Defines which plugins should be loaded 
     - Currently:
       - git
 - set up custom theme `bira+gitstatus`

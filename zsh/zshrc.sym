@@ -6,11 +6,13 @@
 CUR_DIR=$(dirname "$0")
 
 
-# TODO: Fix this (works with oh-my-zsh and zsh in terminal app)
-# Set Prompt
+# Reset Prompt if oh-my-zsh isn't installed (to prevent bad looking prompt)
 # --------
-# Prompt from Bash doesn't work
-# PS1="| =>"
+which omz 1> /dev/null
+if [[ "$?" != "0" ]]; then
+  PS1="| =>"
+fi
+
 
 
 # Add to PATH
@@ -43,10 +45,10 @@ fi
 # Config ZSH autocomplete
 # ------------------------
 
-# zsh autocomplete
+# Highlight the current autocomplete option
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-## ssh/scp/rsync autocomplete
+## Better SSH/Rsync/SCP Autocomplete
 zstyle ':completion:*:(scp|rsync):*' tag-order ' hosts:-ipaddr:ip\ address hosts:-host:host files'
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-host' ignored-patterns '*(.|:)*' loopback ip6-loopback localhost ip6-localhost broadcasthost
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
@@ -55,4 +57,5 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<-
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
   '+l:|?=** r:|?=**'
 
+# Initialize the autocompletion
 autoload -Uz compinit && compinit
