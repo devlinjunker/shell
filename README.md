@@ -25,8 +25,15 @@ review of commands for vim
 
 ## How to Use these files:
 
-Bash:  
+### Bash:  
 Review the instructions in the [Bash README](./bash/README.md)
 
-ZSH: 
+### ZSH: 
 See Notes in [ZSH README](./zsh/README.md)
+
+TODO: 
+- Things installed
+- How to set up this repo/configure directory structure?
+- Alias script files
+- remind script
+- Doctor script?
