@@ -66,8 +66,9 @@ sudo make install;
 
 ## FAQ
 MacPorts vs Homebrew
-
-
+ - Community seems to be moving away from Homebrew and towards MacPorts
+ - https://saagarjha.com/blog/2019/04/26/thoughts-on-macos-package-managers/
+ 
 
 ## Notes
 - Sort of based on https://github.com/whatyouhide/dotfiles
@@ -77,16 +78,35 @@ MacPorts vs Homebrew
 - Created specific zsh env files
 - Split aliases and functions into separate files
   - created one that is dependent on osx (osx.zsh)
-- Added _help.zsh script that reminds us of commands to use
+- Started on interactive prompt for remind (r!) script
+  - script that reminds us of commands to use
+  - renamed help file to remind with `r!` script
 - ssh autocomplete
   - need to add config in `~/.ssh/config` to make easy
-- renamed help file to remind with `r!` script
-- set up custom theme
-  - copied bira from `~/.oh-my-zsh/themes/`
-  - use personal `gitstatus` script in prompt
 - Started on doctor.zsh script
   - add symbolic link in scripts directory to doctor.zsh so we have access in the path
-- Started on interactive prompt for remind (r!) script
 - renamed init to setup.sh for once repo downloaded
 - installed vscode command line exec, open with: `code <file_path>`
+- `.zshenv` is executed on every new shell instance
+  - linked to my `zshenv.sym` file in this directory
 
+### Oh My ZSH
+- Themes, Plugins, Framework for Configuring ZSH Shell
+- Comes with Default `.zshrc` file
+  - Sets theme + other configurations
+  - Plus other customer lines to import my things
+    - Currently:
+      - Points at custom `zshrc.sym` file in this directory
+  - Defines which plugins should be loaded ([list](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins))
+    - Currently:
+      - git
+- set up custom theme `bira+gitstatus`
+  - copied bira from `~/.oh-my-zsh/themes/`
+    - This is a ruby based theme.. may want to move away from this
+  - use personal `gitstatus` script in prompt
+  - shows user, host and current directory + git status if in directory
+
+### iTerm
+- Advanced Terminal (improved over osx terminal)
+- Features: https://iterm2.com/features.html
+  - [ ] TODO: Review these more
