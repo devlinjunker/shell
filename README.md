@@ -1,12 +1,8 @@
-# My Bash Repository
+# My Shell Configs
 
 This Repo is a Collection of bash configurations, shortcuts and scripts that I prefer
 to use on the command line. Sets up Prompt to display useful information and adds a
 few useful aliases.
-
-I have found these changes useful as a developer to help speed up my recognition of
-where I am and how to quickly start/stop programs or read files while I am sitting on
-the command line.
 
 If you are unfamiliar with navigating and running programs via the
 command line, I recommend:
@@ -19,90 +15,18 @@ review of commands for vim
 
 ## Dependencies
 
-- Homebrew on OSX?
+- ZSH
+- Macports
+- iTerm
+- Oh-My-ZSH
 - Git
-- Node Version Manager & Node+NPM
 - Vim
+- Node Version Manager & Node+NPM
 
 ## How to Use these files:
 
-1. Review the changes in `my_profile` or [here](my_profile.md?id=my-custom-bash-profile-and-configuration)
-    to get and understanding  of what is changed/added to command line
-1. Clone this repo to your home directory
-2. Run `setup.sh` to:
-  - Copy `.bash_profile` out of the repo into your home directory
-  - Reload the Bash Settings with `source ~/.bash_profile`
-  - Setup vimrc file using `scripts/bvimrc`
-  - Check if homebrew available and install useful packages
+Bash:  
+Review the instructions in the [Bash README](./bash/README.md)
 
-
-## TODO:
-- [x] Docsify to explain scripts
-- [x] Why do we have .bashrc too?
-    - Seems like it the difference is for when you ssh (.bashrc) and vs local (.bash_profile)
-- [..] More Setup
-    - [x] Why Brew install tree?
-        - shell application to view directory in tree format
-    - [x] autocomplete: 
-        - git branch: https://apple.stackexchange.com/questions/55875/git-auto-complete-for-branches-at-the-command-line
-        - host file for ssh
-        - zsh?
-    - [x] git (with homebrew? or it comes with osx now?)
-    - ~[ ] homebrew?~ 
-        - ~apache? nginx?~ 
-        - ~python~
-        - ~elasticsearch~
-        - ~mongodb~
-        - ~maven~
-        - ~tomcat~
-    - ~[ ] Situate custom_profile~
-    - [..] zsh
-    - [..] NVM
-        - [ ] need to setup $NVM_HOME variable and update $PATH with it
-          - ... why?
-    - [..] Node/NPM on path
-- [x] GitFetch prevent long timeout
-- [x] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
-- [..] Make Platform Agnostic
-- [..] networking
-    - [ ] number of users online
-    - [x] open ports
-- [ ] better/more vimrc?
-- [x] cron
-- [ ] email
-- [ ] git fetch on cd (doctor script?) 
-- [ ] headless server profile 
-- [ ] barebones profile?
-- [ ] fancy ssh? (change color (based on project?))
-  - [ ] Different Terminal settings for different servers
-  - [ ] Default upload bash server settings once created
-  - [ ] config file somewhere?
-- [ ] gitls - display statuses of all git repositories shown
-    - [ ] include file specific info from `git status`
-- [ ] gh-find - search in chrome on github at `github.com/\<owner\>/\<repo\>/find/\<branch\>`
-
-**To Learn**  
-- [..] grep  
-- [ ] awk  
-- [ ] sed
-
-**OSX Specific Ideas** 
-  - [ ] install osx programs
-  - disk inventory x:http://www.derlien.com/download.php?file=DiskInventoryX
-  - macports from source
-  - get version_num from https://github.com/macports/macports-base/releases/latest/
-    - download from https://github.com/macports/macports-base/releases/latest/download/MacPorts-<version_num>.tar.bz2
-    - follow instructions at https://guide.macports.org/#installing.macports.source
-  - atom + packages?
-  - iterm
-    - [ ] powerlevel9k https://github.com/Powerlevel9k/powerlevel9k
-    - [ ] Capture output for errors: https://iterm2.com/documentation-captured-output.html
-
-
-## [Scripts](scripts/README.md?id=collection-of-bash-scripts)
-Collection of small [shell scripts](scripts/README.md?id=collection-of-bash-scripts) I've created and used in the past.
-
-
-
-## [My Profile](profile/my_profile.md?id=my-custom-bash-profile-and-configuration)
-Explanation of the [changes](my_profile.md?id=my-custom-bash-profile-and-configuration) to bash configuration and aliases
+ZSH: 
+See Notes in [ZSH README](./zsh/README.md)
