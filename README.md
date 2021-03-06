@@ -86,7 +86,8 @@ review of commands for vim
 - [ ] awk  
 - [ ] sed
 
-**OSX Specific Ideas** - [ ] install osx programs
+**OSX Specific Ideas** 
+  - [ ] install osx programs
   - disk inventory x:http://www.derlien.com/download.php?file=DiskInventoryX
   - macports from source
   - get version_num from https://github.com/macports/macports-base/releases/latest/
