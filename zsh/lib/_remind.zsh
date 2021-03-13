@@ -11,9 +11,12 @@ r_init() {
 r_files() {
 
   r_HELP+=(
-    " FILES \n"
-    "------- \n"
-    "numFiles - count number of files in current directory \n"
+    " FILES "
+    "\n"
+    "------- "
+    "\n"
+    "numFiles - count number of files in current directory"
+    "\n"
   )
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
