@@ -13,7 +13,7 @@ if [[ "$?" != "0" ]]; then
   # need prompt expansion for running gitstatus
   setopt PROMPT_SUBST
 
-  # TODO: Convert below to zsh format (From bash)
+  # start underline and add pwd
   PS1="%U %d"
 
   # add spaces based on width
@@ -25,8 +25,8 @@ if [[ "$?" != "0" ]]; then
   # print user and hostname
   PS1+="%n @ %m"$'\n'"|z =>"
   export PS1
-  export PS2="|>"
 
+  export PS2="|>"
 fi
 
 
