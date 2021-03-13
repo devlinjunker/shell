@@ -22,7 +22,10 @@ Why use ZSH over Bash?
   - script that reminds us of commands to use
   - renamed help file to remind with `r!` script
 - ssh autocomplete
-  - need to add config in `~/.ssh/config` to make easy
+  - need to add config in `~/.ssh/config`
+  - [ ] Need to investigate more
+    - Can we autocomplete anything in `~/.ssh/known_hosts`?
+    - How does config work? user is automatically used? but how do I reference? 
 - Started on doctor.zsh script
   - add symbolic link in scripts directory to doctor.zsh so we have access in the path
 - renamed init to setup.sh for once repo downloaded
