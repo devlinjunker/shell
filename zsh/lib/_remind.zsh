@@ -132,6 +132,7 @@ WEB
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
     r_HELP+="
+freshgoogle - new google without term
 google <term/phrase> - opens new Chrome tab with google search
 
 inbox - opens Gmail with Chrome
