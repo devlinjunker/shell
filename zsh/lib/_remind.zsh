@@ -168,6 +168,24 @@ Mac Ports not installed!!
   fi
 }
 
+r_search() {
+  r_HELP+="
+SEARCH
+------
+grep <term> <file> - find lines matching <term> in <file>
+grep -v <term> - find lines without <term>
+
+sed - TODO
+
+awk - TODO
+
+qfind - TODO
+
+google <term> - open new google web search with <term>
+ghfind - TBD
+"
+}
+
 
 function remind () {
   clear
@@ -181,6 +199,7 @@ function remind () {
 [i]nstall
 [a]pps
 [w]eb
+[s]earch
 "
     read response
   else
@@ -194,8 +213,10 @@ function remind () {
       r_processes
       r_git
       r_network
+      r_install
       r_apps
       r_web
+      r_search
     ;;
     f)
       r_files
@@ -217,6 +238,9 @@ function remind () {
     ;;
     i)
       r_install
+    ;;
+    s)
+      r_search
     ;;
   esac
 
