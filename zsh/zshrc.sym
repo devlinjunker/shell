@@ -6,23 +6,24 @@
 CUR_DIR=$(dirname "$0")
 
 
-# Reset Prompt if oh-my-zsh isn't installed (to prevent bad looking prompt)
+# Set Custom Prompt if oh-my-zsh isn't installed (to prevent bad looking prompt)
 # --------
 which omz 1> /dev/null
 if [[ "$?" != "0" ]]; then
-  # PS1="| =>"
-  
-  # TODO: Check if below works
-  PS1="$(tput sgr 0 1) \`pwd\`"
+  # need prompt expansion for running gitstatus
+  setopt PROMPT_SUBST
+
+  # TODO: Convert below to zsh format (From bash)
+  PS1="%U %d"
 
   # add spaces based on width
   PS1+="\`printf '%*s' \$(max 1 \$(( \$((\$(tput cols) - 5)) - \$( pwd | wc -m | grep -o '[0-9]\+') - \$(gitstatus | wc -m | grep -o '[0-9]\+') - $(whoami | wc -m  | grep -o '[0-9]\+') - $(hostname | wc -m  | grep -o '[0-9]\+')))) ''\`"
 
   # add git status and stop underline
-  PS1+="\`gitstatus\`$(tput sgr0)| "
+  PS1+="\`gitstatus\`%u| "
 
   # print user and hostname
-  PS1+="\u @ \h\n| =>"
+  PS1+="%n @ %m"$'\n'"|z =>"
   export PS1
   export PS2="|>"
 
