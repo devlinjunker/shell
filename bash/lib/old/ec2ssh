@@ -1,0 +1,8 @@
+#! /bin/bash
+
+
+PROFILE="Pro";
+DEF="Basic"
+echo "tell app \"Terminal\" to set current settings of first window to settings set \"${PROFILE}\"" | osascript
+ssh -i ~/Keys/EduworksPrime.pem $@
+echo "tell app \"Terminal\" to set current settings of first window to settings set \"${DEF}\"" | osascript

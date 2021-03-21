@@ -1,4 +1,4 @@
-### Works on osx and linux machines that you ssh into
+BASH_REPO_DIR=${dir}
 
 # Load custom my_profile with prompt and aliases
 [[ -e ~/bash/my_profile ]] && source ~/bash/my_profile

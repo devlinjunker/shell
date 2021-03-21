@@ -1,0 +1,11 @@
+## .zshenv file is executed on EVERY new shell instance
+## DO NOT MODIFY DEFAULT BEHAVIOR OF STANDARD COMMANDS
+## Add to `~/.zshenv`:  `source <path_to_zshenv.sym>`
+
+
+# Set AWS_KEY var
+# ----------------
+AWS_KEY="~/Dropbox/aws-key.pem"
+
+
+# TODO: Set $NVM_HOME?

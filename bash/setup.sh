@@ -4,11 +4,9 @@
 
 changes=()
 
-## Copy .bash_profile if ssh into machine. 
-## On Windows use su - to change to user account, so need to edit .bashrc that already exists on the windows subsytem
-## Check if exists before copying (TODO: and append if it does)
+## Check if exists before copying template (TODO: and append if it does)
 if [[ ! -e ~/.bash_profile ]]; then
-  cp .bash_profile ~ 
+  cp template.bash_profile ~/.bash_profile
   changes+=("bash_profile")
 fi
 
@@ -22,7 +20,7 @@ fi
 
 
 ## Attempt to set basic Vim settings
-./scripts/bvimrc
+lib/bvimrc
 
 
 ## TODO: Git Autocompletion
@@ -55,6 +53,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     fi
   fi
 fi
+
+# TODO:  Copy server_profile if ssh into machine. 
 
 #TODO: install atom
 #   nuclide

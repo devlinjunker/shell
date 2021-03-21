@@ -1,4 +1,6 @@
 #! /bin/bash
+# TODO: fix this
+
 lines=$(ls -FGlAhp $@ | sed 1d )
 
 curdir=$(pwd)
