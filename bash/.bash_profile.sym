@@ -1,0 +1,21 @@
+#! /bin/bash
+
+
+## Find Custom Bash Directory (following sym link)
+SYM_FILE=`readlink "${BASH_SOURCE[0]}"`
+CUR_DIR=$(dirname "$SYM_FILE")
+PWD=$(pwd)
+if [[ "$CUR_DIR" != *"$PWD"* ]] && [[ "$CUR_DIR" != /* ]]; then # prepend PWD if it is not in DIR and DIR not absolute
+    CUR_DIR="$PWD/$(echo "$CUR_DIR" | sed s/^\\.\\/?// )" # to make sure this is becomes an absolute path
+fi
+if [[ $CUR_DIR == *"." ]]; then
+    CUR_DIR=$(echo "$CUR_DIR" | sed s/\\/?.?$// )
+fi
+
+
+# Load custom my_profile with prompt and aliases
+[[ -e "$CUR_DIR/my_profile" ]] && source "$CUR_DIR/my_profile"
+
+# Load other profile files
+[[ -e "$CUR_DIR/.profile" ]] && source "$CUR_DIR/.profile"
+[[ -e "$CUR_DIR/.bashrc" ]] && source "$CUR_DIR/.bashrc"

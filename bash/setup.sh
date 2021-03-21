@@ -1,17 +1,28 @@
 #! /bin/bash
 
-# Settings changes
+## Find Current Script Directory
+CUR_DIR=$(dirname "${BASH_SOURCE[0]}")
+PWD=$(pwd)
+if [[ "$CUR_DIR" != *"$PWD"* ]] && [[ "$CUR_DIR" != /* ]]; then # prepend PWD if it is not in DIR and DIR not absolute
+    CUR_DIR="$PWD/$(echo "$CUR_DIR" | sed s/^\\.\\/?// )" # to make sure this is becomes an absolute path
+fi
 
+# Settings changes
 changes=()
 
-## Check if exists before copying template (TODO: and append if it does)
+## Check if exists before linking to template (TODO: append even if it does? or source this?)
 if [[ ! -e ~/.bash_profile ]]; then
-  cp template.bash_profile ~/.bash_profile
+  ln -s "$CUR_DIR/.bash_profile.sym" ~/.bash_profile
   changes+=("bash_profile")
 fi
 
+if [[ ! -e ~/.bashrc ]]; then
+  ln -s "$CUR_DIR/.bashrc.sym" ~/.bashrc
+  changes+=("bashrc")
+fi
+
 if [[ " ${changes[@]} " =~ " bash_profile " ]]; then
-  echo "File added: ~/.bash_profile   ---  run `source ~/.bash_profile` to see the changes"
+  echo "File added: ~/.bash_profile   ---  run 'source ~/.bash_profile' to see the changes"
 fi
 
 ## TODO: ignore gitfetch in global git config
@@ -28,31 +39,6 @@ lib/bvimrc
 
 # Advanced Tools
 
-## OSX
-if [[ "$OSTYPE" == "darwin"* ]]; then
-
-  ## TODO: Should we use macports instead?
-  ## Install Homebrew
-  if [[ -z `which brew` ]]; then
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
-
-  ## Attempt to install stuff with homebrew if installed
-  if [[ `which brew` ]]; then
-    if [[  -z `which tree` ]]; then
-        brew install tree
-    fi
-
-    if [[ -z `which nvm` ]]; then
-      brew install nvm
-      
-      ## TODO: place in bash_profile 
-      "export NVM_DIR="$HOME/.nvm"
-      [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-      [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion" 
-    fi
-  fi
-fi
 
 # TODO:  Copy server_profile if ssh into machine. 
 
