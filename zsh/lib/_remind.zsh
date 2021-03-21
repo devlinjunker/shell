@@ -70,7 +70,9 @@ r_git() {
   git_HELP=(
     "GIT"
     "-------"
+    "gp - git push"
     "gpsup - 'git push --set-upstream origin/<current_branch>'"
+    "gcount - see number of commits by each user"
   )
   printf -v help_str "%s\n" "${git_HELP[@]}";
   r_HELP+="${help_str}\n\n";
@@ -189,14 +191,19 @@ r_search() {
   search_HELP=(
     "SEARCH"
     "------"
-    "grep <term> <file> - find lines matching <term> in <file>"
-    "grep -v <term> - find lines without <term>"
+    "grep <term> <file> - print lines matching <term> in <file>"
+    "grep -v <term> - print lines without <term>"
     ""
-    "sed - TODO"
+    "sed -n '/abc/p' - print lines that contain abc"
+    "sed 's/old-text/new-text/g' - replace all instances of 'old-text' with 'new-text'"
+    "sed -e '/FOO/s/love/sick/' - replace 'love' with 'sick' if line contains 'FOO'"
     ""
-    "awk - TODO"
+    "awk '{print \$1,\$4}' - Print the 1st and 4th word"
+    "awk '{print NR,\$0}' - Print the line number, followed by the whole row"
+    "awk '{ if (NF > max) max = NF; line=\$0 } END { print line }' - Print line with most words"
+    "awk 'length(\$0) > 10' - Print lines that are larger than 10 characters "
     ""
-    "qfind - TODO"
+    "qfind <file_name> - search directories below recursively for file with name = file_name"
     ""
     "google <term> - open new google web search with <term>"
     "ghfind - TBD"

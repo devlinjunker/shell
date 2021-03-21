@@ -1,14 +1,37 @@
 # ZSH Setup and Scripts
-Notes from using ZSH instead of Bash
+Notes from using ZSH instead of Bash.
+
+Contains:
+- Custom rc script that configures custom auto completes
+- Alias Script broken out (for custom commands)
+- Remind Script (invoke with `r?` or `?` or `remind`)
+- EC2 SSH Script (that references $AWS_KEY)
+- TODO: Doctor Script (for preparing shell when navigating to projects)
+- TODO: init and setup scripts (for install steps below)
 
 ## FAQ
-Why use MacPorts over Homebrew?
+**How do I install custom shell commands and theme for faster development?**
+1. Install:
+  - Oh My ZSH
+  - [Optional] iTerm?
+  - [Optional] MacPorts
+  - [Optional] Chrome (think about switch to FF?)
+2. Clone this repo
+3. Add Symbolic Link for all themes to `~/.oh-my-zsh/themes/`
+3. Update theme name in `~/.zshrc` to `bira+gitstatus`
+4. Source `zshrc.sym` from this repo in `~/.zshrc` (so it is executed on startup)
+
+**Why use ZSH over Bash?**
+ - ZSH provides autocomplete for git out of the box with `autoload -Uz compinit && compinit` in `zshrc.sym`
+ - SSH Autocomplete improved with commands in `zshrc.sym` also (?)
+
+**Why use MacPorts over Homebrew?**
  - Community seems to be moving away from Homebrew and towards MacPorts
  - https://saagarjha.com/blog/2019/04/26/thoughts-on-macos-package-managers/
 
-Why use ZSH over Bash?
- - ZSH provides autocomplete for git out of the box with `autoload -Uz compinit && compinit` in `zshrc.sym`
- - SSH Autocomplete improved with commands in `zshrc.sym` also
+**Why use iTerm?**
+ - More Colors?
+
 
 ## Notes
 - Sort of based on https://github.com/whatyouhide/dotfiles
@@ -47,8 +70,10 @@ Why use ZSH over Bash?
     - Currently:
       - git
 - set up custom theme `bira+gitstatus`
-  - copied bira from `~/.oh-my-zsh/themes/`
+  - copied bira from `~/.oh-my-zsh/themes/` to `themes/` directory repo
     - This is a ruby based theme.. may want to move away from this
+  - symbolic link in `~/.oh-my-zsh/themes/` to the directory in `themes/`
+  - set theme name in `.zshrc`
   - use personal `gitstatus` script in prompt
   - shows user, host and current directory + git status if in directory
 

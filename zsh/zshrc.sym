@@ -45,9 +45,8 @@ if [[ -f /opt/local/share/nvm/init-nvm.sh ]]; then
 fi
 
 
-# Add Personal Alias and Remind Script
+# Add Personal Aliases
 # -------------------------------------
-source $CUR_DIR/lib/_remind.zsh
 source $CUR_DIR/lib/alias_fs.zsh
 source $CUR_DIR/lib/alias_proc.zsh
 source $CUR_DIR/lib/alias_net.zsh
@@ -56,6 +55,10 @@ source $CUR_DIR/lib/alias_net.zsh
 if [[ "$OSTYPE" == "darwin"* ]]; then
   source $CUR_DIR/lib/alias_osx.zsh
 fi
+
+# Add Remind Script
+# -------------------------------------
+source $CUR_DIR/lib/_remind.zsh
 
 
 # Config ZSH autocomplete
