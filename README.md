@@ -27,19 +27,19 @@ See the following directories for setup/installing custom commands and prompts f
 
 ### ZSH: 
 After OSX updated to default to ZSH, cleaned up my custom scripts in [ZSH README](./zsh)
-    - Remind Script
-    - Custom Alias Files
-    - Custom Prompt or OhMyZSH Theme
-    - Custom ZSH Config Script to include in `~/.zshrc`
-    - Custom Scripts
-        - ec2ssh
-        - TODO: doctor
-        - TODO: setup/init
+- Remind Script
+- Custom Alias Files
+- Custom Prompt or OhMyZSH Theme
+- Custom ZSH Config Script to include in `~/.zshrc`
+- Custom Scripts
+    - ec2ssh
+    - TODO: doctor
+    - TODO: setup/init
 
 ### Bash:  
 Initial (old) files that customize OSX Bash shell, see more notes [Bash README](./bash)
 
 Still in use:
-    - Custom `max` script to find larger of 2 numbers
-    - Custom `gitstatus` script
-    - OLD: custom profiles with aliases and custom prompt for Bash Shell
+- Custom `max` script to find larger of 2 numbers
+- Custom `gitstatus` script
+- OLD: custom profiles with aliases and custom prompt for Bash Shell
