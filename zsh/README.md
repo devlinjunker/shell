@@ -7,7 +7,7 @@ Contains:
 - Remind Script (invoke with `r?` or `?` or `remind`)
 - EC2 SSH Script (that references $AWS_KEY env variable)
 
-- TBD: 
+TBD: 
 - [ ] Doctor Script (for preparing shell when navigating to projects)
 - [ ] init and setup scripts (for install steps below)
 
