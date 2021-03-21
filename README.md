@@ -21,19 +21,25 @@ line operations and commands
 - Node Version Manager & Node+NPM
 
 ## How to Use these files:
-These are mostly for personal use, see [TODO List](./TODO.md)
+These custom commands and prompts are for personal use, see [TODO List](./TODO.md) for next things to research.
 
-See the following for installing on a new user/computer
-
-### Bash:  
-Review the instructions in the [Bash README](./bash)
+See the following directories for setup/installing custom commands and prompts for a new user/computer.
 
 ### ZSH: 
-See Notes in [ZSH README](./zsh)
+After OSX updated to default to ZSH, cleaned up my custom scripts in [ZSH README](./zsh)
+    - Remind Script
+    - Custom Alias Files
+    - Custom Prompt or OhMyZSH Theme
+    - Custom ZSH Config Script to include in `~/.zshrc`
+    - Custom Scripts
+        - ec2ssh
+        - TODO: doctor
+        - TODO: setup/init
 
-TODO: 
-- Things installed
-- How to set up this repo/configure directory structure?
-- Alias script files
-- remind script
-- Doctor script?
+### Bash:  
+Initial (old) files that customize OSX Bash shell, see more notes [Bash README](./bash)
+
+Still in use:
+    - Custom `max` script to find larger of 2 numbers
+    - Custom `gitstatus` script
+    - OLD: custom profiles with aliases and custom prompt for Bash Shell

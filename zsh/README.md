@@ -5,9 +5,11 @@ Contains:
 - Custom rc script that configures custom auto completes
 - Alias Script broken out (for custom commands)
 - Remind Script (invoke with `r?` or `?` or `remind`)
-- EC2 SSH Script (that references $AWS_KEY)
-- TODO: Doctor Script (for preparing shell when navigating to projects)
-- TODO: init and setup scripts (for install steps below)
+- EC2 SSH Script (that references $AWS_KEY env variable)
+
+- TBD: 
+- [ ] Doctor Script (for preparing shell when navigating to projects)
+- [ ] init and setup scripts (for install steps below)
 
 ## FAQ
 **How do I install custom shell commands and theme for faster development?**

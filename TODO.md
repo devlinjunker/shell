@@ -4,7 +4,7 @@
 - [x] Docsify to explain scripts
 - [x] Why do we have .bashrc too?
     - Seems like it the difference is for when you ssh (.bashrc) and vs local (.bash_profile)
-- [..] More Setup
+- [x] More Setup
     - [x] Why Brew install tree?
         - shell application to view directory in tree format
     - [x] autocomplete: 
@@ -20,35 +20,61 @@
         - ~maven~
         - ~tomcat~
     - ~[ ] Situate custom_profile~
-    - [..] zsh
-    - [..] NVM
-        - [ ] need to setup $NVM_HOME variable and update $PATH with it
-          - ... why?
-    - [..] Node/NPM on path
+    - [x] zsh
 - [x] GitFetch prevent long timeout
 - [x] Review [Learning the Shell](http://linuxcommand.org/lc3_learning_the_shell.php)
-- [..] Make Platform Agnostic
+- [x] cron
 - [..] networking
     - [ ] number of users online
     - [x] open ports
-- [ ] better/more vimrc?
-- [x] cron
+- [..] NVM
+    - [ ] need to setup $NVM_HOME variable and update $PATH with it
+      - ... why?
+    - [ ] Node/NPM on path
+    - after macports installed and updated: `port install nvm;` also need to add `/opt/local/share/nvm/init-nvm.sh` to PATH
 - [ ] email
-- [ ] git fetch on cd (doctor script?) 
+- [ ] Make Platform Agnostic
+- [ ] better/more vimrc?
 - [ ] headless server profile 
-- [ ] barebones profile?
+- [ ] barebones profile? (is this what the bash profile will be?)
+- [ ] move github pages to `gh-pages/` dir
+- [ ] ignore in global .gitfetch
+      - add `.gitfetch` to ~/.gitignore
+      - `git config --global core.excludesfile ~/.gitignore`
+
+
+**Script Ideas**
+- [..] Doctor script - on change directory?
+      - check for MacPorts updates
+      - check for oh-my-zsh updates
+      - git fetch
+      - node dependencies?
+      - npm audit
+      - node version (package.json>engines OR .nvm file)
+- [ ] git fetch on cd (doctor script?) 
 - [ ] fancy ssh? (change color (based on project?))
   - [ ] Different Terminal settings for different servers
   - [ ] Default upload bash server settings once created
   - [ ] config file somewhere?
 - [ ] gitls - display statuses of all git repositories shown
     - [ ] include file specific info from `git status`
-- [ ] gh-find - search in chrome on github at `github.com/\<owner\>/\<repo\>/find/\<branch\>`
+- [ ] `ghfind` - search in chrome on github at `github.com/\<owner\>/\<repo\>/find/\<branch\>`
+- [ ] init.sh script that can be wget from github to do startup in base directory
+       - Verify git can be accessed or set message to install xcode
+       - separate from init.zsh (which requires git repo)
+       - Message to set git configs
+       - Message to setup ssh configs
+         - ssh private key pair
+         - AWS key 
+       - Create `~/Code` directory
+       - Clone rest of `shell` repo into `~/Code/shell`
 
 **To Learn**  
-- [..] grep  
-- [ ] awk  
-- [ ] sed
+Notes for all of these are in `remind` script
+- [x] grep  
+- [..] awk  
+- [x] sed
+
 
 **OSX Specific Ideas** 
   - [ ] install osx programs
@@ -57,11 +83,11 @@
   - get version_num from https://github.com/macports/macports-base/releases/latest/
     - download from https://github.com/macports/macports-base/releases/latest/download/MacPorts-<version_num>.tar.bz2
     - follow instructions at https://guide.macports.org/#installing.macports.source
-  - atom + packages?
-  - iterm
+  - [ ] atom + packages?
+  - [ ] vscode?
+  - [ ] iterm review
     - [ ] powerlevel9k https://github.com/Powerlevel9k/powerlevel9k
     - [ ] Capture output for errors: https://iterm2.com/documentation-captured-output.html
-
 
 
 ## ZSH
@@ -73,8 +99,9 @@
   - [x] Dirty/behind repo status in prompt
       - https://stackoverflow.com/questions/41474467/zsh-theme-dirty-color-and-suffix
   - [x] zsh cheatsheet: https://blog.praveen.science/oh-my-zsh-cheat-sheet/
-  - [..] Interactive help script
-  - [..] Macports 
+  - [x] Interactive help script
+  - [ ] SSH Autocomplete
+  - [x] Macports 
      - Post Install
         - add `/opt/local/bin` to your PATH
         - update with `sudo port -v selfupdate`use `tag_name`
@@ -103,27 +130,3 @@ cd Macports-...;
 make;
 sudo make install;
 ```
-  - [..] Node and NVM
-      - after macports installed and updated: `port install nvm;` also need to add `/opt/local/share/nvm/init-nvm.sh` to PATH
-      - [ ] need to setup $NVM_HOME variable and update $PATH with it?
-  - [..] Doctor script - on change directory?
-      - check for MacPorts updates
-      - check for oh-my-zsh updates
-      - git fetch
-      - node dependencies?
-      - npm audit
-      - node version (package.json>engines OR .nvm file)
-  - [ ] init.sh script that can be wget from github to do startup in base directory
-       - Verify git can be accessed or set message to install xcode
-       - separate from init.zsh (which requires git repo)
-       - Message to set git configs
-       - Message to setup ssh configs
-         - ssh private key pair
-         - AWS key 
-       - Create `~/Code` directory
-       - Clone rest of `shell` repo into `~/Code/shell`
-  - [ ] move github pages to `gh-pages/` dir
-  - [ ] install atom? vscode?
-  - [ ] ignore in global .gitfetch
-      - add `.gitfetch` to ~/.gitignore
-      - `git config --global core.excludesfile ~/.gitignore`
