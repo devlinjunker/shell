@@ -25,7 +25,7 @@ These custom commands and prompts are for personal use, see [TODO List](./TODO.m
 See the following directories for setup/installing custom commands and prompts for a new user/computer.
 
 ### ZSH: 
-After OSX updated to default to ZSH, cleaned up my custom scripts in [ZSH README](./zsh)
+After OSX updated to default to ZSH, cleaned up my custom scripts, see more notes in the [ZSH README](./zsh)
 - Remind Script
 - Custom Alias Files
 - Custom Prompt or OhMyZSH Theme
@@ -36,7 +36,7 @@ After OSX updated to default to ZSH, cleaned up my custom scripts in [ZSH README
     - TODO: setup/init
 
 ### Bash:  
-Initial (old) files that customize OSX Bash shell, see more notes [Bash README](./bash)
+Initial (old) files that customize OSX Bash shell, see more notes in the [Bash README](./bash)
 
 Still in use:
 - Custom `max` script to find larger of 2 numbers
