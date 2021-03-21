@@ -1,0 +1,12 @@
+#! /bin/bash
+
+# TODO: research .bashrc vs .bash_profile
+#  - .bash_profile won't be picked up on switching to bash from other shell, need .bashrc for this
+#  - How does this work for servers?
+#  - for window computers and others...?
+
+## read universal bash profile
+[[ -e ~/.bash_profile ]] && source ~/.bash_profile
+
+## make sure admin commands are on path??
+export PATH=$PATH:/sbin:/usr/sbin
