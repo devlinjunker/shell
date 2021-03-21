@@ -12,7 +12,7 @@ TBD:
 - [ ] init and setup scripts (for install steps below)
 
 ## FAQ
-**How do I install custom shell commands and theme for faster development?**
+**How do I install the custom shell commands and theme for faster development?**
 1. Install:
    - Oh My ZSH
    - [Optional] iTerm?
@@ -34,6 +34,16 @@ TBD:
 **Why use iTerm?**
  - More Colors?
 
+**What is on the Default $PATH?**
+- /Users/devlinjunker/.nvm/versions/node/v14.14.0/bin (from Macports I think)
+- /usr/local/bin
+- /usr/bin
+- /bin
+- /usr/sbin
+- /sbin
+- /Library/Apple/usr/bin
+- /Users/devlinjunker/Code/shell/zsh/../scripts (Add Custom Scripts from `shell/scripts`)
+- /opt/local/bin (Added for MacPorts?)
 
 ## Notes
 - Sort of based on https://github.com/whatyouhide/dotfiles
