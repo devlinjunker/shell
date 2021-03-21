@@ -14,10 +14,10 @@ TBD:
 ## FAQ
 **How do I install custom shell commands and theme for faster development?**
 1. Install:
-  - Oh My ZSH
-  - [Optional] iTerm?
-  - [Optional] MacPorts
-  - [Optional] Chrome (think about switch to FF?)
+   - Oh My ZSH
+   - [Optional] iTerm?
+   - [Optional] MacPorts
+   - [Optional] Chrome (think about switch to FF?)
 2. Clone this repo
 3. Add Symbolic Link for all themes to `~/.oh-my-zsh/themes/`
 3. Update theme name in `~/.zshrc` to `bira+gitstatus`
