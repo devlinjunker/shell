@@ -9,39 +9,37 @@ r_init() {
 ## ---------
 
 r_files() {
-
-  r_HELP+=(
+  file_HELP=(
     " FILES "
-    "\n"
     "------- "
-    "\n"
     "numFiles - count number of files in current directory"
-    "\n"
   )
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    r_HELP+=(
-      "\n"
-      "qfind <file_name> - recursively search for file matching <file_name> \n"
+    file_HELP+=(
+      ""
+      "qfind <file_name> - recursively search for file matching <file_name>"
     )
   fi
 
-  r_HELP+=(
-    "grep -r <term> <path> - recursive find lines in files starting at <path> \n"
-    "grep -v <term> - find lines that do not match <term> \n"
-    "\n"
-    "zipf <folder_name> - recursively zip folder provided into <folder_name>.zip \n"
-    "extract <archive> - quickly extract most archive types \n"
+  file_HELP+=(
+    "grep -r <term> <path> - recursive find lines in files starting at <path>"
+    "grep -v <term> - find lines that do not match <term>"
+    ""
+    "zipf <folder_name> - recursively zip folder provided into <folder_name>.zip"
+    "extract <archive> - quickly extract most archive types"
   )
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    r_HELP+=(
-      "\n"
-      "trash <file> - move file to ~/.Trash rather than forcefully delete \n"
-      "cleanupDS - cleans up leftover .DS_Store files in current directory \n"
+    file_HELP+=(
+      ""
+      "trash <file> - move file to ~/.Trash rather than forcefully delete"
+      "cleanupDS - cleans up leftover .DS_Store files in current directory"
     )
   fi
 
+  printf -v help_str "%s\n" "${file_HELP[@]}"
+  r_HELP+="${help_str}\n\n";
 }
 
 
@@ -50,30 +48,32 @@ r_files() {
 ## ---------
 
 r_processes() {
-  r_HELP+="
-PROCESSES
---------
-findpid <name> - finds the process id the process containig <name>
-pid <process_id> - returns process info about <process_id> specified
-
-memhogs - see processes ranked by memory usage
-cpuhogs - see processes ranked by cpu usage
-
-my_ps - see list of ALL processes under my user
-"
-
+  process_HELP=(
+    "PROCESSES"
+    "--------"
+    "findpid <name> - finds the process id the process containig <name>"
+    "pid <process_id> - returns process info about <process_id> specified"
+    ""
+    "memhogs - see processes ranked by memory usage"
+    "cpuhogs - see processes ranked by cpu usage"
+    ""
+    "my_ps - see list of ALL processes under my user"
+  )
+  printf -v help_str "%s\n" "${process_HELP[@]}";
+  r_HELP+="${help_str}\n\n";
 }
 
 ## ---------
 ## GIT
 ## ---------
 r_git() {
-  r_HELP+="
-GIT
--------
-gpsup - 'git push --set-upstream origin/<current_branch>'
-"
-
+  git_HELP=(
+    "GIT"
+    "-------"
+    "gpsup - 'git push --set-upstream origin/<current_branch>'"
+  )
+  printf -v help_str "%s\n" "${git_HELP[@]}";
+  r_HELP+="${help_str}\n\n";
 }
 
 ## ---------
@@ -81,28 +81,31 @@ gpsup - 'git push --set-upstream origin/<current_branch>'
 ## ---------
 
 r_network() {
-  r_HELP+="
-NETWORK
---------
-myip - returns the external ip address our LAN is using
-myiip - returns the internal network ip address this computer is using
-netexp - ping the modem to see ip addresses of other computers on the network
-
-findport - find process id using port
-openports - list all open ports
-suopenports - list all open ports (visible to super user)
-
-users - list currently connected users to this computer"
+  net_HELP=(
+    "NETWORK"
+    "--------"
+    "myip - returns the external ip address our LAN is using"
+    "myiip - returns the internal network ip address this computer is using"
+    "netexp - ping the modem to see ip addresses of other computers on the network"
+    ""
+    "findport - find process id using port"
+    "openports - list all open ports"
+    "suopenports - list all open ports (visible to super user)"
+    ""
+    "users - list currently connected users to this computer"
+  )
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    r_HELP+="
-
-vnc <ip_address> - connect to other osx machine at <ip_address> with vnc
-
-awssh <host> - connect to amazon host with key locaiton defined in AWS_KEY
-"
+    net_HELP+=(
+      ""
+      "vnc <ip_address> - connect to other osx machine at <ip_address> with vnc"
+      ""
+      "awssh <host> - connect to amazon host with key locaiton defined in AWS_KEY"
+    )
   fi
 
+  printf -v help_str "%s\n" "${net_HELP[@]}";
+  r_HELP+="${help_str}\n\n";
 }
 
 
@@ -110,15 +113,21 @@ awssh <host> - connect to amazon host with key locaiton defined in AWS_KEY
 ## APPLICATIONS
 ## ---------
 r_apps() {
-  r_HELP+="
-APPS
---------
-finder - open finder
-cdf - change to most recent Finder directory
+  app_HELP=(
+    "APPS"
+    "--------"
+    "finder - open finder"
+    "cdf - change to most recent Finder directory"
+  )
 
-code <file_path> - open file in vscode
-"
-
+  if [[ $(which code) ]]; then
+    app_HELP+=(
+      ""
+      "code <file_path> - open file in vscode"
+    )
+  fi
+  printf -v help_str "%s\n" "${app_HELP[@]}";
+  r_HELP+="${help_str}\n\n";
 }
 
 
@@ -126,82 +135,98 @@ code <file_path> - open file in vscode
 ## WEB
 ## -------
 r_web() {
-  r_HELP+="
-WEB
---------"
+  web_HELP=(
+    "WEB"
+    "--------"
+  )
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    r_HELP+="
-freshgoogle - new google without term
-google <term/phrase> - opens new Chrome tab with google search
-
-inbox - opens Gmail with Chrome
-devjunk - opens my website with Chrome
-weather - opens my weather page with Chrome
-analytics - opens my Matoma dashboard with Chrome
-
-github - opens github home page with Chrome
-gists - opens my gists with Chrome
-newgist - opens new gist page with Chrome
-"
+    web_HELP+=(
+      "freshgoogle - new google without term"
+      "google <term/phrase> - opens new Chrome tab with google search"
+      ""
+      "inbox - opens Gmail with Chrome"
+      "devjunk - opens my website with Chrome"
+      "weather - opens my weather page with Chrome"
+      "analytics - opens my Matoma dashboard with Chrome"
+      ""
+      "github - opens github home page with Chrome"
+      "gists - opens my gists with Chrome"
+      "newgist - opens new gist page with Chrome"
+    )
   else 
-    r_HELP+="
-Web Shortcuts are on OSX only
-"
+    web_HELP+=(
+      "Web Shortcuts only on OSX"
+    )
   fi
 
+  printf -v help_str "%s\n" "${web_HELP[@]}";
+  r_HELP+="${help_str}\n\n";
 }
 
 r_install() {
-  r_HELP+="
-INSTALLATION
------"
+  install_HELP=(
+    "INSTALLATION"
+    "-----"
+  )
 
-  if [[ $(which port) ]]; then
-    r_HELP+="
-port list installed - view installed macports
-sudo port selfupdate -v - update ports and macports
-"
+  if [[ "$OSTYPE" == "darwin"* && $(which port) ]]; then
+    install_HELP+=(
+      "port list installed - view installed macports"
+      "sudo port selfupdate -v - update ports and macports"
+    )
   else
-    r_HELP+="
-Mac Ports not installed!!
-"
+    install_HELP+=(
+      "Install Help only on OSX with Mac Ports installed"
+    )
   fi
+  
+  printf -v help_str "%s\n" "${install_HELP[@]}";
+  r_HELP+="${help_str}\n\n";
 }
 
 r_search() {
-  r_HELP+="
-SEARCH
-------
-grep <term> <file> - find lines matching <term> in <file>
-grep -v <term> - find lines without <term>
+  search_HELP=(
+    "SEARCH"
+    "------"
+    "grep <term> <file> - find lines matching <term> in <file>"
+    "grep -v <term> - find lines without <term>"
+    ""
+    "sed - TODO"
+    ""
+    "awk - TODO"
+    ""
+    "qfind - TODO"
+    ""
+    "google <term> - open new google web search with <term>"
+    "ghfind - TBD"
+  )
 
-sed - TODO
-
-awk - TODO
-
-qfind - TODO
-
-google <term> - open new google web search with <term>
-ghfind - TBD
-"
+  printf -v help_str "%s\n" "${search_HELP[@]}";
+  r_HELP+="${help_str}\n\n";
 }
 
 
 function remind () {
+  INTRO=(
+    "which topic?"
+    "[A]ll"
+    "[f]iles"
+    "[p]rocesses"
+    "[n]etwork"
+    "[i]nstall"
+    "[a]pps"
+    "[w]eb"
+    "[s]earch"
+  )
+
+  if [[ $(which omz) ]]; then
+    INTRO+=("[g]it")
+  fi
+
   clear
   if [[ $1 == "" ]]; then
-    echo "which topic?
-[A]ll
-[f]iles
-[g]it
-[p]rocesses
-[n]etwork
-[i]nstall
-[a]pps
-[w]eb
-[s]earch
-"
+    echo "${INTRO[*]}"
     read response
   else
     response=$1;
