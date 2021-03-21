@@ -1,8 +1,7 @@
 # My Shell Configs
 
-This Repo is a Collection of bash configurations, shortcuts and scripts that I prefer
-to use on the command line. Sets up Prompt to display useful information and adds a
-few useful aliases.
+This Repo is a Collection of shell configurations, commands and scripts that I prefer
+to increase my development speed and help me remember things.
 
 If you are unfamiliar with navigating and running programs via the command line, I recommend:
 - [this](http://linuxcommand.org/lc3_learning_the_shell.php) review of basic command
