@@ -3,6 +3,12 @@
 
 ## Find Custom Bash Directory (following sym link)
 SYM_FILE=`readlink "${BASH_SOURCE[0]}"`
+
+## If not symlink, just use BASH_SOURCE as file to find dir
+if [ -z $SYM_FILE ]; then
+  SYM_FILE="${BASH_SOURCE[0]}"
+fi
+
 CUR_DIR=$(dirname "$SYM_FILE")
 PWD=$(pwd)
 if [[ "$CUR_DIR" != *"$PWD"* ]] && [[ "$CUR_DIR" != /* ]]; then # prepend PWD if it is not in DIR and DIR not absolute
@@ -11,6 +17,7 @@ fi
 if [[ $CUR_DIR == *"." ]]; then
     CUR_DIR=$(echo "$CUR_DIR" | sed s/\\/?.?$// )
 fi
+echo $CUR_DIR
 
 
 # Load custom my_profile with prompt and aliases
