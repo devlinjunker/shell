@@ -203,6 +203,7 @@ r_search() {
     "awk '{ if (NF > max) max = NF; line=\$0 } END { print line }' - Print line with most words"
     "awk 'length(\$0) > 10' - Print lines that are larger than 10 characters "
     ""
+    "find <path> -name '<pattern>' - find file matching pattern recursively below path"
     "qfind <file_name> - search directories below recursively for file with name = file_name"
     ""
     "google <term> - open new google web search with <term>"
