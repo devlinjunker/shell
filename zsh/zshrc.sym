@@ -1,5 +1,5 @@
 # ZSH Configs (run on login)
-## Add to .zshrc: `source <path_to_zshenv.sym>`
+## Add to .zshrc: `source <absolute_path_to_zshenv.sym>`
 
 
 ## Find Current Script Directory
