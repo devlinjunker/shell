@@ -6,6 +6,7 @@ Contains:
 - Alias Script broken out (for custom commands)
 - Remind Script (invoke with `r?` or `?` or `remind`)
 - EC2 SSH Script (that references $AWS_KEY env variable)
+- ZSH Hook to change node version based on `.nvmrc` file when changing directories
 
 TBD: 
 - [ ] Doctor Script (for preparing shell when navigating to projects)

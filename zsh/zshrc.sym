@@ -100,7 +100,8 @@ load-nvmrc() {
   fi
 }
 
-if $(which nvm > /dev/null); then
+# Check for NVM (but hide output "1>")
+if $(which nvm 1> /dev/null); then
   autoload -U add-zsh-hook
   add-zsh-hook chpwd load-nvmrc
   load-nvmrc

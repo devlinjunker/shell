@@ -30,6 +30,7 @@ After OSX updated to default to ZSH, cleaned up my custom scripts, see more note
 - Custom Alias Files
 - Custom Prompt or OhMyZSH Theme
 - Custom ZSH Config Script to include in `~/.zshrc`
+- Custom ZSH Hook to check node version on change directory
 - Custom Scripts
     - ec2ssh
     - TODO: doctor
