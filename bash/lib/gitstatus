@@ -13,7 +13,7 @@ host=`echo "${HOST_ARRAY[1]}" | cut -d'/' -f3`
 if [[ ! -e .gitfetch ]] || [[ -e .gitfetch ]] && [[ `date "+%Y%m%d%H%M"` -ge $(($(cat .gitfetch)+5)) ]]; then
   online=true;
 
-  ping -t 2 $host 2>&1 /dev/null;
+  ping -t 2 $host > /dev/null 2>&1;
   if [[ $? -ne 0 ]]; then
     online=false;
     date "+%Y%m%d%H%M" > .gitfetch
