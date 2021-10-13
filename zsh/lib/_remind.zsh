@@ -193,6 +193,7 @@ r_search() {
     "------"
     "grep <term> <file> - print lines matching <term> in <file>"
     "grep -v <term> - print lines without <term>"
+    "grep -r <term> <dir> - print lines in files inside <dir> (recursively)"
     ""
     "sed -n '/abc/p' - print lines that contain abc"
     "sed 's/old-text/new-text/g' - replace all instances of 'old-text' with 'new-text'"
