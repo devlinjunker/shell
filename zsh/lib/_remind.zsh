@@ -23,9 +23,6 @@ r_files() {
   fi
 
   file_HELP+=(
-    "grep -r <term> <path> - recursive find lines in files starting at <path>"
-    "grep -v <term> - find lines that do not match <term>"
-    ""
     "zipf <folder_name> - recursively zip folder provided into <folder_name>.zip"
     "extract <archive> - quickly extract most archive types"
   )
