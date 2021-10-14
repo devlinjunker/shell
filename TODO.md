@@ -100,7 +100,7 @@ Notes for all of these are in `remind` script
       - https://stackoverflow.com/questions/41474467/zsh-theme-dirty-color-and-suffix
   - [x] zsh cheatsheet: https://blog.praveen.science/oh-my-zsh-cheat-sheet/
   - [x] Interactive help script
-  - [ ] SSH Autocomplete
+  - [x] SSH Autocomplete
   - [x] Macports 
      - Post Install
         - add `/opt/local/bin` to your PATH
