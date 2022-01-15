@@ -124,17 +124,21 @@ fi
 
 
 ## Find Current Directory
-CUR_DIR=${0:a:h}
-PWD=$(pwd)
-if [[ "$CUR_DIR" != *"$PWD"* ]] && [[ "$CUR_DIR" != /* ]]; then # prepend PWD if it is not in DIR and DIR not absolute
-    CUR_DIR="$PWD/$(echo "$CUR_DIR" | sed s/^\\.\\/?// )" # to make sure this is becomes an absolute path
-fi
+find_dir() {
+  CUR_DIR=${0:a:h}
+  PWD=$(pwd)
+  if [[ "$CUR_DIR" != *"$PWD"* ]] && [[ "$CUR_DIR" != /* ]]; then # prepend PWD if it is not in DIR and DIR not absolute
+      CUR_DIR="$PWD/$(echo "$CUR_DIR" | sed s/^\\.\\/?// )" # to make sure this is becomes an absolute path
+  fi
+}
 
-
+find_dir
+OG_DIR=CUR_DIR
 
 
 cd ~/shell/zsh
 
+find_dir
 
 
 
@@ -185,7 +189,10 @@ osx() {
 
 ## Make sure user is in the right place before running
 
-if [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME/"$ ]] && [[ -e ../scripts ]]; then
+if [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME"$ ]] || [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME/"$ ]] && [[ -e ../scripts ]]; then
+  if [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME"$ ]]; then
+    CUR_DIR="$CUR_DIR/"
+  fi
 
   # Initialize vim configuration file
   # TODO: send to /dev/null because bvimrc needs improvement
