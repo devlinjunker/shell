@@ -133,6 +133,8 @@ fi
 
 
 
+cd ~/shell/zsh
+
 
 
 
