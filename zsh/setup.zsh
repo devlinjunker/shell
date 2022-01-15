@@ -22,7 +22,7 @@ find_dir() {
 }
 
 find_dir
-OG_DIR=CUR_DIR
+OG_DIR="$CUR_DIR"
 
 
 ## Printing Errors
@@ -131,9 +131,6 @@ find_dir
 
 
 
-
-
-
 ###### <OS Setup Functions>
 
 osx() {
@@ -180,7 +177,10 @@ osx() {
 
 ## Make sure user is in the right place before running
 
-if [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME"$ ]] || [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME/"$ ]] && [[ -e ../scripts ]]; then
+if [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME"$ ]] || [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME/"$ ]]; then
+  HAS_DIR_NAME="0"
+fi
+if [[ $HAS_DIR_NAME == "0" ]]  && [[ -e ../scripts ]]; then
   if [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME"$ ]]; then
     CUR_DIR="$CUR_DIR/"
   fi
