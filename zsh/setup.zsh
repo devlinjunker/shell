@@ -141,8 +141,11 @@ fi
 osx() {
 
   if [[ "$TERM_PROGRAM" != "iTerm.app" ]]; then
-    echo -e "$WARNING_ALERT iTerm is the preferred terminal program, you can download and install from:" 
-    echo "https://iterm2.com/downloads/stable/latest"
+    WARN=(
+      "iTerm is the preferred terminal program, you can download and install from:" 
+      "https://iterm2.com/downloads/stable/latest"
+    )
+    warn
   fi
 
   # Check if xcode tools installed
