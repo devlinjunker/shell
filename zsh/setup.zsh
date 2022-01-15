@@ -199,10 +199,12 @@ if [[ $HAS_DIR_NAME == "0" ]]  && [[ -e ../scripts ]]; then
     warn
   fi
 
+  # TODO: Set ZSH_THEME in ~/.zshrc 
+
 
 
   # Initialize vim configuration file
-  # TODO: send to /dev/null because bvimrc needs improvement
+  # NOTE: send to /dev/null because bvimrc needs improvement
   "$CUR_DIR"../bash/lib/bvimrc 1>/dev/null
 
 
