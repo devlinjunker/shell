@@ -192,6 +192,8 @@ if [[ $HAS_DIR_NAME == "0" ]]  && [[ -e ../scripts ]]; then
   # create symbolic link to theme file inside ~/.oh-my-zsh/themes
   if [ ! -f ~/.oh-my-zsh/themes/bira+gitstatus.zsh-theme ]; then
     ln -s "$CUR_DIR"themes/bira+gitstatus.zsh-theme ~/.oh-my-zsh/themes/
+    WARN="Restart Terminal (or new tab) to see theme change"
+    warn
   fi
 
 
