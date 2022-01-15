@@ -134,7 +134,6 @@ find_dir
 ###### <OS Setup Functions>
 
 osx() {
-
   if [[ "$TERM_PROGRAM" != "iTerm.app" ]]; then
     WARN=(
       "iTerm is the preferred terminal program, you can download and install from:" 
@@ -142,6 +141,9 @@ osx() {
     )
     warn
   fi
+
+
+  # TODO: check if this works ...
 
   # Check if xcode tools installed
   (git help 1>/dev/null)
@@ -151,23 +153,17 @@ osx() {
     read  -n 1
   fi
 
-
-  # TODO: Create symlinks to zsh files and use $CUR_DIR to define location of profile files
-  
-
-  echo "TODO: Setup zsh env files"
-
-  # TODO: Install Macports
-  
-  # TODO: Install Node & NVM
-
-  # TODO: call _install_pip.zsh
-
-  # TODO: install vscode?
+  echo "TODO:
+ - [ ] Create symlinks to zsh files and use $CUR_DIR to define location of profile files
+ - [ ] Setup zsh env files
+ - [ ] Install Macports
+ - [ ] Install Node & NVM
+ - [ ] call _install_pip.zsh ?
+    # is this for python / python version manager
+ - [ ] install vscode?
     # also install vscode command line exec
     # https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions
-
-  echo "TODO: install osx stuff"
+  "
 }
 
 ###### </OS Setup Functions>
