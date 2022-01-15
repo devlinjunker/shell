@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/zsh
 # This file is to do setup on new computer after repo is downloaded
 #  Should install typical programs and ensure basic configs are similar for zsh terminals
 
