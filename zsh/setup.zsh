@@ -157,7 +157,7 @@ osx() {
   fi
 
   echo "TODO:
- - [ ] Create symlinks to zsh files and use $CUR_DIR to define location of profile files
+ - [ ] Create symlinks to zsh files and use CUR_DIR to define location of profile files
  - [ ] Setup zsh env files
  - [ ] Install Macports
  - [ ] Install Node & NVM
