@@ -106,7 +106,10 @@ fi
 if [ ! -f ~/.ssh/id_rsa ] && [ ! -f ~/.ssh/id_rsa.pub ]; then
   ERROR=(
     "SSH Key not set"
-    "Please create one with 'ssh-keygen -t rsa'"
+
+    # NOTE: RSA type (-t rsa) with empty comment (-C "")
+    "Please create one with 'ssh-keygen -t rsa -C \"\" '"
+
     ""
   )
   error
