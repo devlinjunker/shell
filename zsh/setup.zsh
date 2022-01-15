@@ -12,6 +12,17 @@ EXPECTED_GIT_NAME="Devlin Junker"
 EXPECTED_GIT_EMAIL=devlin.junker@gmail.com
 
 
+## Find Current Directory
+find_dir() {
+  CUR_DIR=${0:a:h}
+  PWD=$(pwd)
+  if [[ "$CUR_DIR" != *"$PWD"* ]] && [[ "$CUR_DIR" != /* ]]; then # prepend PWD if it is not in DIR and DIR not absolute
+      CUR_DIR="$PWD/$(echo "$CUR_DIR" | sed s/^\\.\\/?// )" # to make sure this is becomes an absolute path
+  fi
+}
+
+find_dir
+OG_DIR=CUR_DIR
 
 
 ## Printing Errors
@@ -113,32 +124,13 @@ if [ ! -d ~/shell ]; then
   fi
 fi
 
-
-## Install oh-my-zsh for custom terminal & prompt (if not already installed)
-which omz 1> /dev/null
-if [[ "$?" == "0" ]]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-
-
-
-## Find Current Directory
-find_dir() {
-  CUR_DIR=${0:a:h}
-  PWD=$(pwd)
-  if [[ "$CUR_DIR" != *"$PWD"* ]] && [[ "$CUR_DIR" != /* ]]; then # prepend PWD if it is not in DIR and DIR not absolute
-      CUR_DIR="$PWD/$(echo "$CUR_DIR" | sed s/^\\.\\/?// )" # to make sure this is becomes an absolute path
-  fi
-}
-
-find_dir
-OG_DIR=CUR_DIR
-
-
+# change to repo and set CUR_DIR
 cd ~/shell/zsh
-
 find_dir
+
+
+
+
 
 
 
@@ -165,7 +157,6 @@ osx() {
 
   # TODO: Create symlinks to zsh files and use $CUR_DIR to define location of profile files
   
-  # TODO: create symbolic link to themes inside ~/.oh-my-zsh/themes
 
   echo "TODO: Setup zsh env files"
 
@@ -194,19 +185,35 @@ if [[ "$CUR_DIR" =~ .*"$EXPECTED_DIR_NAME"$ ]] || [[ "$CUR_DIR" =~ .*"$EXPECTED_
     CUR_DIR="$CUR_DIR/"
   fi
 
+  ## Setup Oh-my-ZSH (colorful prompt)
+
+  ## Install oh-my-zsh for custom terminal & prompt (if not already installed)
+  which omz 1> /dev/null
+  if [[ "$?" == "0" ]]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  fi
+
+  # create symbolic link to theme file inside ~/.oh-my-zsh/themes
+  if [ ! -f ~/.oh-my-zsh/themes/bira+gitstatus.zsh-theme ]; then
+    ln -s "$CUR_DIR"themes/bira+gitstatus.zsh-theme ~/.oh-my-zsh/themes/
+  fi
+
+
+
   # Initialize vim configuration file
   # TODO: send to /dev/null because bvimrc needs improvement
   "$CUR_DIR"../bash/lib/bvimrc 1>/dev/null
 
-  echo ""
-  
-  ## 3. Run OS specific steps
+
+
+
+  # Run OS specific steps
   if [[ "$OSTYPE" == "darwin"* ]]; then 
     ## Run method defined above
     osx
   fi
 
 else
-  echo "Please run init script from '$EXPECTED_DIR_NAME' directory"
-  echo ""
+  ERROR="Please run init script from '$EXPECTED_DIR_NAME' directory"
+  error
 fi
