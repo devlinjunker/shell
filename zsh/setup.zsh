@@ -249,7 +249,12 @@ osx() {
 
   which node > /dev/null
   if [ "$?" -ne "0" ]; then
-    nvm install --lts
+    NODE_VERSION=nvm install --lts | awk 'END{print}' | cut -d " " -f4
+    WARN=(
+      "Installed node $NODE_VERSION"
+      "Open new shell to make available"
+    )
+    warn
     INSTALLED+=("Node")
   else
     INSTALLED+=("Node")
@@ -259,9 +264,6 @@ osx() {
  - [ ] Install davfs2 and link nextcloud
     # https://docs.nextcloud.com/server/19/user_manual/files/access_webdav.html#creating-webdav-mounts-on-the-linux-command-line
     # point aws key at mounted nextcloud drive
- - [ ] install vscode?
-    # also install vscode command line exec
-    # https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions
  - [ ] call _install_pip.zsh ?
     # is this for python / python version manager
   "
@@ -312,6 +314,26 @@ if [[ $HAS_DIR_NAME == "0" ]]  && [[ -e ../scripts ]]; then
   if [[ "$OSTYPE" == "darwin"* ]]; then 
     ## Run method defined above
     osx
+  fi
+
+
+  which code > /dev/null
+  if [ "$?" -ne "0" ]; then
+    if [[ "$PATH" != *"/Visual Studio Code.app/"* ]]; then
+      PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+    fi
+    which code > /dev/null
+    if [ "$?" -ne "0" ]; then
+      WARN=(
+        "Unable to find vscode"
+        "Download from https://code.visualstudio.com/docs/setup/setup-overview"
+      )    
+      warn
+    else
+      INSTALLED+=("VScode")
+    fi
+  else
+    INSTALLED+=("VSCode")
   fi
 
 else

@@ -36,6 +36,9 @@ alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 
 
+PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+
 ## Internet Applications
 
 ### Google
