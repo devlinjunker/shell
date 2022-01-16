@@ -158,7 +158,7 @@ osx() {
   # TODO: Ask to install Iterm?
   if [[ "$TERM_PROGRAM" != "iTerm.app" ]]; then
     WARN=(
-      "iTerm is the preferred terminal program, you can download and install from:" 
+      "iTerm is the preferred terminal program, download and install from:" 
       "https://iterm2.com/downloads/stable/latest"
     )
     warn
@@ -166,10 +166,17 @@ osx() {
 
 
   # TODO: Check if macports installed and warn user if not
+  which port 1> /dev/null
+  if [ "$?" -ne 0 ]; then
+    ERROR=(
+      "Unable to find Macports, download and install from:"
+      "https://www.macports.org"
+    )
+    error
+  fi
   
 
   echo "TODO:
- - [ ] Install Macports
  - [ ] Install Node & NVM
  - [ ] Install davfs2 and link nextcloud
     # https://docs.nextcloud.com/server/19/user_manual/files/access_webdav.html#creating-webdav-mounts-on-the-linux-command-line
