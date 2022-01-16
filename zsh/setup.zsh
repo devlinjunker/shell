@@ -12,6 +12,9 @@ EXPECTED_GIT_NAME="Devlin Junker"
 EXPECTED_GIT_EMAIL=devlin.junker@gmail.com
 
 
+INSTALLED=()
+
+
 ## Find Current Directory
 find_dir() {
   CUR_DIR=${0:a:h}
@@ -30,6 +33,8 @@ OG_DIR="$CUR_DIR"
 ERROR_ALERT="\n\033[0;31mERROR:\033[0m"
 WARNING_ALERT="\n\033[0;33mWARNING:\033[0m"
 
+WARNINGS=()
+
 error() {
   echo -e "$ERROR_ALERT"
   printf "%s\n" "${ERROR[@]}"
@@ -38,6 +43,7 @@ error() {
 }
 
 warn() {
+  WARNINGS+=( "$WARNING_ALERT\n" $(printf "%s\n" "${WARN[@]}") )
   echo -e "$WARNING_ALERT"
   printf "%s\n" "${WARN[@]}"
   echo ""
@@ -67,6 +73,8 @@ PARENT=$(ps -o args= -p "$PARENT_PID")
 if [[ "$PARENT" != *"zsh" ]]; then
   ERROR="Not using zsh (this script expects zsh terminal)"
   error
+else
+  INSTALLED+=("zsh")
 fi
 
 
@@ -138,12 +146,17 @@ if [ ! -f ~/.ssh/id_rsa ] && [ ! -f ~/.ssh/id_rsa.pub ]; then
   error
 fi
 
+INSTALLED+=("git")
+
+
 ## Install Oh-my-ZSH (custom terminal & prompt)
 
 # check if already installed
 if [[ ! -d ~/.oh-my-zsh ]]; then
   # added `"" --unattended` to prevent from gettinng stuck in new zsh terminal
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+  INSTALLED+=("oh-my-zsh")
 fi
 
 # download shell repo if not exists
@@ -156,6 +169,9 @@ if [ ! -d ~/shell ]; then
     )
     error
   fi
+  INSTALLED+=("shell repo") 
+else
+  INSTALLED+=("shell repo") 
 fi
 
 # change to repo and set CUR_DIR
@@ -175,6 +191,8 @@ osx() {
       "https://iterm2.com/downloads/stable/latest"
     )
     warn
+  else
+    INSTALLED+=("iTerm") 
   fi
 
 
@@ -201,6 +219,9 @@ osx() {
       make
       sudo make install
     fi
+    INSTALLED+=("MacPorts")
+  else
+    INSTALLED+=("MacPorts")
   fi
   
 
@@ -268,6 +289,20 @@ else
   ERROR="Please run init script from '$EXPECTED_DIR_NAME' directory"
   error
 fi
+
+
+## Print summary
+
+echo "Summary"
+echo "--------"
+
+echo "${WARNINGS}"
+echo ""
+echo "Tools:"
+printf "[x] %s\n" "${INSTALLED[@]}"
+echo ""
+
+## Set up user
 
 cd $OG_DIR
 if [[ -z $ZSH ]]; then
