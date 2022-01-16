@@ -61,7 +61,7 @@ fi
 
 # check if already installed
 which omz 1> /dev/null
-if [[ "$?" != "0" ]]; then
+if [[ ! -d ~/.oh-my-zsh ]]; then
   # added `"" --unattended` to prevent from gettinng stuck in new zsh terminal
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
@@ -156,6 +156,7 @@ find_dir
 ###### <OS Setup Functions>
 
 osx() {
+  # TODO: Ask to install Iterm?
   if [[ "$TERM_PROGRAM" != "iTerm.app" ]]; then
     WARN=(
       "iTerm is the preferred terminal program, you can download and install from:" 
@@ -164,15 +165,21 @@ osx() {
     warn
   fi
 
+
+  # TODO: Check if macports installed and warn user if not
+  
+
   echo "TODO:
- - [ ] Install iTerm
  - [ ] Install Macports
  - [ ] Install Node & NVM
- - [ ] call _install_pip.zsh ?
-    # is this for python / python version manager
+ - [ ] Install davfs2 and link nextcloud
+    # https://docs.nextcloud.com/server/19/user_manual/files/access_webdav.html#creating-webdav-mounts-on-the-linux-command-line
+    # point aws key at mounted nextcloud drive
  - [ ] install vscode?
     # also install vscode command line exec
     # https://code.visualstudio.com/docs/setup/mac#_alternative-manual-instructions
+ - [ ] call _install_pip.zsh ?
+    # is this for python / python version manager
   "
 }
 
@@ -228,6 +235,6 @@ else
   error
 fi
 
-# TODO: make sure this is correct
+# TODO: open new iterm tab or install and start
 cd $OG_DIR
 zsh
