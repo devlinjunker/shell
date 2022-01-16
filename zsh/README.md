@@ -35,7 +35,7 @@ zsh -c "$(curl -fsSl https://raw.githubusercontent.com/devlinjunker/shell/master
  - ZSH provides autocomplete for git out of the box with `autoload -Uz compinit && compinit` in `zshrc.sym`
  - SSH Autocomplete improved with commands in `zshrc.sym` also (?)
 
-**Why use MacPorts over Homebrew?**
+### Why use MacPorts over Homebrew?
  - Community seems to be moving away from Homebrew and towards MacPorts
  - https://saagarjha.com/blog/2019/04/26/thoughts-on-macos-package-managers/
  - Sets up tools in isolation from system tools
@@ -43,19 +43,10 @@ zsh -c "$(curl -fsSl https://raw.githubusercontent.com/devlinjunker/shell/master
    - requires sudo for any action that affects all users (most)
  - Sets up under /opt (need to add to $PATH)
 
-**Why use iTerm?**
+### Why use iTerm?
  - More Colors?
+ - TODO: More notes here
 
-**What is on the Default $PATH?**
-- /Users/devlinjunker/.nvm/versions/node/v14.14.0/bin (from Macports I think)
-- /usr/local/bin
-- /usr/bin
-- /bin
-- /usr/sbin
-- /sbin
-- /Library/Apple/usr/bin
-- /Users/devlinjunker/Code/shell/zsh/../scripts (Add Custom Scripts from `shell/scripts`)
-- /opt/local/bin (Added for MacPorts?)
 
 ## Notes
 - Sort of based on https://github.com/whatyouhide/dotfiles
@@ -79,6 +70,17 @@ zsh -c "$(curl -fsSl https://raw.githubusercontent.com/devlinjunker/shell/master
 - installed vscode command line exec, open with: `code <file_path>`
 - `.zshenv` is executed on every new shell instance
   - linked to my `zshenv.sym` file in this directory
+
+### What is on the Default $PATH?
+- /Users/devlinjunker/.nvm/versions/node/v14.14.0/bin (from Macports I think)
+- /usr/local/bin
+- /usr/bin
+- /bin
+- /usr/sbin
+- /sbin
+- /Library/Apple/usr/bin
+- /Users/devlinjunker/Code/shell/zsh/../scripts (Add Custom Scripts from `shell/scripts`)
+- /opt/local/bin (Added for MacPorts?)
 
 ### Oh My ZSH
 - Themes, Plugins, Framework for Configuring ZSH Shell
