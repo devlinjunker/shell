@@ -16,7 +16,9 @@ TBD:
 
 ### How do I install the custom shell commands and theme for faster development?
 #### Use setup script 
+```
 zsh -c "$(curl -fsSl https://raw.githubusercontent.com/devlinjunker/shell/master/zsh/setup.zsh)"
+```
 
 #### Manual Install
 1. Install:
