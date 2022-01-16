@@ -9,11 +9,16 @@ Contains:
 - ZSH Hook to change node version based on `.nvmrc` file when changing directories
 
 TBD: 
-- [ ] Doctor Script (for preparing shell when navigating to projects)
-- [ ] init and setup scripts (for install steps below)
+- [..] Doctor Script (for preparing shell when navigating to projects)
+- [..] init and setup scripts (for install steps below)
 
 ## FAQ
-**How do I install the custom shell commands and theme for faster development?**
+
+### How do I install the custom shell commands and theme for faster development?
+#### Use setup script 
+zsh -c "$(curl -fsSl https://raw.githubusercontent.com/devlinjunker/shell/master/zsh/setup.zsh)"
+
+#### Manual Install
 1. Install:
    - Oh My ZSH
    - [Optional] iTerm?
@@ -24,13 +29,17 @@ TBD:
 3. Update theme name in `~/.zshrc` to `bira+gitstatus`
 4. Source `zshrc.sym` from this repo in `~/.zshrc` (so it is executed on startup)
 
-**Why use ZSH over Bash?**
+### Why use ZSH over Bash?
  - ZSH provides autocomplete for git out of the box with `autoload -Uz compinit && compinit` in `zshrc.sym`
  - SSH Autocomplete improved with commands in `zshrc.sym` also (?)
 
 **Why use MacPorts over Homebrew?**
  - Community seems to be moving away from Homebrew and towards MacPorts
  - https://saagarjha.com/blog/2019/04/26/thoughts-on-macos-package-managers/
+ - Sets up tools in isolation from system tools
+   - Any kind of MacOS update that changes library versions will never affect an app installed by MacPorts
+   - requires sudo for any action that affects all users (most)
+ - Sets up under /opt (need to add to $PATH)
 
 **Why use iTerm?**
  - More Colors?
