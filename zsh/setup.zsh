@@ -218,4 +218,5 @@ else
 fi
 
 # TODO: make sure this is correct
+cd $OG_DIR
 zsh
