@@ -61,7 +61,7 @@ fi
 
 # check if already installed
 which omz 1> /dev/null
-if [[ "$?" == "0" ]]; then
+if [[ "$?" != "0" ]]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
