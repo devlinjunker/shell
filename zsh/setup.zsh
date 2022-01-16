@@ -43,6 +43,19 @@ warn() {
   echo ""
 }
 
+error_continue() {
+  echo -e "$ERROR_ALERT"
+  printf "%s\n" "${ERROR[@]} (y/n)"
+
+  read -sk1 INPUT
+  echo "$INPUT\n"
+  if [[ "$INPUT" == "y"* ]]; then
+    return 0
+  else
+    exit 1
+  fi
+}
+
 
 
 
@@ -171,8 +184,23 @@ osx() {
     ERROR=(
       "Unable to find Macports, download and install from:"
       "https://www.macports.org"
+      ""
+      "Would you like us to attempt to install?"
     )
-    error
+    error_continue
+
+    PREINSTALL_DIR="$CUR_DIR"
+    if [ "$?" -eq 0 ]; then
+      MACPORT_VERSION=$(curl --silent "https://api.github.com/repos/macports/macports-base/releases/latest" | grep '"tag_name"' | sed -E 's/.*"v([^"]+)".*/\1/')  
+      echo $MACPORT_VERSION
+      curl "https://github.com/macports/macports-base/releases/download/v${MACPORT_VERSION}/MacPorts-${MACPORT_VERSION}.tar.bz2" -L -o ~/Downloads/MacPorts-"$MACPORT_VERSION".tar.bz2
+      cd ~/Downloads
+      tar xjf Macports-"$MACPORT_VERSION".tar.bz2
+      cd Macports-"$MACPORT_VERSION"
+      ./configure
+      make
+      sudo make install
+    fi
   fi
   
 
