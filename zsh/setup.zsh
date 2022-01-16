@@ -165,8 +165,7 @@ osx() {
   fi
 
   echo "TODO:
- - [ ] Create symlinks to zsh files and use CUR_DIR to define location of profile files
- - [ ] Setup zsh env files
+ - [ ] Install iTerm
  - [ ] Install Macports
  - [ ] Install Node & NVM
  - [ ] call _install_pip.zsh ?
@@ -200,6 +199,18 @@ if [[ $HAS_DIR_NAME == "0" ]]  && [[ -e ../scripts ]]; then
   
   # set oh-my-zsh theme with custom theme
   sed -i -e 's/ZSH_THEME=".*"/ZSH_THEME="bira+gitstatus"/' ~/.zshrc
+
+
+  # set PATH and link custom alias files in ~/.zshrc
+  NEW_LINE="PATH=\$PATH:~/shell/zsh/lib"
+  grep -qxF "$NEW_LINE" ~/.zshrc || echo "$NEW_LINE" >> ~/.zshrc
+
+  NEW_LINE="PATH=\$PATH:~/shell/bash/lib"
+  grep -qxF "$NEW_LINE" ~/.zshrc || echo "$NEW_LINE" >> ~/.zshrc
+
+  NEW_LINE="source \"${CUR_DIR}zshrc.sym\""
+  grep -qxF "$NEW_LINE" ~/.zshrc || echo "$NEW_LINE" >> ~/.zshrc
+
 
   # Initialize vim configuration file
   # NOTE: send to /dev/null because bvimrc needs improvement
