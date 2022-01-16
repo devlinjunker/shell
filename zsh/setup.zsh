@@ -60,7 +60,6 @@ fi
 ## Install Oh-my-ZSH (custom terminal & prompt)
 
 # check if already installed
-which omz 1> /dev/null
 if [[ ! -d ~/.oh-my-zsh ]]; then
   # added `"" --unattended` to prevent from gettinng stuck in new zsh terminal
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -235,6 +234,10 @@ else
   error
 fi
 
-# TODO: open new iterm tab or install and start
 cd $OG_DIR
-zsh
+if [[ -z $ZSH ]]; then
+  # TODO: if osx open new iterm tab or install and start
+  zsh
+fi
+
+
