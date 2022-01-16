@@ -62,7 +62,8 @@ fi
 # check if already installed
 which omz 1> /dev/null
 if [[ "$?" != "0" ]]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  # added `"" --unattended` to prevent from gettinng stuck in new zsh terminal
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
 
@@ -216,3 +217,6 @@ else
   ERROR="Please run init script from '$EXPECTED_DIR_NAME' directory"
   error
 fi
+
+# TODO: make sure this is correct
+zsh
