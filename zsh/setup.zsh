@@ -64,6 +64,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   # TODO: check if this works ...
   (git help 1>/dev/null)
   if [[ "$?" != "0" ]]; then
+    xcode-select --install
     echo "Waiting on tools install..."
     echo ""
     read  -n 1
