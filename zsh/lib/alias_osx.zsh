@@ -54,7 +54,7 @@ freshgoogle () {
 
 alias inbox="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window https://inbox.google.com/u/2"
 
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window &"
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window &; disown"
 
 
 ### Github/Gists
