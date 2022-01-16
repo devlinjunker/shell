@@ -52,17 +52,8 @@ warn() {
 PARENT_PID=$(ps -o ppid= "$$")
 PARENT=$(ps -o args= -p "$PARENT_PID")
 if [[ "$PARENT" != *"zsh" ]]; then
-  echo -e "$ERROR_ALERT Not using zsh (this script expects zsh terminal) \n"
-  exit 1
-fi
-
-
-## Install Oh-my-ZSH (custom terminal & prompt)
-
-# check if already installed
-if [[ ! -d ~/.oh-my-zsh ]]; then
-  # added `"" --unattended` to prevent from gettinng stuck in new zsh terminal
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  ERROR="Not using zsh (this script expects zsh terminal)"
+  error
 fi
 
 
@@ -131,6 +122,14 @@ if [ ! -f ~/.ssh/id_rsa ] && [ ! -f ~/.ssh/id_rsa.pub ]; then
     ""
   )
   error
+fi
+
+## Install Oh-my-ZSH (custom terminal & prompt)
+
+# check if already installed
+if [[ ! -d ~/.oh-my-zsh ]]; then
+  # added `"" --unattended` to prevent from gettinng stuck in new zsh terminal
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
 # download shell repo if not exists
