@@ -57,9 +57,27 @@ if [[ "$PARENT" != *"zsh" ]]; then
 fi
 
 
+## Install Oh-my-ZSH (custom terminal & prompt)
+
+# check if already installed
+which omz 1> /dev/null
+if [[ "$?" == "0" ]]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 
-## Check Git Config
+## Setup Git + Config
+
+if [[ "$OSTYPE" == "darwin"* ]]; then 
+  # Check if xcode tools installed
+  # TODO: check if this works ...
+  (git help 1>/dev/null)
+  if [[ "$?" != "0" ]]; then
+    echo "Waiting on tools install..."
+    echo ""
+    read  -n 1
+  fi
+fi
 
 GIT_NAME=`git config --global user.name`
 if [ -z "$GIT_NAME" ]; then
@@ -145,17 +163,6 @@ osx() {
     warn
   fi
 
-
-  # TODO: check if this works ...
-
-  # Check if xcode tools installed
-  (git help 1>/dev/null)
-  if [[ "$?" != "0" ]]; then
-    echo "Waiting on tools install..."
-    echo ""
-    read  -n 1
-  fi
-
   echo "TODO:
  - [ ] Create symlinks to zsh files and use CUR_DIR to define location of profile files
  - [ ] Setup zsh env files
@@ -184,15 +191,8 @@ if [[ $HAS_DIR_NAME == "0" ]]  && [[ -e ../scripts ]]; then
     CUR_DIR="$CUR_DIR/"
   fi
 
-  ## Setup Oh-my-ZSH (colorful prompt)
 
-  ## Install oh-my-zsh for custom terminal & prompt (if not already installed)
-  which omz 1> /dev/null
-  if [[ "$?" == "0" ]]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  fi
-
-  # create symbolic link to theme file inside ~/.oh-my-zsh/themes
+  # create symbolic link from personal theme file inside ~/.oh-my-zsh/themes
   if [ ! -f ~/.oh-my-zsh/themes/bira+gitstatus.zsh-theme ]; then
     ln -s "$CUR_DIR"themes/bira+gitstatus.zsh-theme ~/.oh-my-zsh/themes/
     WARN="Restart Terminal (or new tab) to see theme change"
@@ -201,13 +201,9 @@ if [[ $HAS_DIR_NAME == "0" ]]  && [[ -e ../scripts ]]; then
 
   # TODO: Set ZSH_THEME in ~/.zshrc 
 
-
-
   # Initialize vim configuration file
   # NOTE: send to /dev/null because bvimrc needs improvement
   "$CUR_DIR"../bash/lib/bvimrc 1>/dev/null
-
-
 
 
   # Run OS specific steps
