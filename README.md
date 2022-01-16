@@ -33,8 +33,8 @@ After OSX updated to default to ZSH, cleaned up my custom scripts, see more note
 - Custom ZSH Hook to check node version on change directory
 - Custom Scripts
     - ec2ssh
-    - TODO: doctor
-    - TODO: setup/init
+    - WIP: doctor
+    - WIP: setup/init
 
 ### Bash:  
 Initial (old) files that customize OSX Bash shell, see more notes in the [Bash README](./bash)
