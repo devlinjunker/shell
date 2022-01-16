@@ -198,8 +198,8 @@ if [[ $HAS_DIR_NAME == "0" ]]  && [[ -e ../scripts ]]; then
     ln -s "$CUR_DIR"themes/bira+gitstatus.zsh-theme ~/.oh-my-zsh/themes/
   fi
   
-  # TODO: Set ZSH_THEME in ~/.zshrc 
-  sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="bira+gitstatus"/' ~/.zshrc
+  # set oh-my-zsh theme with custom theme
+  sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="bira+gitstatus"/' ~/.zshrc
 
   # Initialize vim configuration file
   # NOTE: send to /dev/null because bvimrc needs improvement
