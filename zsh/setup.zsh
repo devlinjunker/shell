@@ -223,10 +223,39 @@ osx() {
   else
     INSTALLED+=("MacPorts")
   fi
-  
+
+  which nvm > /dev/null
+  if [ "$?" -ne "0" ]; then
+    sudo port -v selfupdate
+    sudo port install nvm 
+
+    # make available
+    source /opt/local/share/nvm/init-nvm.sh 
+
+    # add to .zshenv file for future scripts
+    NEW_LINE="source /opt/local/share/nvm/init-nvm.sh"
+    grep -qxF "$NEW_LINE" ~/.zshenv || echo "$NEW_LINE" >> ~/.zshenv
+    INSTALLED+=("NVM")
+    
+    # warn user about install and need to source to make available
+    WARN=(
+      "Installed nvm"
+      "Run 'source /opt/local/share/nvm/init-nvm.sh' to make available"
+    )
+    warn
+  else
+    INSTALLED+=("NVM")
+  fi
+
+  which node > /dev/null
+  if [ "$?" -ne "0" ]; then
+    nvm install --lts
+    INSTALLED+=("Node")
+  else
+    INSTALLED+=("Node")
+  fi
 
   echo "TODO:
- - [ ] Install Node & NVM
  - [ ] Install davfs2 and link nextcloud
     # https://docs.nextcloud.com/server/19/user_manual/files/access_webdav.html#creating-webdav-mounts-on-the-linux-command-line
     # point aws key at mounted nextcloud drive
