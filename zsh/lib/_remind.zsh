@@ -277,8 +277,14 @@ function remind () {
   esac
 
 
-  echo $r_HELP
-
+  case $response in
+    A)
+      echo $r_HELP | less
+    ;;
+    *)
+      echo $r_HELP
+    ;;
+  esac
 }
 alias r\?=remind
 alias \?=remind
