@@ -160,7 +160,7 @@ else
 fi
 
 # download shell repo if not exists
-if [ ! -d ~/shell ]; then
+if [[ "$CUR_DIR" != *"shell/zsh" ]] && [ ! -d ~/shell ]; then
   git clone git@github.com:devlinjunker/shell.git ~/shell
   if [[ "$?" != "0" ]]; then
     ERROR=(
@@ -174,10 +174,11 @@ else
   INSTALLED+=("shell repo") 
 fi
 
-# change to repo and set CUR_DIR
-cd ~/shell/zsh
-find_dir
-
+if [[ "$CUR_DIR" != *"shell/zsh" ]]; then
+  # change to repo and set CUR_DIR
+  cd ~/shell/zsh
+  find_dir
+fi
 
 
 
