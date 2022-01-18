@@ -28,12 +28,24 @@ find_dir
 OG_DIR="$CUR_DIR"
 
 
+
+
+WARNINGS=()
+summary() {
+  echo "Summary"
+  echo "--------"
+
+  echo "${WARNINGS}"
+  echo ""
+  echo "Tools:"
+  printf "[x] %s\n" "${INSTALLED[@]}"
+  echo ""
+}
+
 ## Printing Errors
 
 ERROR_ALERT="\n\033[0;31mERROR:\033[0m"
 WARNING_ALERT="\n\033[0;33mWARNING:\033[0m"
-
-WARNINGS=()
 
 error() {
   echo -e "$ERROR_ALERT"
@@ -43,7 +55,9 @@ error() {
 }
 
 warn() {
+  # add to warning array
   WARNINGS+=( "$WARNING_ALERT\n" $(printf "%s\n" "${WARN[@]}") )
+  # print to console right now
   echo -e "$WARNING_ALERT"
   printf "%s\n" "${WARN[@]}"
   echo ""
@@ -58,6 +72,7 @@ error_continue() {
   if [[ "$INPUT" == "y"* ]]; then
     return 0
   else
+    summary
     exit 1
   fi
 }
@@ -71,6 +86,7 @@ error_continue() {
 PARENT_PID=$(ps -o ppid= "$$")
 PARENT=$(ps -o args= -p "$PARENT_PID")
 if [[ "$PARENT" != *"zsh" ]]; then
+  summary
   ERROR="Not using zsh (this script expects zsh terminal)"
   error
 else
@@ -94,6 +110,7 @@ fi
 
 GIT_NAME=`git config --global user.name`
 if [ -z "$GIT_NAME" ]; then
+  summary
   ERROR=(
     "Git config user.name not set"
     ""
@@ -107,7 +124,7 @@ fi
 
 if [[ "$GIT_NAME" != "$EXPECTED_GIT_NAME" ]]; then
   WARN=(
-    "Git config not set with expected name"
+    "Git config not set with expected name."
     "Expected Name: $EXPECTED_GIT_NAME"
   )
   warn
@@ -115,6 +132,7 @@ fi
 
 GIT_EMAIL=`git config --global user.email`
 if [ -z "$GIT_EMAIL" ]; then
+  summary
   ERROR=(
     "Git config user.email not set"
     ""
@@ -127,7 +145,7 @@ fi
 
 if [[ "$GIT_EMAIL" != "$EXPECTED_GIT_EMAIL" ]]; then
   WARN=(
-    "Git config not set with correct email"
+    "Git config not set with correct email."
     "Expected Email: $EXPECTED_GIT_EMAIL"
   )
   warn
@@ -163,6 +181,7 @@ fi
 if [[ "$CUR_DIR" != *"shell/zsh" ]] && [ ! -d ~/shell ]; then
   git clone git@github.com:devlinjunker/shell.git ~/shell
   if [[ "$?" != "0" ]]; then
+    summary
     ERROR=(
       "SSH key not added to github, add new key at:"
       "https://github.com/settings/ssh/new"
@@ -219,6 +238,9 @@ osx() {
       ./configure
       make
       sudo make install
+    else
+      summary
+      error
     fi
     INSTALLED+=("MacPorts")
   else
@@ -240,7 +262,7 @@ osx() {
     
     # warn user about install and need to source to make available
     WARN=(
-      "Installed nvm"
+      "Installed nvm."
       "Run 'source /opt/local/share/nvm/init-nvm.sh' to make available"
     )
     warn
@@ -252,13 +274,45 @@ osx() {
   if [ "$?" -ne "0" ]; then
     NODE_VERSION=nvm install --lts | awk 'END{print}' | cut -d " " -f4
     WARN=(
-      "Installed node $NODE_VERSION"
+      "Installed node $NODE_VERSION."
       "Open new shell to make available"
     )
     warn
     INSTALLED+=("Node")
   else
     INSTALLED+=("Node")
+  fi
+
+  which jenv > /dev/null
+  if [ "$?" -ne "0" ]; then
+    sudo port install jenv
+    eval "$(jenv init -)"
+    WARN=(
+      "Installed jEnv."
+      "Install jdk with macports and add to jenv:"
+      "'"
+      "sudo port install openjdk8;"
+      "for d in /Library/Java/JavaVirtualMachines/*/Contents/Home; do jenv add \$d; done;"
+      "jenv gloabl 1.8"
+      "'"
+    )
+    warn
+    INSTALLED+=("jEnv")
+  else
+    INSTALLED+=("jEnv")
+  fi
+
+  which mvn > /dev/null
+  if [ "$?" -ne "0" ]; then
+    WARN=(
+      "Cannot find maven."
+      "Download and Install manually if desired:"
+      "(https://archive.apache.org/dist/maven/)"
+      "export M2_HOME=...; export PATH=\$PATH:\$M2_HOME/bin"
+    )
+    warn
+  else
+    INSTALLED+=("mvn")
   fi
 
   echo "TODO:
@@ -338,21 +392,14 @@ if [[ $HAS_DIR_NAME == "0" ]]  && [[ -e ../scripts ]]; then
   fi
 
 else
+  summary
   ERROR="Please run init script from '$EXPECTED_DIR_NAME' directory"
   error
 fi
 
 
 ## Print summary
-
-echo "Summary"
-echo "--------"
-
-echo "${WARNINGS}"
-echo ""
-echo "Tools:"
-printf "[x] %s\n" "${INSTALLED[@]}"
-echo ""
+summary
 
 ## Set up user
 
