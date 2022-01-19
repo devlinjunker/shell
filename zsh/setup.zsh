@@ -285,19 +285,27 @@ osx() {
 
   which jenv > /dev/null
   if [ "$?" -ne "0" ]; then
-    sudo port install jenv
-    eval "$(jenv init -)"
-    WARN=(
-      "Installed jEnv."
-      "Install jdk with macports and add to jenv:"
-      "'"
-      "sudo port install openjdk8;"
-      "for d in /Library/Java/JavaVirtualMachines/*/Contents/Home; do jenv add \$d; done;"
-      "jenv gloabl 1.8"
-      "'"
+    ERROR=(
+      "jEnv not installed. Would you like to install?"
     )
-    warn
-    INSTALLED+=("jEnv")
+    error_continue
+    if [ "$?" -eq 0 ]; then
+    
+      sudo port install jenv
+      eval "$(jenv init -)"
+      WARN=(
+        "Installed jEnv."
+        "Install jdk with macports and add to jenv:"
+        "'"
+        "sudo port install openjdk8;"
+        "for d in /Library/Java/JavaVirtualMachines/*/Contents/Home; do jenv add \$d; done;"
+        "jenv gloabl 1.8"
+        "'"
+      )
+      warn
+      INSTALLED+=("jEnv")
+    fi
+
   else
     INSTALLED+=("jEnv")
   fi
