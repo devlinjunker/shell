@@ -36,6 +36,9 @@ alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 
 
+PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+
 ## Internet Applications
 
 ### Google
@@ -51,6 +54,7 @@ freshgoogle () {
 
 alias inbox="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window https://inbox.google.com/u/2"
 
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window &; disown"
 
 
 ### Github/Gists
