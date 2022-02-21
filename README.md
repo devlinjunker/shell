@@ -9,7 +9,7 @@ line operations and commands
 - [this](https://bitbucket.org/BitPusher16/dotfiles/raw/49a01d929dcaebcca68bbb1859b4ac1aea93b073/refs/git/git_examples.sh) example/explanation of how to use git, and
 - [this](https://vim.rtorr.com/) review of commands for vim
 
-## Dependencies
+## Recommended Tools
 
 - ZSH
 - Macports
@@ -18,6 +18,8 @@ line operations and commands
 - Git
 - Vim
 - Node Version Manager & Node+NPM
+- jEnv
+- Chome?
 
 ## How to Use these files:
 These custom commands and prompts are for personal use, see [TODO List](./TODO.md) for next things to research.
@@ -33,7 +35,7 @@ After OSX updated to default to ZSH, cleaned up my custom scripts, see more note
 - Custom ZSH Hook to check node version on change directory
 - Custom Scripts
     - ec2ssh
-    - WIP: doctor
+    - WIP: doctor (on cd)
     - WIP: setup/init
 
 ### Bash:  
