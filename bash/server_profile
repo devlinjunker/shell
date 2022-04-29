@@ -1,20 +1,133 @@
 # .bash_profile for servers (Displays the server name in the Command Prompt)
 
-SERVER_NAME="Example Server Name"
+
+# message on signout?
+# 
+
+#   -------------------------------
+#   1. ENVIRONMENT CONFIGURATION
+#   -------------------------------
+
+## Set Path
+##############
+
+#?: will we do anything here?
+
+#   Set Default Editor
+#   ------------------------------------------------------------
+export EDITOR=/usr/bin/vim
+
+# My Scripts
+
+CUR_DIR=$(dirname "$BASH_SOURCE[0]")
+export PATH="$PATH:$CUR_DIR/../scripts"
+
+source $CUR_DIR/lib/_remind.sh
+
+## Set PROMPT
+##############
+
+# start underline and print current directory
+PS1="$(tput sgr 0 1) \`pwd\`"
+
+# add spaces based on width
+PS1+="\`printf '%*s' \$(max 1 \$(( \$((\$(tput cols) - 15)) - \$( pwd | wc -m | grep -o '[0-9]\+') - \$(gitstatus | wc -m | grep -o '[0-9]\+') - $(whoami | wc -m  | grep -o '[0-9]\+') - $(hostname | wc -m  | grep -o '[0-9]\+')))) ''\`"
+
+# add git status and stop underline
+PS1+="\`gitstatus\`$(tput sgr0)| "
+
+# print user and hostname
+PS1+="\u @ \h\n| =>"
+export PS1
+export PS2="|>"
 
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-        . ~/.bashrc
-fi
+#   -------------------------------
+#   2. TERMINAL ALIASES AND FUNCTIONS
+#   -------------------------------
+alias cls=clear
 
-# User specific environment and startup programs
+alias ls="ls -FGlAhp"
+alias less="less -FSRXc"
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin
+function mcd()
+{
+  mkdir $1; 
+  cd $1;
+}
 
-export PATH
+alias ivm=vim
 
-## [\e] == esc character  
-## \a\ == bell character (between these sets the terminal title)
-PS1="\[\e]0;(${SERVER_NAME}): \w\a\][\u@\h \w] \$"
+#   ---------------------------
+#   3. FILE AND FOLDER MANAGEMENT
+#   ---------------------------
+
+topfiles() {
+  du -a "$@" 2> /dev/null | sort -n -r | head -n 10
+}
+
+#   ---------------------------
+#   4. SEARCHING
+#   ---------------------------
+
+alias qfind="find . -name "
+
+
+#   ---------------------------
+#   5. PROCESS MANAGEMENT
+#   ---------------------------
+
+findPid () { lsof -t -c "$@" ; }
+
+alias memhogstop='top -l 1 -o rsize | head -20'
+alias memhogsps='ps wwaxm -o pid,stat,vsize,rss,time,comm | head -10'
+alias memhogs=memhogsps
+
+alias cpuhogs='ps wwaxr -o pid,stat,%cpu,time,comm | head -10'
+
+my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,comm ; }
+
+alias users='cat /etc/passwd | cut -d ":" -f 1'
+
+#   ---------------------------
+#   6. NETWORKING
+#   ---------------------------
+
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+
+myiip () {
+  local ip info
+  ip=""
+  i=0
+  while [[ -z $ip && $i < 10 ]]; do
+    ip=`ifconfig eth${i} | grep -e "inet" | awk '{print $2}'`
+    if [[ ! -z $ip ]]; then
+      break
+    fi
+    i=$((i + 1))
+  done
+  echo $ip
+}
+
+netexp () {
+  echo "Pinging Network..."
+  ping `myiip | sed 's/\([0-9]*\.[0-9]*\.[0-9]*\.\)[0-9]*/\1255/'` -c5 -q > /dev/null
+  eval 'arp -a'
+}
+
+
+findPort () {
+  lsof -nP -iTCP:$1 | grep LISTEN ;
+}
+
+alias netcons="lsof -i"
+alias openports="lsof -i | grep LISTEN"
+alias suopenports="sudo lsof -i | grep LISTEN"
+alias sudopenports=suopenports
+
+alias on="w -h"
+
+#   ---------------------------------------
+#   7. HELPER FUNCTIONS
+#   ---------------------------------------
 
