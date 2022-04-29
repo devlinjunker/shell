@@ -77,9 +77,9 @@ MSG+=(
 	"| users: ${USER_COUNT} | groups: ${GROUP_COUNT} | online: ${USERS} | crons: ${CRONS}" 
 	"| pathsize: ${PATH_SIZE}"
 	"|- (history) -- cmd ----------- dirs ----------|"
-	"| $(echo -e ${HISTORY[2]:0:20})"
-	"| $(echo -e ${HISTORY[1]:0:20})"
-	"| $(echo -e ${HISTORY[0]:0:20})"
+	"|  ${HISTORY[2]:0:20}"
+	"|  ${HISTORY[1]:0:20}"
+	"|  ${HISTORY[0]:0:20}"
 	"|----------------------------------------------|"
 )
 
@@ -91,11 +91,15 @@ do
 	i=$((${length}-${j}-3))
 
 	# Find Visible Character Count
-	CHAR=$(echo -e ${MSG[$j]}| sed "s/$(echo -e "\e")[^m]*m//g" | wc -c)
-	WHITE_SPACE=$(echo -e ${MSG[$j]} | tr -d -c ' ')
+	CHAR=$(echo -n -e ${MSG[$j]}| sed "s/$(echo -n -e "\e")[^m]*m//g" | tr -d ' ' | wc -c)
+
+	# Find Visible White Space
+	WHITE_SPACE=$(echo -n -e ${MSG[$j]} | tr -d -c ' ')
 	
-	SIZE=$((25-$CHAR-${#WHITE_SPACE}))
-	MSG[$j]+=$(printf ' %.0s' $(seq 1 $SIZE))
+	# Pad end with spaces
+	PADDING=$((25-$CHAR-${#WHITE_SPACE}))
+	MSG[$j]+=$(printf ' %.0s' $(seq 1 $PADDING))
+
 	MSG[$j]+="| ${HISTORY_DIRS[$i]:0:20}"
 done
 
@@ -107,19 +111,19 @@ if [[ $(hostname) == "dev-junk.com" ]]; then
 		for (( j=0; j<${length}; j++ ));
 		do
 			# Find Visible Character Count
-			CHAR=$(echo -e ${MSG[$j]} | sed "s/$(echo -e "\e")[^m]*m//g" | wc -c)
+			CHAR=$(echo -n -e ${MSG[$j]} | sed "s/$(echo -n -e "\e")[^m]*m//g" | tr -d ' ' | wc -c)
 
 			# Find Visible White Space
-			if [ $j -le $wttr_length ] || [ $j -ge $start ]; then
-				WHITE_SPACE=$(echo -e "${MSG[$j]}" | tr -d -c ' ')
-			else
-				WHITE_SPACE=$(echo -e "${MSG[$j]}" | sed 's/[^ ].*$//')
-			fi
-			SIZE=$((50-$CHAR-${#WHITE_SPACE}))
-			MSG[$j]+=$(printf ' %.0s' $(seq 1 $SIZE))
+			WHITE_SPACE=$(echo -n -e "${MSG[$j]}" | tr -d -c ' ' )
+
+			# Pad end with whitespace
+			PADDING=$((50-$CHAR-${#WHITE_SPACE}))
+			MSG[$j]+=$(printf ' %.0s' $(seq 1 $PADDING))
 
 			# Add Tree House
 			MSG[$j]+=${TREEHOUSE[$j]}
+
+			#MSG[$j]=$(pad 50 ${MSG[$j} ${TREEHOUSE[$j]})
 		done
 	fi
 fi
