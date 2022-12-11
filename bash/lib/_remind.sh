@@ -12,6 +12,7 @@ r_files() {
     "FILES"
     "--------"
     "topfiles [dir] - finds the largest files in the directory provided (or current dir if not specified)"
+    "topdirs - finds largest directories on the system"
   )
   for (( i=0; i<${#files_HELP[@]}; i++ ));
   do

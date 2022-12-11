@@ -1,0 +1,16 @@
+#! /bin/bash
+
+GIG_FOLDERS=$(sudo du -h / 2>/dev/null | grep -P "^\d.?\dG" | sort -n | tail -n30)
+
+UNIQUE=()
+while IFS= read -r line; do
+	DIR_NAME=$(echo "$line" | cut -d $'\t' -f 2)
+	COUNT=$(echo "$GIG_FOLDERS" | grep -o "$DIR_NAME" | wc -l)
+	if [ $COUNT -eq 1 ]; then
+		UNIQUE=("${UNIQUE[@]}" "$line")
+	fi
+	#echo ${LINE#\d*G} 
+done <<< "$GIG_FOLDERS"
+
+printf "%s\n" "${UNIQUE[@]}" 
+
