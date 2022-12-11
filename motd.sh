@@ -2,14 +2,16 @@
 
 
 TREEHOUSE=(
-"                    vvv^^^^vvvv"
-"                vvvvvv^^vvvvv^^vvvv"
-"      vvvvvvvv^^^^^^^^^^^^^vvvvv^^^vvvv"
-"  vvvvvvvv^^^v^^^vvvvvv^^vvvvvvvv^^^vvvvvvv"
-"    ^vvvvvvvvv^^^^vvvvvv^^^^^^vvvvvvvv^^^vvvvv^v"
-" vv^^vvv^^^vvvvvv^vvvvv^vvvvvv^^^vvvvvvv^^vv^"
-" vv^vvvv^^vvv^^vvvvv^^vvvvv^v##vvv^vvv^^vvvv^v"
-"^vvvv^^vvvvvv^vv^vvv^^^^^^______#^^^vvvvv^^^^"
+"                       ()"
+"                              ()"
+"                    vvv^^^()vvvv"
+"                vvvvvv^^v()vvv^^vvvv"
+"      vvvvvvvv^^^^^^^^^^^^^()vvv^^^vvvv"
+"  vvvvvvvv^^^v^^^vvvvvv^^vvv()vvvv^^^vvvvvvv"
+"    ^vvvvvvvvv^^^^vvvvvv^^^()^vvvvvvvv^^^vvvvv^v"
+" vv^^vvv^^^vvvvvv^vvvvv^vvv()v^^^vvvvvvv^^vv^"
+" vv^vvvv^^vvv^^vvvvv^^vvvvv^()#vvv^vvv^^vvvv^v"
+"^vvvv^^vvvvvv^vv^vvv^^^^^^__[]__#^^^vvvvv^^^^"
 "  ^^vvvvv^^vvvvvvvvv^^^^/\@@@@@@\\#vvvv^^^"
 "        ^^vvvv^^^^^vvvv/__\@@@@@@\^vvvv^v"
 "            ;^^vvvvvvv/____\@@@@@@\\vvvvvvv"
@@ -51,6 +53,8 @@ USERS=$(w -h | wc -l)
 CRONS=$(crontab -l | grep -e '^[^#]' | wc -l)
 PATH_SIZE=$(echo $PATH | tr ':' '\n' | wc -l)
 
+HD_SIZE=$(sudo du -h / 2>/dev/null | grep -P "^\d.?\dG" | sort -n | tail -n1)
+
 OIFS=$IFS;
 IFS=$'\n'
 HISTORY=($(cat ~/.bash_history | tail -3))
@@ -76,6 +80,7 @@ MSG+=(
 	"| host: ${HOST}"
 	"| users: ${USER_COUNT} | groups: ${GROUP_COUNT} | online: ${USERS} | crons: ${CRONS}" 
 	"| pathsize: ${PATH_SIZE}"
+	"| disk size: ${HD_SIZE}"
 	"|- (history) -- cmd ----------- dirs ----------|"
 	"|  ${HISTORY[2]:0:20}"
 	"|  ${HISTORY[1]:0:20}"
@@ -104,8 +109,11 @@ do
 done
 
 if [[ $(hostname) == "dev-junk.com" ]]; then
+	# if no term then do nothing
+	if [ -z $TERM ]; then
+		echo "No Terminal"
 	# If width of terminal > 100 characters (add treehouse to motd)
-	if [ $(tput cols) -gt 93 ]; then
+	elif [ $(tput cols) -gt 93 ]; then
 		# Loop over treehouse and add to printed message
 		length=${#TREEHOUSE[@]}
 		for (( j=0; j<${length}; j++ ));
