@@ -16,7 +16,7 @@ r_files() {
     "topdirs - lists the largest directories on the machine"
     ""
     "du -a -d1 - show file size (depth=1) in current directoy or wherever passed"
-    "df -h - show size and amount of storage available on drives"
+    "df -h - show size and amount of storage available on mounted disks"
   )
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
