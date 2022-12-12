@@ -53,6 +53,7 @@ USERS=$(w -h | wc -l)
 CRONS=$(crontab -l | grep -e '^[^#]' | wc -l)
 PATH_SIZE=$(echo $PATH | tr ':' '\n' | wc -l)
 
+
 HD_SIZE=$(sudo du -h / 2>/dev/null | grep -P "^\d.?\dG" | sort -n | tail -n1)
 
 OIFS=$IFS;
@@ -79,8 +80,8 @@ MSG+=(
 	"|----------------------------------------------|"
 	"| host: ${HOST}"
 	"| users: ${USER_COUNT} | groups: ${GROUP_COUNT} | online: ${USERS} | crons: ${CRONS}" 
-	"| pathsize: ${PATH_SIZE}"
-	"| disk size: ${HD_SIZE}"
+	"| pathsize: ${PATH_SIZE}     ( 'compgen -c' to view )"
+	"| disk size: $( echo ${HD_SIZE%/} | xargs)    ( 'topdirs to view )"
 	"|- (history) -- cmd ----------- dirs ----------|"
 	"|  ${HISTORY[2]:0:20}"
 	"|  ${HISTORY[1]:0:20}"
@@ -138,4 +139,22 @@ fi
 
 printf -v PRINT "%s\n" "${MSG[@]}"
 echo "$PRINT"
+
+
+
+# TODO: Abstract this
+pad() {
+	# Find Visible Character Count
+	CHAR=$(echo -n -e $2 | sed "s/$(echo -n -e "\e")[^m]*m//g" | tr -d ' ' | wc -c)
+
+	# Find Visible White Space
+	WHITE_SPACE=$(echo -n -e $2 | tr -d -c ' ')
+	
+	# Pad end with spaces
+	PADDING=$(($1-$CHAR-${#WHITE_SPACE}))
+	
+	echo "$(printf ' %.0s' $(seq 1 $PADDING))| $3"
+}
+
+# pad "20" "test" 'test34'
 
