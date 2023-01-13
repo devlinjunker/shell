@@ -13,6 +13,10 @@ r_files() {
     " FILES "
     "------- "
     "numFiles - count number of files in current directory"
+    "topdirs - lists the largest directories on the machine"
+    ""
+    "du -a -d1 - show file size (depth=1) in current directoy or wherever passed"
+    "df -h - show size and amount of storage available on mounted disks"
   )
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
