@@ -46,6 +46,7 @@ export PS2="|>"
 #   2. TERMINAL ALIASES AND FUNCTIONS
 #   -------------------------------
 alias cls=clear
+alias clsls="cls; ls"
 
 alias ls="ls -FGlAhp"
 alias less="less -FSRXc"

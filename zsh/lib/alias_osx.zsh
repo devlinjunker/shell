@@ -5,6 +5,8 @@ alias clr="clear"
 alias cls="clear"
 alias c="clear"
 
+alias clsls="cls; ls"
+
 ## File Management
 alias finder="open -a Finder ./"
 

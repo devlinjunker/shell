@@ -54,7 +54,7 @@ CRONS=$(crontab -l | grep -e '^[^#]' | wc -l)
 PATH_SIZE=$(echo $PATH | tr ':' '\n' | wc -l)
 
 
-HD_SIZE=$(sudo du -h / 2>/dev/null | grep -P "^\d.?\dG" | sort -n | tail -n1)
+#HD_SIZE=$(sudo du -hd1 / 2>/dev/null | grep -P "^\d.?\dG" | sort -n | tail -n1)
 
 OIFS=$IFS;
 IFS=$'\n'

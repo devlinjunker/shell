@@ -73,6 +73,8 @@ alias .5='cd ../../../../../'
 alias .6='cd ../../../../../../'
 alias ~="cd ~"
 
+alias clsls="clear; ls"
+
 alias clr="clear"
 alias cls="clear"
 alias c="clear"
