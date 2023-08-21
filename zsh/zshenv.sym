@@ -7,5 +7,8 @@
 # ----------------
 AWS_KEY="~/Dropbox/aws-key.pem"
 
+if [ ! -f "$AWS_KEY" ]; then
+  AWS_KEY="~/.ssh/aws-key.pem"
+fi
 
 # TODO: Set $NVM_HOME?

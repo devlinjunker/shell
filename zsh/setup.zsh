@@ -152,12 +152,12 @@ if [[ "$GIT_EMAIL" != "$EXPECTED_GIT_EMAIL" ]]; then
 fi
 
 # check rsa key exists
-if [ ! -f ~/.ssh/id_rsa ] && [ ! -f ~/.ssh/id_rsa.pub ]; then
+if [ ! -f ~/.ssh/id_rsa ] && [ ! -f ~/.ssh/id_rsa.pub ] && [ ! -f ~/.ssh/id_ed_25519 ] && [ ! -f ~/.ssh/id_ed25519.pub ]; then
   ERROR=(
     "SSH Key not set"
 
     # NOTE: RSA type (-t rsa) with empty comment (-C "")
-    "Please create one with 'ssh-keygen -t rsa -C \"\" '"
+    "Please create one with 'ssh-keygen -t [rsa|ed25519] -C \"\" '"
 
     ""
   )
